@@ -1,0 +1,24 @@
+---
+Y---
+title: "DynamicDocuments"
+format: html
+editor: visual
+---
+
+### loading libraries
+
+```{r}
+#| output: False
+library(tidyverse)
+library(here)
+```
+
+# introduction
+
+# methods - statistical analysis
+
+# results
+
+**include**
+
+# conclusion
