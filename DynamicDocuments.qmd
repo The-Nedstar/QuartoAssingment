@@ -1,5 +1,4 @@
 ---
-Y---
 title: "Dynamic Documents for Reproducible Research"
 format: html
 editor: visual
@@ -37,8 +36,6 @@ write.csv(Data,here("Data","Data.csv"))
 # results
 
 \[a short paragraph reporting the results of the analysis\]
-
-**include:**
 
 -   small table of some appropriate output
 
@@ -81,4 +78,10 @@ DesPlot
 
 # conclusion
 
--    maybe mention limitation of unpaired data
+maybe mention limitation of unpaired data
+
+methods - statistical analysis
+
+# results
+
+# conclusion
