@@ -4,6 +4,8 @@ format: html
 editor: visual
 ---
 
+# initialisation
+
 ### loading libraries
 
 ```{r}
@@ -16,11 +18,14 @@ library(ggbeeswarm)
 library(janitor)
 library(svglite)
 library(patchwork)
+source(here("Functions", "Functions for Quarto Assignment.R"))
 ```
 
 ### loading data
 
 ```{r}
+#| output: false
+#| warning: false
 RawData <- case0201
 Data <- RawData
 Data$Year <- as.factor(Data$Year)
@@ -55,27 +60,12 @@ write.csv(Data,here("Data","Data.csv"))
 ### descriptive plot
 
 ```{r}
-DesPlot <- ggplot(Data, aes(y = Depth, x = Year, colour = Year)) +
-  theme_bw() +
-  geom_boxplot(width = 0.7) +
-  geom_beeswarm(dodge.width=1.5) +
-  theme(axis.text.y   = element_text(size=14, color= "black"),
-        axis.text.x   = element_text(size=14, color= "black", angle = 45, hjust=1),
-        axis.title.y  = element_text(size=16),
-        axis.title.x  = element_text(size=16),
-        panel.background = element_blank(),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        axis.line = element_line(colour = "black", size=0.1),
-        panel.border = element_rect(colour = "black", fill=NA, size=1),
-        plot.title = element_text(hjust = 0.02, vjust = 0.1, size= 16),
-        legend.key = element_blank(),
-        legend.text = element_blank(),
-        legend.background = element_blank()) +
-  xlab('Year')+
-  ylab('Depth (mm)')+
-  ggtitle('Descriptive Plot')
+#| warning: false
+DesPlot <- BoxGraph(Data, Data$Depth, "Beak Depth (mm)", Data$Year, "Year" , "Descriptive Plot", FALSE)
 DesPlot
+
+LmPlot <- BoxGraph(Data, Data$Depth, "Beak Depth (mm)", Data$Year, "Year" , "Model Plot", TRUE)
+LmPlot
 
 ```
 
