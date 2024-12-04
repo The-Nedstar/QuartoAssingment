@@ -4,14 +4,14 @@ BoxGraph <- function(Dataset, Yaxis, Ytitle, Xaxis, Xtitle,
   plot <- ggplot(Dataset, aes(y = Yaxis, x = Xaxis, 
                               colour = Xaxis)) +
     theme_bw() +
-    (if (Stat == TRUE) {
-      geom_smooth(method = "lm", aes(group = 1), 
-                  se = FALSE, linetype = "solid")
-    }) +
     (if (Stat != TRUE) {
       geom_boxplot(width = 0.7)
     }) +
-    geom_beeswarm(dodge.width = 1.5) +
+    geom_beeswarm(dodge.width = 1.5, alpha = 0.5) +
+    (if (Stat == TRUE) {
+      geom_smooth(method = "lm", aes(group = 1), se = FALSE, 
+                  linetype = "solid", colour = "black")
+    }) +
     theme(axis.text.y   = element_text(size = 14, color = "black"),
           axis.text.x   = element_text(size = 14, color = "black", 
                                        angle = 45, hjust = 1),
@@ -29,5 +29,12 @@ BoxGraph <- function(Dataset, Yaxis, Ytitle, Xaxis, Xtitle,
     ggtitle(Title)
   return(plot)
 }
-
+#saving graphs as SVG for improved compatability
+SaveSVG <- function(data, file, Height, Width, Scaling){
+  svglite(file, width = Width,
+          height = Height,
+          scaling = Scaling)
+  print(data)
+  dev.off()
+}
 
