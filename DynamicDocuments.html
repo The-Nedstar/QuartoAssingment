@@ -3136,48 +3136,40 @@ vertical-align: -.125em;
 <section id="dataset-summary" class="level3">
 <h3 class="anchored" data-anchor-id="dataset-summary">Dataset summary</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;------------All Beak Depth Data------------&quot;</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] ------------All Beak Depth Data------------</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Data<span class="sc">$</span>Depth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   6.200   9.100   9.900   9.804  10.500  11.700 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;&quot;</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;----------Beak Depth Data for 1976----------&quot;</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] ----------Beak Depth Data for 1976----------</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">filter</span>(Data, Year <span class="sc">==</span> <span class="dv">1976</span>)<span class="sc">$</span>Depth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
    6.20    8.90    9.70    9.47   10.20   11.70 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;&quot;</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;----------Beak Depth Data for 1978----------&quot;</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] ----------Beak Depth Data for 1978----------</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">filter</span>(Data, Year <span class="sc">==</span> <span class="dv">1978</span>)<span class="sc">$</span>Depth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
    7.10    9.60   10.30   10.14   10.70   11.70 </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>DesPlot <span class="ot">&lt;-</span> <span class="fu">BoxGraph</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>,</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                    Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , <span class="st">&quot;Descriptive Plot&quot;</span>, </span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                    <span class="cn">FALSE</span>) </span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">SaveSVG</span>(DesPlot,<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Descriptive Plot.svg&quot;</span>),</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">1.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>DesPlot <span class="ot">&lt;-</span> <span class="fu">BoxGraph</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                    Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , <span class="st">&quot;Descriptive Plot&quot;</span>, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                    <span class="cn">FALSE</span>) </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">SaveSVG</span>(DesPlot,<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Descriptive Plot.svg&quot;</span>),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">1.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -3441,15 +3433,15 @@ vertical-align: -.125em;
 <section id="creation-and-testing-assumptions-of-linear-model" class="level2">
 <h2 class="anchored" data-anchor-id="creation-and-testing-assumptions-of-linear-model">creation and testing assumptions of linear model</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>Model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Depth <span class="sc">~</span> Year, <span class="at">data =</span> Data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Depth <span class="sc">~</span> Year, <span class="at">data =</span> Data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">svglite</span>(<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Diagnostic Plots.svg&quot;</span>), <span class="at">width =</span> <span class="dv">10</span>,</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> <span class="dv">8</span>,</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> <span class="fl">1.3</span>)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>DiaPlots <span class="ot">&lt;-</span> (<span class="fu">plot</span>(Model,<span class="dv">1</span>) <span class="sc">|</span> <span class="fu">plot</span>(Model,<span class="dv">2</span>)) <span class="sc">/</span> (<span class="fu">plot</span>(Model,<span class="dv">3</span>) <span class="sc">|</span> <span class="fu">plot</span>(Model,<span class="dv">5</span>))</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">svglite</span>(<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Diagnostic Plots.svg&quot;</span>), <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> <span class="dv">8</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> <span class="fl">1.3</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>DiaPlots <span class="ot">&lt;-</span> (<span class="fu">plot</span>(Model,<span class="dv">1</span>) <span class="sc">|</span> <span class="fu">plot</span>(Model,<span class="dv">2</span>)) <span class="sc">/</span> (<span class="fu">plot</span>(Model,<span class="dv">3</span>) <span class="sc">|</span> <span class="fu">plot</span>(Model,<span class="dv">5</span>))</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -4443,7 +4435,7 @@ vertical-align: -.125em;
 <section id="results" class="level1">
 <h1>results</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -4469,12 +4461,8 @@ F-statistic: 21.01 on 1 and 176 DF,  p-value: 8.65e-06</code></pre>
 <h3 class="anchored" data-anchor-id="linear-model-plot">Linear Model Plot</h3>
 <p>change this to mean with error bars</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>LmPlot <span class="ot">&lt;-</span> <span class="fu">BoxGraph</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , <span class="st">&quot;Model Plot&quot;</span>, <span class="cn">TRUE</span>) </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">SaveSVG</span>(LmPlot, <span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Linear Model Plot.svg&quot;</span>), <span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">1.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>png 
-  2 </code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>LmPlot <span class="ot">&lt;-</span> <span class="fu">BoxGraph</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , <span class="st">&quot;Model Plot&quot;</span>, <span class="cn">TRUE</span>) </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">SaveSVG</span>(LmPlot, <span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Linear Model Plot.svg&quot;</span>), <span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">1.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><svg id="svg_26bb5bd4d9fe7b8686cd" role="img" width="579" height="360.00pt" viewBox="0 0 504.00 360.00" class="img-fluid svglite">
 <defs>
