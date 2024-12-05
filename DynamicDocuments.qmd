@@ -1,0 +1,154 @@
+---
+title: "Dynamic Documents for Reproducible Research"
+format: 
+  html: 
+   embed-resources: true
+editor: visual
+---
+
+# initialisation
+
+### loading libraries
+
+```{r}
+#| output: false
+#| warning: false
+library(tidyverse)
+library(here)
+library(Sleuth3)
+library(ggbeeswarm)
+library(janitor)
+library(svglite)
+library(patchwork)
+
+#loading custom made functions
+source(here("Functions", "Functions for Quarto Assignment.R"))
+```
+
+### loading data
+
+```{r}
+#| output: false
+#| warning: false
+RawData <- case0201
+Data <- RawData
+Data$Year <- as.factor(Data$Year)
+write.csv(RawData,here("Data","RawData.csv"))
+write.csv(Data,here("Data","Data.csv"))
+```
+
+# introduction
+
+\[short paragraph explaining the analysis of aims in your own words\]
+
+introduce the datasetnhello
+
+### Dataset summary
+
+```{r}
+#| label: "Summary Statistics"
+#| warning: false 
+#| echo: false
+print("------------All Beak Depth Data------------", quote = FALSE)
+summary(Data$Depth)
+print("", quote = FALSE)
+print("----------Beak Depth Data for 1976----------", quote = FALSE)
+summary(filter(Data, Year == 1976)$Depth)
+print("", quote = FALSE)
+print("----------Beak Depth Data for 1978----------", quote = FALSE)
+summary(filter(Data, Year == 1978)$Depth)
+```
+
+```{r}
+#| label: "Descriptive Plot"
+#| warning: false 
+#| output: false 
+DesPlot <- BoxGraph(Data, Data$Depth, "Beak Depth (mm)",
+                    Data$Year, "Year" , "Descriptive Plot", 
+                    FALSE) 
+SaveSVG(DesPlot,here("Figures", "Descriptive Plot.svg"),
+        5, 7, 1.2)
+```
+
+![Figure 1: Descriptive plot of the raw data](Figures/Descriptive%20Plot.svg){width="529"}
+
+# methods - statistical analysis
+
+\[a short paragraph explaining the data, statistical model and analysis\]
+
+Data appears to support use of linear model analysis...
+
+## creation and testing assumptions of linear model
+
+```{r}
+#| label: "creation of linear model"
+#| warning: false
+#| output: false
+Model <- lm(Depth ~ Year, data = Data)
+```
+
+```{r}
+#| label: "Diagnostic Plots"
+#| warning: false
+#| output: false
+svglite(here("Figures", "Diagnostic Plots.svg"), width = 10,
+          height = 8,
+          scaling = 1.3)
+par(mfrow=c(2,2))
+DiaPlots <- (plot(Model,1) | plot(Model,2)) / (plot(Model,3) | plot(Model,5))
+dev.off()
+```
+
+![Figure 3: Diagnostic plots for the Linear model](Figures/Diagnostic%20Plots.svg){width="601" height="340"}
+
+The
+
+# results
+
+```{r}
+summary(Model)
+```
+
+### Linear Model Plot
+
+change this to mean with error bars
+
+```{r}
+#| warning: false 
+#| output: false 
+LmPlot <- BoxGraph(Data, Data$Depth, "Beak Depth (mm)", Data$Year, "Year" , "Model Plot", TRUE) 
+SaveSVG(LmPlot, here("Figures", "Linear Model Plot.svg"), 5, 7, 1.2)
+```
+
+![](Figures/Linear%20Model%20Plot.svg){width="579"}
+
+# conclusion
+
+\[a short paragraph reporting the results of the analysis\]
+
+-   small table of some appropriate output
+
+-   Figure which is purely representative of the data
+
+-   figure including models and stuff
+
+-   multi panel figure showing assessment of
+
+# conclusion
+
+maybe mention limitation of unpaired data
+
+methods - statistical analysis
+
+# results
+
+# Appendix
+
+## Contents of "Functions for Quarto Assignment.R"
+
+I have pasted here the Functions that I have designed myself for full transparency of operation.
+
+```{r}
+#| eval: false
+
+```
