@@ -6,11 +6,14 @@ format:
 editor: visual
 ---
 
-# initialisation
+# Initialization
 
-### loading libraries
+Preparation of packages, functions and Data. The contents of "Functions for Quarto Assignment.R" can be found in the Appendix.
+
+### Packages and Functions
 
 ```{r}
+#| label: "Loading packages and functions"
 #| output: false
 #| warning: false
 library(tidyverse)
@@ -25,9 +28,10 @@ library(patchwork)
 source(here("Functions", "Functions for Quarto Assignment.R"))
 ```
 
-### loading data
+### Data
 
 ```{r}
+#| label: "Loading data"
 #| output: false
 #| warning: false
 RawData <- case0201
@@ -41,42 +45,79 @@ write.csv(Data,here("Data","Data.csv"))
 
 \[short paragraph explaining the analysis of aims in your own words\]
 
-introduce the datasetnhello
+In 1977 there was a Severe drought on the Galapagos Island of Daphne Major, during this drought the only food available was a seed, larger and tougher than the medium ground finch (Geospiza fortis) usually consumes. There is a well established correlation between beak size and size/ toughness of seeds eaten in finches (Grant and Grant, 2003). This is likely due to a selective advantage of a larger beak being more capable of breaking down this tougher food-source.
 
-### Dataset summary
-
-```{r}
-#| label: "Printing of summary statistics"
-#| warning: false 
-#| echo: false
-print("------------All Beak Depth Data-------------", quote = FALSE)
-summary(Data$Depth)
-print("", quote = FALSE)
-print("----------Beak Depth Data for 1976----------", quote = FALSE)
-summary(filter(Data, Year == 1976)$Depth)
-print("", quote = FALSE)
-print("----------Beak Depth Data for 1978----------", quote = FALSE)
-summary(filter(Data, Year == 1978)$Depth)
-```
-
-```{r}
-#| label: "Defining and saving descriptive plot"
-#| warning: false 
-#| output: false 
-DesPlot <- BoxGraph(Data, Data$Depth, "Beak Depth (mm)",
-                    Data$Year, "Year" , "Descriptive Plot", 
-                    FALSE) 
-SaveSVG(DesPlot,here("Figures", "Descriptive Plot.svg"),
-        5, 7, 1.2)
-```
-
-![Figure 1: Descriptive plot of the raw data](Figures/Descriptive%20Plot.svg){width="553"}
+This analysis will explore a dataset of beak sizes sampled before (1976) and after (1978) this drought. The aim is to test whether the captured data is consistent with the theory that natural selection has increased the size of beak depth as a response to this drought.
 
 # methods - statistical analysis
 
 \[a short paragraph explaining the data, statistical model and analysis\]
 
-Data appears to support use of linear model analysis...
+### Summary data
+
+```{r}
+#| label: "Printing of summary statistics"
+#| warning: false 
+#| echo: false
+D76 <- filter(Data, Year == 1976)
+D78 <- filter(Data, Year == 1978)
+message("------------All Beak Depth Data-------------", quote = FALSE)
+summary(Data$Depth)
+message("----------Beak Depth Data for 1976----------", quote = FALSE)
+summary(D76$Depth)
+message("----------Beak Depth Data for 1978----------", quote = FALSE)
+summary(D78$Depth)
+```
+
+### Descriptive plot
+
+```{r}
+#| label: "Defining and saving descriptive plots"
+#| warning: false 
+#| output: false 
+DesPlot <- BoxGraph(Data, Data$Depth, "Beak Depth (mm)",
+                    Data$Year, "Year" , "Descriptive Plot", 
+                    FALSE) 
+
+SaveSVG(DesPlot,here("Figures", "Descriptive Plot.svg"),
+        5, 7, 1.2)
+# svglite(here("Figures", "Histograms.svg"), width = 10,
+#           height = 8,
+#           scaling = 1.3)
+# Hist1 <- Histogram(Data, Data$Depth, "Beak Depth (mm)", "All 
+#                    Data", 1)
+# Hist2 <- Histogram(D76, D76$Depth, "Beak Depth (mm)", "1976
+#                    Data", 2)
+# Hist3 <- Histogram(D78, D78$Depth, "Beak Depth (mm)", "All 
+#                    Data", 3)
+# combined_plot <- (Hist1 / (Hist2 | Hist3)) + 
+#   plot_layout(heights = c(2, 1))
+# dev.off()
+svglite(here("Figures", "Histograms.svg"), width = 10,
+          height = 8,
+          scaling = 1.3)
+par(mfrow =c(2,2))
+Hist1 <- Histogram(Data, Data$Depth, "Beak Depth (mm)", "All 
+                   Data", 1)
+Hist2 <- Histogram(D76, D76$Depth, "Beak Depth (mm)", "1976
+                   Data", 2)
+Hist3 <- Histogram(D78, D78$Depth, "Beak Depth (mm)", "All 
+                   Data", 3)
+Histograms <- (Hist1 / (Hist2 | Hist3))
+dev.off()
+```
+
+![Figure 1: Descriptive plot of the raw data](Figures/Descriptive%20Plot.svg){width="553"}
+
+The Data appears to be
+
+-   assymetrical to the right
+
+-   linear model comparing beak depth with year
+
+-   seeing whether it has significantly increased
+
+-   null and alternative hypothesis
 
 ## creation and testing assumptions of linear model
 
@@ -143,11 +184,69 @@ methods - statistical analysis
 
 # Appendix
 
+## Bibliography
+
+Grant, R.B., Grant, P.R., 2003. What Darwin’s Finches Can Teach Us about the Evolutionary Origin and Regulation of Biodiversity. BioScience 53, 965–975. [https://doi.org/10.1641/0006-3568(2003)053\[0965:WDFCTU\]2.0.CO;2](https://doi.org/10.1641/0006-3568(2003)053[0965:WDFCTU]2.0.CO;2)
+
 ## Contents of "Functions for Quarto Assignment.R"
 
 I have pasted here the Functions that I have designed myself for full transparency of operation.
 
 ```{r}
 #| eval: false
-
+#Boxplot creation
+BoxGraph <- function(Dataset, Yaxis, Ytitle, Xaxis, Xtitle, 
+                     Title, Stat){
+  Summary <- Dataset %>%
+    group_by(Year) %>%
+    summarise(
+      Mean = mean(Depth),
+      Lower = mean(Depth) - qt(0.975, df = n() - 1) * sd(Depth) / sqrt(n()),
+      Upper = mean(Depth) + qt(0.975, df = n() - 1) * sd(Depth) / sqrt(n())
+    )
+  
+  plot <- ggplot(Dataset, aes(y = Yaxis, x = Xaxis, 
+                              colour = Xaxis)) +
+    theme_bw() +
+    (if (Stat != TRUE) {
+      geom_boxplot(width = 0.6)
+    }) +
+    geom_beeswarm(dodge.width = 1.5, alpha = 0.5) +
+    (if (Stat == TRUE) {
+      geom_smooth(method = "lm", aes(group = 1), 
+                  se = FALSE, linetype = "solid", colour = "#606060")
+    }) +
+    (if (Stat == TRUE) {
+      geom_errorbar(data = Summary, aes(x = Year, 
+                                        ymin = Lower, ymax = Upper),
+                    width = 0.08, size = 0.6, color = "#606060", inherit.aes = FALSE) 
+    }) +
+    (if (Stat == TRUE) {
+      stat_summary(fun = "mean", geom = "point", size = 4, color = "black", shape = 18) 
+    }) +
+    theme(axis.text.y   = element_text(size = 14, color = "black"),
+          axis.text.x   = element_text(size = 14, color = "black", 
+                                       angle = 45, hjust = 1),
+          axis.title.y  = element_text(size = 16),
+          axis.title.x  = element_text(size = 16),
+          panel.background = element_blank(),
+          axis.line = element_line(colour = "black", size = 0.1),
+          panel.border = element_rect(colour = "black", fill = NA,
+                                      size = 1),
+          plot.title = element_text(hjust = 0.02, vjust = 0.1,
+                                    size = 16),
+          legend.position = "none") +
+    xlab(Xtitle) +
+    ylab(Ytitle) +
+    ggtitle(Title)
+  return(plot)
+}
+#saving graphs as SVG for improved compatability
+SaveSVG <- function(data, file, Height, Width, Scaling){
+  svglite(file, width = Width,
+          height = Height,
+          scaling = Scaling)
+  print(data)
+  dev.off()
+}
 ```

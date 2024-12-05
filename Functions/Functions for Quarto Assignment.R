@@ -54,3 +54,31 @@ SaveSVG <- function(data, file, Height, Width, Scaling){
   dev.off()
 }
 
+Histogram <- function(Dataset, Xaxis, Xtitle, Title, Num){
+  plot <- ggplot(Dataset, aes(x = Xaxis)) +
+    (if (Num == 1) {
+      geom_histogram(colour = "black", fill = "grey")
+    }) +
+    (if (Num == 2) {
+      geom_histogram(colour = "skyblue", fill = "lightblue")
+    }) +
+    (if (Num == 3) {
+      geom_histogram(colour = "coral", fill = "orange")
+    }) +
+    theme_bw()+
+    theme(axis.text.y   = element_text(size = 14, color = "black"),
+          axis.text.x   = element_text(size = 14, color = "black", 
+                                       angle = 45, hjust = 1),
+          axis.title.y  = element_text(size = 16),
+          axis.title.x  = element_text(size = 16),
+          panel.background = element_blank(),
+          axis.line = element_line(colour = "black", size = 0.1),
+          panel.border = element_rect(colour = "black", fill = NA,
+                                      size = 1),
+          plot.title = element_text(hjust = 0.02, vjust = 0.1,
+                                    size = 16),
+          legend.position = "none")+
+    xlab(Xtitle) +
+    ggtitle(Title)
+}
+    

@@ -3101,10 +3101,9 @@ vertical-align: -.125em;
 </header>
 
 
-<section id="initialisation" class="level1">
-<h1>initialisation</h1>
-<section id="loading-libraries" class="level3">
-<h3 class="anchored" data-anchor-id="loading-libraries">loading libraries</h3>
+<section id="initialization" class="level1">
+<h1>Initialization</h1>
+<p>Preparation of packages, functions and Data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
@@ -3117,9 +3116,6 @@ vertical-align: -.125em;
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#loading custom made functions</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;Functions&quot;</span>, <span class="st">&quot;Functions for Quarto Assignment.R&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="loading-data" class="level3">
-<h3 class="anchored" data-anchor-id="loading-data">loading data</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>RawData <span class="ot">&lt;-</span> case0201</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Data <span class="ot">&lt;-</span> RawData</span>
@@ -3128,16 +3124,15 @@ vertical-align: -.125em;
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Data,<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>,<span class="st">&quot;Data.csv&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-</section>
 <section id="introduction" class="level1">
 <h1>introduction</h1>
 <p>[short paragraph explaining the analysis of aims in your own words]</p>
-<p>introduce the dataset</p>
+<p>introduce the datasetnhello</p>
 <section id="dataset-summary" class="level3">
 <h3 class="anchored" data-anchor-id="dataset-summary">Dataset summary</h3>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] ------------All Beak Depth Data------------</code></pre>
+<pre><code>[1] ------------All Beak Depth Data-------------</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -3173,7 +3168,7 @@ vertical-align: -.125em;
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><svg id="svg_ad649a5197db6004dbd2" role="img" width="529" height="360.00pt" viewBox="0 0 504.00 360.00" class="img-fluid figure-img svglite">
+<p><svg id="svg_48b02a154ade038bf518" role="img" width="553" height="360.00pt" viewBox="0 0 504.00 360.00" class="img-fluid figure-img svglite">
 <defs>
   <style type="text/css">
     .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
@@ -3190,19 +3185,19 @@ vertical-align: -.125em;
 </defs>
 <rect width="100%" height="100%" style="stroke: none; fill: #FFFFFF;" />
 <defs>
-  <clipPath id="svg_ad649a5197db6004dbd2_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=">
+  <clipPath id="svg_48b02a154ade038bf518_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=">
     <rect x="0.00" y="0.00" width="504.00" height="360.00" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_ad649a5197db6004dbd2_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
+<g clip-path="url(#svg_48b02a154ade038bf518_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
 <rect x="0.000000000000038" y="0.00" width="504.00" height="360.00" style="stroke-width: 1.28; stroke: #FFFFFF; fill: #FFFFFF;" />
 </g>
 <defs>
-  <clipPath id="svg_ad649a5197db6004dbd2_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==">
+  <clipPath id="svg_48b02a154ade038bf518_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==">
     <rect x="52.25" y="30.93" width="445.18" height="258.07" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_ad649a5197db6004dbd2_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==)">
+<g clip-path="url(#svg_48b02a154ade038bf518_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==)">
 <polyline points="52.25,243.15 497.42,243.15 " style="stroke-width: 0.64; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="52.25,157.83 497.42,157.83 " style="stroke-width: 0.64; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="52.25,72.52 497.42,72.52 " style="stroke-width: 0.64; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
@@ -3215,14 +3210,14 @@ vertical-align: -.125em;
 <circle cx="185.80" cy="251.68" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; fill: #F8766D;"></circle>
 <line x1="185.80" y1="106.64" x2="185.80" y2="42.66" style="stroke-width: 1.28; stroke: #F8766D; stroke-linecap: butt;"></line>
 <line x1="185.80" y1="162.10" x2="185.80" y2="238.88" style="stroke-width: 1.28; stroke: #F8766D; stroke-linecap: butt;"></line>
-<polygon points="123.48,106.64 123.48,162.10 248.13,162.10 248.13,106.64 123.48,106.64 " style="stroke-width: 1.28; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;"></polygon>
-<line x1="123.48" y1="127.97" x2="248.13" y2="127.97" style="stroke-width: 2.56; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter;"></line>
+<polygon points="132.38,106.64 132.38,162.10 239.22,162.10 239.22,106.64 132.38,106.64 " style="stroke-width: 1.28; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;"></polygon>
+<line x1="132.38" y1="127.97" x2="239.22" y2="127.97" style="stroke-width: 2.56; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter;"></line>
 <circle cx="363.87" cy="238.88" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; fill: #00BFC4;"></circle>
 <circle cx="363.87" cy="204.75" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; fill: #00BFC4;"></circle>
 <line x1="363.87" y1="85.32" x2="363.87" y2="42.66" style="stroke-width: 1.28; stroke: #00BFC4; stroke-linecap: butt;"></line>
 <line x1="363.87" y1="132.24" x2="363.87" y2="200.49" style="stroke-width: 1.28; stroke: #00BFC4; stroke-linecap: butt;"></line>
-<polygon points="301.55,85.32 301.55,132.24 426.20,132.24 426.20,85.32 301.55,85.32 " style="stroke-width: 1.28; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;"></polygon>
-<line x1="301.55" y1="102.38" x2="426.20" y2="102.38" style="stroke-width: 2.56; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter;"></line>
+<polygon points="310.45,85.32 310.45,132.24 417.29,132.24 417.29,85.32 310.45,85.32 " style="stroke-width: 1.28; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;"></polygon>
+<line x1="310.45" y1="102.38" x2="417.29" y2="102.38" style="stroke-width: 2.56; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter;"></line>
 <circle cx="185.80" cy="277.27" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
 <circle cx="185.80" cy="251.68" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
 <circle cx="185.80" cy="238.88" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
@@ -3403,7 +3398,7 @@ vertical-align: -.125em;
 <circle cx="363.87" cy="42.66" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
 <rect x="52.25" y="30.93" width="445.18" height="258.07" style="stroke-width: 2.56;" />
 </g>
-<g clip-path="url(#svg_ad649a5197db6004dbd2_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
+<g clip-path="url(#svg_48b02a154ade038bf518_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
 <polyline points="52.25,289.00 52.25,30.93 " style="stroke-width: 0.26; stroke-linecap: butt;"></polyline>
 <text x="46.33" y="291.82" text-anchor="end" style="font-size: 16.80px; font-family: &quot;Arial&quot;;" textLength="9.35px" lengthAdjust="spacingAndGlyphs">6</text>
 <text x="46.33" y="206.50" text-anchor="end" style="font-size: 16.80px; font-family: &quot;Arial&quot;;" textLength="9.35px" lengthAdjust="spacingAndGlyphs">8</text>
@@ -3445,7 +3440,7 @@ vertical-align: -.125em;
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><svg id="svg_4705136d51297a4b0b76" role="img" width="601" height="340" viewBox="0 0 720.00 576.00" class="figure-img svglite">
+<p><svg id="svg_4705136d51297a4b0b76" role="img" width="676" height="527" viewBox="0 0 720.00 576.00" class="figure-img svglite">
 <defs>
   <style type="text/css">
     .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
@@ -4426,45 +4421,25 @@ vertical-align: -.125em;
 <text x="498.39" y="474.90" style="font-size: 9.71px; font-family: &quot;Arial&quot;;" textLength="5.40px" lengthAdjust="spacingAndGlyphs">2</text>
 </g>
 </svg></p>
-<figcaption>Figure 3: Diagnostic plots for the Linear model</figcaption>
+<figcaption>Figure 2: Diagnostic plots for the Linear model</figcaption>
 </figure>
 </div>
-<p>The</p>
+<p>The diagnostic plots suggest that none of the assumptions of the linear model have been violated and it is suitable for our analysis.</p>
 </section>
 </section>
 <section id="results" class="level1">
 <h1>results</h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = Depth ~ Year, data = Data)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--3.2697 -0.5382  0.1618  0.6303  2.2303 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   9.4697     0.1031  91.812  &lt; 2e-16 ***
-Year1978      0.6685     0.1459   4.583 8.65e-06 ***
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 0.973 on 176 degrees of freedom
-Multiple R-squared:  0.1066,    Adjusted R-squared:  0.1016 
-F-statistic: 21.01 on 1 and 176 DF,  p-value: 8.65e-06</code></pre>
-</div>
-</div>
 <section id="linear-model-plot" class="level3">
 <h3 class="anchored" data-anchor-id="linear-model-plot">Linear Model Plot</h3>
-<p>change this to mean with error bars</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>LmPlot <span class="ot">&lt;-</span> <span class="fu">BoxGraph</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , <span class="st">&quot;Model Plot&quot;</span>, <span class="cn">TRUE</span>) </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">SaveSVG</span>(LmPlot, <span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Linear Model Plot.svg&quot;</span>), <span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">1.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>LmPlot <span class="ot">&lt;-</span> <span class="fu">BoxGraph</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                   Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , <span class="st">&quot;Model Plot&quot;</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">SaveSVG</span>(LmPlot, <span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Linear Model Plot.svg&quot;</span>), </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">1.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><svg id="svg_26bb5bd4d9fe7b8686cd" role="img" width="579" height="360.00pt" viewBox="0 0 504.00 360.00" class="img-fluid svglite">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><svg id="svg_3aa34a7b2b24119c48c4" role="img" width="579" height="360.00pt" viewBox="0 0 504.00 360.00" class="img-fluid figure-img svglite">
 <defs>
   <style type="text/css">
     .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
@@ -4481,19 +4456,19 @@ F-statistic: 21.01 on 1 and 176 DF,  p-value: 8.65e-06</code></pre>
 </defs>
 <rect width="100%" height="100%" style="stroke: none; fill: #FFFFFF;" />
 <defs>
-  <clipPath id="svg_26bb5bd4d9fe7b8686cd_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=">
+  <clipPath id="svg_3aa34a7b2b24119c48c4_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=">
     <rect x="0.00" y="0.00" width="504.00" height="360.00" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_26bb5bd4d9fe7b8686cd_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
+<g clip-path="url(#svg_3aa34a7b2b24119c48c4_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
 <rect x="0.000000000000038" y="0.00" width="504.00" height="360.00" style="stroke-width: 1.28; stroke: #FFFFFF; fill: #FFFFFF;" />
 </g>
 <defs>
-  <clipPath id="svg_26bb5bd4d9fe7b8686cd_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==">
+  <clipPath id="svg_3aa34a7b2b24119c48c4_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==">
     <rect x="52.25" y="30.93" width="445.18" height="258.07" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_26bb5bd4d9fe7b8686cd_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==)">
+<g clip-path="url(#svg_3aa34a7b2b24119c48c4_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==)">
 <polyline points="52.25,243.15 497.42,243.15 " style="stroke-width: 0.64; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="52.25,157.83 497.42,157.83 " style="stroke-width: 0.64; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="52.25,72.52 497.42,72.52 " style="stroke-width: 0.64; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
@@ -4680,10 +4655,18 @@ F-statistic: 21.01 on 1 and 176 DF,  p-value: 8.65e-06</code></pre>
 <circle cx="363.87" cy="46.92" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
 <circle cx="367.43" cy="46.92" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
 <circle cx="363.87" cy="42.66" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<polyline points="185.80,137.80 188.06,137.44 190.31,137.08 192.56,136.71 194.82,136.35 197.07,135.99 199.33,135.63 201.58,135.27 203.83,134.91 206.09,134.55 208.34,134.19 210.60,133.83 212.85,133.47 215.10,133.10 217.36,132.74 219.61,132.38 221.87,132.02 224.12,131.66 226.37,131.30 228.63,130.94 230.88,130.58 233.14,130.22 235.39,129.86 237.64,129.49 239.90,129.13 242.15,128.77 244.41,128.41 246.66,128.05 248.92,127.69 251.17,127.33 253.42,126.97 255.68,126.61 257.93,126.25 260.19,125.88 262.44,125.52 264.69,125.16 266.95,124.80 269.20,124.44 271.46,124.08 273.71,123.72 275.96,123.36 278.22,123.00 280.47,122.64 282.73,122.28 284.98,121.91 287.23,121.55 289.49,121.19 291.74,120.83 294.00,120.47 296.25,120.11 298.50,119.75 300.76,119.39 303.01,119.03 305.27,118.67 307.52,118.30 309.77,117.94 312.03,117.58 314.28,117.22 316.54,116.86 318.79,116.50 321.04,116.14 323.30,115.78 325.55,115.42 327.81,115.06 330.06,114.69 332.32,114.33 334.57,113.97 336.82,113.61 339.08,113.25 341.33,112.89 343.59,112.53 345.84,112.17 348.09,111.81 350.35,111.45 352.60,111.08 354.86,110.72 357.11,110.36 359.36,110.00 361.62,109.64 363.87,109.28 " style="stroke-width: 2.56; stroke-linecap: butt;"></polyline>
+<polyline points="185.80,137.80 188.06,137.44 190.31,137.08 192.56,136.71 194.82,136.35 197.07,135.99 199.33,135.63 201.58,135.27 203.83,134.91 206.09,134.55 208.34,134.19 210.60,133.83 212.85,133.47 215.10,133.10 217.36,132.74 219.61,132.38 221.87,132.02 224.12,131.66 226.37,131.30 228.63,130.94 230.88,130.58 233.14,130.22 235.39,129.86 237.64,129.49 239.90,129.13 242.15,128.77 244.41,128.41 246.66,128.05 248.92,127.69 251.17,127.33 253.42,126.97 255.68,126.61 257.93,126.25 260.19,125.88 262.44,125.52 264.69,125.16 266.95,124.80 269.20,124.44 271.46,124.08 273.71,123.72 275.96,123.36 278.22,123.00 280.47,122.64 282.73,122.28 284.98,121.91 287.23,121.55 289.49,121.19 291.74,120.83 294.00,120.47 296.25,120.11 298.50,119.75 300.76,119.39 303.01,119.03 305.27,118.67 307.52,118.30 309.77,117.94 312.03,117.58 314.28,117.22 316.54,116.86 318.79,116.50 321.04,116.14 323.30,115.78 325.55,115.42 327.81,115.06 330.06,114.69 332.32,114.33 334.57,113.97 336.82,113.61 339.08,113.25 341.33,112.89 343.59,112.53 345.84,112.17 348.09,111.81 350.35,111.45 352.60,111.08 354.86,110.72 357.11,110.36 359.36,110.00 361.62,109.64 363.87,109.28 " style="stroke-width: 2.56; stroke: #606060; stroke-linecap: butt;"></polyline>
+<polyline points="178.68,128.49 192.92,128.49 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
+<polyline points="185.80,128.49 185.80,147.10 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
+<polyline points="178.68,147.10 192.92,147.10 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
+<polyline points="356.75,101.13 370.99,101.13 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
+<polyline points="363.87,101.13 363.87,117.43 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
+<polyline points="356.75,117.43 370.99,117.43 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
+<polygon points="180.25,137.80 185.80,132.25 191.35,137.80 185.80,143.34 " style="stroke-width: 0.85; stroke: none; fill: #000000;"></polygon>
+<polygon points="358.33,109.28 363.87,103.73 369.42,109.28 363.87,114.83 " style="stroke-width: 0.85; stroke: none; fill: #000000;"></polygon>
 <rect x="52.25" y="30.93" width="445.18" height="258.07" style="stroke-width: 2.56;" />
 </g>
-<g clip-path="url(#svg_26bb5bd4d9fe7b8686cd_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
+<g clip-path="url(#svg_3aa34a7b2b24119c48c4_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
 <polyline points="52.25,289.00 52.25,30.93 " style="stroke-width: 0.26; stroke-linecap: butt;"></polyline>
 <text x="46.33" y="291.82" text-anchor="end" style="font-size: 16.80px; font-family: &quot;Arial&quot;;" textLength="9.35px" lengthAdjust="spacingAndGlyphs">6</text>
 <text x="46.33" y="206.50" text-anchor="end" style="font-size: 16.80px; font-family: &quot;Arial&quot;;" textLength="9.35px" lengthAdjust="spacingAndGlyphs">8</text>
@@ -4701,6 +4684,32 @@ F-statistic: 21.01 on 1 and 176 DF,  p-value: 8.65e-06</code></pre>
 <text x="59.34" y="23.95" style="font-size: 19.20px; font-family: &quot;Arial&quot;;" textLength="90.65px" lengthAdjust="spacingAndGlyphs">Model Plot</text>
 </g>
 </svg></p>
+<figcaption>Figure 3: Graph showing the linear model compared to the data</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Depth ~ Year, data = Data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.2697 -0.5382  0.1618  0.6303  2.2303 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   9.4697     0.1031  91.812  &lt; 2e-16 ***
+Year1978      0.6685     0.1459   4.583 8.65e-06 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.973 on 176 degrees of freedom
+Multiple R-squared:  0.1066,    Adjusted R-squared:  0.1016 
+F-statistic: 21.01 on 1 and 176 DF,  p-value: 8.65e-06</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="conclusion" class="level1">
@@ -4718,14 +4727,68 @@ F-statistic: 21.01 on 1 and 176 DF,  p-value: 8.65e-06</code></pre>
 <p>maybe mention limitation of unpaired data</p>
 <p>methods - statistical analysis</p>
 </section>
-<section id="results-1" class="level1">
-<h1>results</h1>
-</section>
 <section id="appendix" class="level1">
 <h1>Appendix</h1>
 <section id="contents-of-functions-for-quarto-assignment.r" class="level2">
 <h2 class="anchored" data-anchor-id="contents-of-functions-for-quarto-assignment.r">Contents of “Functions for Quarto Assignment.R”</h2>
 <p>I have pasted here the Functions that I have designed myself for full transparency of operation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Boxplot creation</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>BoxGraph <span class="ot">&lt;-</span> <span class="cf">function</span>(Dataset, Yaxis, Ytitle, Xaxis, Xtitle, </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                     Title, Stat){</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  Summary <span class="ot">&lt;-</span> Dataset <span class="sc">%&gt;%</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">Mean =</span> <span class="fu">mean</span>(Depth),</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">Lower =</span> <span class="fu">mean</span>(Depth) <span class="sc">-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">n</span>() <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">sd</span>(Depth) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>()),</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">Upper =</span> <span class="fu">mean</span>(Depth) <span class="sc">+</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">n</span>() <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">sd</span>(Depth) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>())</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Dataset, <span class="fu">aes</span>(<span class="at">y =</span> Yaxis, <span class="at">x =</span> Xaxis, </span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>                              <span class="at">colour =</span> Xaxis)) <span class="sc">+</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">!=</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.6</span>)</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_beeswarm</span>(<span class="at">dodge.width =</span> <span class="fl">1.5</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>), </span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>                  <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linetype =</span> <span class="st">&quot;solid&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;#606060&quot;</span>)</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_errorbar</span>(<span class="at">data =</span> Summary, <span class="fu">aes</span>(<span class="at">x =</span> Year, </span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">ymin =</span> Lower, <span class="at">ymax =</span> Upper),</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>                    <span class="at">width =</span> <span class="fl">0.08</span>, <span class="at">size =</span> <span class="fl">0.6</span>, <span class="at">color =</span> <span class="st">&quot;#606060&quot;</span>, <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">stat_summary</span>(<span class="at">fun =</span> <span class="st">&quot;mean&quot;</span>, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">shape =</span> <span class="dv">18</span>) </span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.y   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.x   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.y  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.x  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.1</span>),</span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="cn">NA</span>,</span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">size =</span> <span class="dv">1</span>),</span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.02</span>, <span class="at">vjust =</span> <span class="fl">0.1</span>,</span>
+<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(Xtitle) <span class="sc">+</span></span>
+<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(Ytitle) <span class="sc">+</span></span>
+<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(Title)</span>
+<span id="cb17-46"><a href="#cb17-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(plot)</span>
+<span id="cb17-47"><a href="#cb17-47" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-48"><a href="#cb17-48" aria-hidden="true" tabindex="-1"></a><span class="co">#saving graphs as SVG for improved compatability</span></span>
+<span id="cb17-49"><a href="#cb17-49" aria-hidden="true" tabindex="-1"></a>SaveSVG <span class="ot">&lt;-</span> <span class="cf">function</span>(data, file, Height, Width, Scaling){</span>
+<span id="cb17-50"><a href="#cb17-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">svglite</span>(file, <span class="at">width =</span> Width,</span>
+<span id="cb17-51"><a href="#cb17-51" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> Height,</span>
+<span id="cb17-52"><a href="#cb17-52" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> Scaling)</span>
+<span id="cb17-53"><a href="#cb17-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(data)</span>
+<span id="cb17-54"><a href="#cb17-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dev.off</span>()</span>
+<span id="cb17-55"><a href="#cb17-55" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 
