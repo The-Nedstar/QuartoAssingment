@@ -1,6 +1,8 @@
 ---
 title: "Dynamic Documents for Reproducible Research"
-format: html
+format: 
+  html: 
+   embed-resources: true
 editor: visual
 ---
 
@@ -46,6 +48,7 @@ introduce the dataset
 ```{r}
 #| label: "Summary Statistics"
 #| warning: false 
+#| echo: false
 print("------------All Beak Depth Data------------", quote = FALSE)
 summary(Data$Depth)
 print("", quote = FALSE)
@@ -93,15 +96,33 @@ svglite(here("Figures", "Diagnostic Plots.svg"), width = 10,
           scaling = 1.3)
 par(mfrow=c(2,2))
 DiaPlots <- (plot(Model,1) | plot(Model,2)) / (plot(Model,3) | plot(Model,5))
-DiaPlots <- DiaPlots + 
 dev.off()
 ```
 
-![Figure 3: Diagnostic plots for the Linear model](Figures/Diagnostic Plots.svg){width="601" height="340"}
+![Figure 3: Diagnostic plots for the Linear model](Figures/Diagnostic%20Plots.svg){width="601" height="340"}
 
 The
 
 # results
+
+```{r}
+summary(Model)
+```
+
+### Linear Model Plot
+
+change this to mean with error bars
+
+```{r}
+#| warning: false 
+#| output: false 
+LmPlot <- BoxGraph(Data, Data$Depth, "Beak Depth (mm)", Data$Year, "Year" , "Model Plot", TRUE) 
+SaveSVG(LmPlot, here("Figures", "Linear Model Plot.svg"), 5, 7, 1.2)
+```
+
+![](Figures/Linear%20Model%20Plot.svg){width="579"}
+
+# conclusion
 
 \[a short paragraph reporting the results of the analysis\]
 
@@ -120,21 +141,6 @@ maybe mention limitation of unpaired data
 methods - statistical analysis
 
 # results
-
-### Linear Model Plot
-
-change this to mean with error bars
-
-```{r}
-#| warning: false
-#| output: false
-LmPlot <- BoxGraph(Data, Data$Depth, "Beak Depth (mm)",
-                   Data$Year, "Year" , "Model Plot", TRUE) SaveSVG(LmPlot, here("Figures", "Linear Model Plot.svg"), 5, 7, 1.2)
-```
-
-![](Figures/Linear%20Model%20Plot.svg){width="579"}
-
-# conclusion
 
 # Appendix
 
