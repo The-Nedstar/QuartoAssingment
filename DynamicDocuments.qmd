@@ -46,10 +46,10 @@ introduce the datasetnhello
 ### Dataset summary
 
 ```{r}
-#| label: "Summary Statistics"
+#| label: "Printing of summary statistics"
 #| warning: false 
 #| echo: false
-print("------------All Beak Depth Data------------", quote = FALSE)
+print("------------All Beak Depth Data-------------", quote = FALSE)
 summary(Data$Depth)
 print("", quote = FALSE)
 print("----------Beak Depth Data for 1976----------", quote = FALSE)
@@ -60,7 +60,7 @@ summary(filter(Data, Year == 1978)$Depth)
 ```
 
 ```{r}
-#| label: "Descriptive Plot"
+#| label: "Defining and saving descriptive plot"
 #| warning: false 
 #| output: false 
 DesPlot <- BoxGraph(Data, Data$Depth, "Beak Depth (mm)",
@@ -70,7 +70,7 @@ SaveSVG(DesPlot,here("Figures", "Descriptive Plot.svg"),
         5, 7, 1.2)
 ```
 
-![Figure 1: Descriptive plot of the raw data](Figures/Descriptive%20Plot.svg){width="529"}
+![Figure 1: Descriptive plot of the raw data](Figures/Descriptive%20Plot.svg){width="553"}
 
 # methods - statistical analysis
 
@@ -81,14 +81,14 @@ Data appears to support use of linear model analysis...
 ## creation and testing assumptions of linear model
 
 ```{r}
-#| label: "creation of linear model"
+#| label: "Creation of linear model"
 #| warning: false
 #| output: false
 Model <- lm(Depth ~ Year, data = Data)
 ```
 
 ```{r}
-#| label: "Diagnostic Plots"
+#| label: "Defining and saving of diagnostic plots"
 #| warning: false
 #| output: false
 svglite(here("Figures", "Diagnostic Plots.svg"), width = 10,
@@ -99,28 +99,29 @@ DiaPlots <- (plot(Model,1) | plot(Model,2)) / (plot(Model,3) | plot(Model,5))
 dev.off()
 ```
 
-![Figure 3: Diagnostic plots for the Linear model](Figures/Diagnostic%20Plots.svg){width="601" height="340"}
+![Figure 2: Diagnostic plots for the Linear model](Figures/Diagnostic%20Plots.svg){width="676" height="527"}
 
-The
+The diagnostic plots suggest that none of the assumptions of the linear model have been violated and it is suitable for our analysis.
 
 # results
+
+### Linear Model Plot
+
+```{r}
+#| label: "Defining and saving the linear model plot"
+#| warning: false  
+#| output: false  
+LmPlot <- BoxGraph(Data, Data$Depth, "Beak Depth (mm)", 
+                   Data$Year, "Year" , "Model Plot", TRUE)
+SaveSVG(LmPlot, here("Figures", "Linear Model Plot.svg"), 
+        5, 7, 1.2)
+```
+
+![Figure 3: Graph showing the linear model compared to the data](Figures/Linear%20Model%20Plot.svg){width="579"}
 
 ```{r}
 summary(Model)
 ```
-
-### Linear Model Plot
-
-change this to mean with error bars
-
-```{r}
-#| warning: false 
-#| output: false 
-LmPlot <- BoxGraph(Data, Data$Depth, "Beak Depth (mm)", Data$Year, "Year" , "Model Plot", TRUE) 
-SaveSVG(LmPlot, here("Figures", "Linear Model Plot.svg"), 5, 7, 1.2)
-```
-
-![](Figures/Linear%20Model%20Plot.svg){width="579"}
 
 # conclusion
 
@@ -139,8 +140,6 @@ SaveSVG(LmPlot, here("Figures", "Linear Model Plot.svg"), 5, 7, 1.2)
 maybe mention limitation of unpaired data
 
 methods - statistical analysis
-
-# results
 
 # Appendix
 
