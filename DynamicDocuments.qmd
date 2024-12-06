@@ -3,6 +3,7 @@ title: "Dynamic Documents for Reproducible Research"
 format: 
   html: 
    embed-resources: true
+   df-print: kable
 editor: visual
 ---
 
@@ -23,6 +24,7 @@ library(ggbeeswarm)
 library(janitor)
 library(svglite)
 library(patchwork)
+library(kableExtra)
 
 #loading custom made functions
 source(here("Functions", "Functions for Quarto Assignment.R"))
@@ -61,12 +63,12 @@ This analysis will explore a dataset of beak sizes sampled before (1976) and aft
 #| echo: false
 D76 <- filter(Data, Year == 1976)
 D78 <- filter(Data, Year == 1978)
-message("------------All Beak Depth Data-------------", quote = FALSE)
-summary(Data$Depth)
-message("----------Beak Depth Data for 1976----------", quote = FALSE)
-summary(D76$Depth)
-message("----------Beak Depth Data for 1978----------", quote = FALSE)
-summary(D78$Depth)
+message("------------All Beak Depth Data-------------")
+Stat(Data$Depth)
+message("----------Beak Depth Data for 1976----------")
+Stat(D76$Depth)
+message("----------Beak Depth Data for 1978----------")
+Stat(D78$Depth)
 ```
 
 ### Descriptive plot
@@ -81,33 +83,20 @@ DesPlot <- BoxGraph(Data, Data$Depth, "Beak Depth (mm)",
 
 SaveSVG(DesPlot,here("Figures", "Descriptive Plot.svg"),
         5, 7, 1.2)
-# svglite(here("Figures", "Histograms.svg"), width = 10,
-#           height = 8,
-#           scaling = 1.3)
-# Hist1 <- Histogram(Data, Data$Depth, "Beak Depth (mm)", "All 
-#                    Data", 1)
-# Hist2 <- Histogram(D76, D76$Depth, "Beak Depth (mm)", "1976
-#                    Data", 2)
-# Hist3 <- Histogram(D78, D78$Depth, "Beak Depth (mm)", "All 
-#                    Data", 3)
-# combined_plot <- (Hist1 / (Hist2 | Hist3)) + 
-#   plot_layout(heights = c(2, 1))
-# dev.off()
 svglite(here("Figures", "Histograms.svg"), width = 10,
           height = 8,
           scaling = 1.3)
 par(mfrow =c(2,2))
-Hist1 <- Histogram(Data, Data$Depth, "Beak Depth (mm)", "All 
-                   Data", 1)
-Hist2 <- Histogram(D76, D76$Depth, "Beak Depth (mm)", "1976
-                   Data", 2)
-Hist3 <- Histogram(D78, D78$Depth, "Beak Depth (mm)", "All 
-                   Data", 3)
-Histograms <- (Hist1 / (Hist2 | Hist3))
+Hist1 <- Histogram(Data, Data$Depth, "Beak Depth (mm)", "All Data", 1)
+Hist2 <- Histogram(D76, D76$Depth, "Beak Depth (mm)", "1976 Data", 2)
+Hist3 <- Histogram(D78, D78$Depth, "Beak Depth (mm)", "1978 Data", 3)
+(Hist1 / (Hist2 | Hist3))
 dev.off()
 ```
 
 ![Figure 1: Descriptive plot of the raw data](Figures/Descriptive%20Plot.svg){width="553"}
+
+![Figure 2: Histograms](Figures/Histograms.svg)
 
 The Data appears to be
 

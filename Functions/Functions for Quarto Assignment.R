@@ -1,3 +1,10 @@
+#Summary Statistics
+Stat <- function(Data){
+  message(paste("Mean = ", round(mean(Data), digits = 3)))
+  message(paste("Median = ", round(median(Data), digits = 3)))
+  message(paste("Variance = ", round(var(Data), digits = 3)))
+}
+  
 #Boxplot creation
 BoxGraph <- function(Dataset, Yaxis, Ytitle, Xaxis, Xtitle, 
                      Title, Stat){
@@ -45,6 +52,7 @@ BoxGraph <- function(Dataset, Yaxis, Ytitle, Xaxis, Xtitle,
     ggtitle(Title)
   return(plot)
 }
+
 #saving graphs as SVG for improved compatability
 SaveSVG <- function(data, file, Height, Width, Scaling){
   svglite(file, width = Width,
@@ -54,16 +62,17 @@ SaveSVG <- function(data, file, Height, Width, Scaling){
   dev.off()
 }
 
+#creating Histograms
 Histogram <- function(Dataset, Xaxis, Xtitle, Title, Num){
   plot <- ggplot(Dataset, aes(x = Xaxis)) +
     (if (Num == 1) {
-      geom_histogram(colour = "black", fill = "grey")
+      geom_histogram(colour = "black", fill = "grey", bins = 15)
     }) +
     (if (Num == 2) {
-      geom_histogram(colour = "skyblue", fill = "lightblue")
+      geom_histogram(colour = "skyblue", fill = "lightblue", bins = 15)
     }) +
     (if (Num == 3) {
-      geom_histogram(colour = "coral", fill = "orange")
+      geom_histogram(colour = "coral", fill = "orange", bins = 15)
     }) +
     theme_bw()+
     theme(axis.text.y   = element_text(size = 14, color = "black"),
