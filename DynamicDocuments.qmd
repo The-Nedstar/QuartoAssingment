@@ -94,19 +94,13 @@ Hist3 <- Histogram(D78, D78$Depth, "Beak Depth (mm)", "1978 Data", 3)
 dev.off()
 ```
 
-![Figure 1: Descriptive plot of the raw data](Figures/Descriptive%20Plot.svg){width="553"}
+![Figure 1: Descriptive plot of the raw data](Figures/Descriptive%20Plot.svg){width="505"}
 
-![Figure 2: Histograms](Figures/Histograms.svg)
+![Figure 2: Histograms](Figures/Histograms.svg){width="503"}
 
-The Data appears to be
+The data overall appears to be close to a normal distribution but with a slight negative skew. The median from 1978 is higher than that of 1976, but with overlapping interquartile ranges it's hard to predict whether or not this will be significant.
 
--   assymetrical to the right
-
--   linear model comparing beak depth with year
-
--   seeing whether it has significantly increased
-
--   null and alternative hypothesis
+The data from both years appears to have a very similar shaped distribution and so a linear regression model should be suitable for the analysis of whether the increase is significant or not. The null hypothesis will be that there is no significant difference and the alternative hypothesis is that there is a significant difference between the data from 1976 and 1978.
 
 ## creation and testing assumptions of linear model
 
@@ -182,7 +176,15 @@ Grant, R.B., Grant, P.R., 2003. What Darwin’s Finches Can Teach Us about the E
 I have pasted here the Functions that I have designed myself for full transparency of operation.
 
 ```{r}
+#| label: "Functions for Quarto Assignment.R"
 #| eval: false
+#Summary Statistics
+Stat <- function(Data){
+  message(paste("Mean = ", round(mean(Data), digits = 3)))
+  message(paste("Median = ", round(median(Data), digits = 3)))
+  message(paste("Variance = ", round(var(Data), digits = 3)))
+}
+  
 #Boxplot creation
 BoxGraph <- function(Dataset, Yaxis, Ytitle, Xaxis, Xtitle, 
                      Title, Stat){
@@ -230,6 +232,7 @@ BoxGraph <- function(Dataset, Yaxis, Ytitle, Xaxis, Xtitle,
     ggtitle(Title)
   return(plot)
 }
+
 #saving graphs as SVG for improved compatability
 SaveSVG <- function(data, file, Height, Width, Scaling){
   svglite(file, width = Width,
@@ -237,5 +240,34 @@ SaveSVG <- function(data, file, Height, Width, Scaling){
           scaling = Scaling)
   print(data)
   dev.off()
+}
+
+#creating Histograms
+Histogram <- function(Dataset, Xaxis, Xtitle, Title, Num){
+  plot <- ggplot(Dataset, aes(x = Xaxis)) +
+    (if (Num == 1) {
+      geom_histogram(colour = "black", fill = "grey", bins = 15)
+    }) +
+    (if (Num == 2) {
+      geom_histogram(colour = "skyblue", fill = "lightblue", bins = 15)
+    }) +
+    (if (Num == 3) {
+      geom_histogram(colour = "coral", fill = "orange", bins = 15)
+    }) +
+    theme_bw()+
+    theme(axis.text.y   = element_text(size = 14, color = "black"),
+          axis.text.x   = element_text(size = 14, color = "black", 
+                                       angle = 45, hjust = 1),
+          axis.title.y  = element_text(size = 16),
+          axis.title.x  = element_text(size = 16),
+          panel.background = element_blank(),
+          axis.line = element_line(colour = "black", size = 0.1),
+          panel.border = element_rect(colour = "black", fill = NA,
+                                      size = 1),
+          plot.title = element_text(hjust = 0.02, vjust = 0.1,
+                                    size = 16),
+          legend.position = "none")+
+    xlab(Xtitle) +
+    ggtitle(Title)
 }
 ```
