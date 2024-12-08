@@ -4,13 +4,19 @@ format:
   html: 
    embed-resources: true
 editor: visual
+bibliography: references.bib
+nocite: |
+  @whitlock2020analysis, @wickham2023r
 ---
 
-# initialisation
+# Initialization
 
-### loading libraries
+Preparation of packages, functions and Data. "Functions for Quarto Assignment.R" contains all self made functions and it's content can be found in the [Appendix].
+
+### Packages and Functions
 
 ```{r}
+#| label: "Loading packages and functions"
 #| output: false
 #| warning: false
 library(tidyverse)
@@ -20,77 +26,106 @@ library(ggbeeswarm)
 library(janitor)
 library(svglite)
 library(patchwork)
+library(kableExtra)
 
-#loading custom made functions
+# loading custom made functions
 source(here("Functions", "Functions for Quarto Assignment.R"))
 ```
 
-### loading data
+### Data
 
 ```{r}
+#| label: "Loading data"
 #| output: false
 #| warning: false
+# Loading data into the environment
 RawData <- case0201
+# creating a new dataframe with Year being considered a 
+# categoric rather than numeric variable
 Data <- RawData
 Data$Year <- as.factor(Data$Year)
+# saving both as .csv files as backups
 write.csv(RawData,here("Data","RawData.csv"))
 write.csv(Data,here("Data","Data.csv"))
 ```
 
 # introduction
 
-\[short paragraph explaining the analysis of aims in your own words\]
+In 1977 there was a Severe drought on the Galapagos Island of Daphne Major. During this drought, the only food available was , larger and tougher than what is usually consumed by the medium ground finch (*Geospiza fortis*). There is a well established correlation between beak size and size/ toughness of seeds eaten in finches [@grant2003]. This is potentially due to a selective advantage of a larger beak being more capable of breaking down this tougher food-source. It is therefore hypothesized that during this time Individuals with larger beaks would be favoured by natural selection, leading to an increase in average beak size after the drought.
 
-introduce the datasetnhello
-
-### Dataset summary
-
-```{r}
-#| label: "Summary Statistics"
-#| warning: false 
-#| echo: false
-print("------------All Beak Depth Data------------", quote = FALSE)
-summary(Data$Depth)
-print("", quote = FALSE)
-print("----------Beak Depth Data for 1976----------", quote = FALSE)
-summary(filter(Data, Year == 1976)$Depth)
-print("", quote = FALSE)
-print("----------Beak Depth Data for 1978----------", quote = FALSE)
-summary(filter(Data, Year == 1978)$Depth)
-```
-
-```{r}
-#| label: "Descriptive Plot"
-#| warning: false 
-#| output: false 
-DesPlot <- BoxGraph(Data, Data$Depth, "Beak Depth (mm)",
-                    Data$Year, "Year" , "Descriptive Plot", 
-                    FALSE) 
-SaveSVG(DesPlot,here("Figures", "Descriptive Plot.svg"),
-        5, 7, 1.2)
-```
-
-![Figure 1: Descriptive plot of the raw data](Figures/Descriptive%20Plot.svg){width="529"}
+This analysis will explore a dataset of beak sizes sampled from *G. fortis* before (1976) and after (1978) the drought. The data set contains data from 89 individuals sampled in 1978 and then a random selection of 89 individuals from a previous sample in 1976. The aim is to test whether the captured data is consistent with the theory that natural selection has increased the size of beak depth as a response to this drought. If the data is consistent then we would see a significant increase in average beak depth in the 1978 sample.
 
 # methods - statistical analysis
 
-\[a short paragraph explaining the data, statistical model and analysis\]
+The data was visualised and assessed and it was decided that a linear regression model was most suitable for the analysis. This model was created, the assumptions where tested and then it was analysed compared to the data.
 
-Data appears to support use of linear model analysis...
+### Summary data
+
+```{r}
+#| label: "Printing of summary statistics"
+#| warning: false 
+#| echo: false
+# Creating individual datasets for each year
+D76 <- filter(Data, Year == 1976)
+D78 <- filter(Data, Year == 1978)
+# Presenting summaries of the Data for Beak depth at each timepoint
+message("------------All Beak Depth Data-------------")
+Stat(Data$Depth)
+message("----------Beak Depth Data for 1976----------")
+Stat(D76$Depth)
+message("----------Beak Depth Data for 1978----------")
+Stat(D78$Depth)
+```
+
+### Descriptive plot
+
+```{r}
+#| label: "Defining and saving descriptive plots"
+#| warning: false 
+#| output: false 
+# creating and saving a descriptive plot using a self made 
+# function inclduing ggplot2 and svglite elements
+BoxGraph(Data, Data$Depth, "Beak Depth (mm)",
+         Data$Year, "Year" , "Descriptive Plot", FALSE,
+         "Descriptive Plot.svg",5, 7, 1.2) 
+
+
+# creating a multipanel figure showing distributions of the 
+# data at each timepoint as a histogram and saving it as a .svg
+svglite(here("Figures", "Histograms.svg"), width = 10,
+          height = 8,
+          scaling = 1.3)
+par(mfrow =c(2,2))
+Hist1 <- Histogram(Data, Data$Depth, "Beak Depth (mm)", "All Data", 1)
+Hist2 <- Histogram(D76, D76$Depth, "Beak Depth (mm)", "1976 Data", 2)
+Hist3 <- Histogram(D78, D78$Depth, "Beak Depth (mm)", "1978 Data", 3)
+(Hist1 / (Hist2 | Hist3))
+dev.off()
+```
+
+![Figure 1: Descriptive plot of the raw data](Figures/Descriptive%20Plot.svg){width="578"}
+
+![Figure 2: Histograms](Figures/Histograms.svg){width="576"}
+
+The data overall appears to be close to a normal distribution but with a slight negative skew. The median from 1978 is higher than that of 1976, but with overlapping interquartile ranges it's hard to predict whether or not this will be significant. The distribution for each group has a similar variance and a similar shape of distribution
+
+and so a linear regression model at a confidence level of 95% should be suitable for the analysis of whether the increase is significant or not. The null hypothesis will be that there is no significant difference and the alternative hypothesis is that there is a significant difference between the data from 1976 and 1978.
 
 ## creation and testing assumptions of linear model
 
 ```{r}
-#| label: "creation of linear model"
+#| label: "Creation of linear model"
 #| warning: false
 #| output: false
 Model <- lm(Depth ~ Year, data = Data)
 ```
 
 ```{r}
-#| label: "Diagnostic Plots"
+#| label: "Defining and saving of diagnostic plots"
 #| warning: false
 #| output: false
+# Producing a multipanel figure for the diagnostic plots of 
+# the linear model
 svglite(here("Figures", "Diagnostic Plots.svg"), width = 10,
           height = 8,
           scaling = 1.3)
@@ -99,56 +134,161 @@ DiaPlots <- (plot(Model,1) | plot(Model,2)) / (plot(Model,3) | plot(Model,5))
 dev.off()
 ```
 
-![Figure 3: Diagnostic plots for the Linear model](Figures/Diagnostic%20Plots.svg){width="601" height="340"}
+![Figure 3: Diagnostic plots for the Linear model](Figures/Diagnostic%20Plots.svg){width="676" height="527"}
 
-The
-
-# results
-
-```{r}
-summary(Model)
-```
+The diagnostic plots suggest that none of the assumptions of the linear model have been violated and it is suitable for our analysis. The data is close enough to normally distributed with few outliers. The residuals also appear to be normally and equally distributed between each one. With 89 values for each factor the linear model should be very suitable.
 
 ### Linear Model Plot
 
-change this to mean with error bars
-
 ```{r}
+#| label: "Defining and saving the linear model plot"
 #| warning: false 
-#| output: false 
-LmPlot <- BoxGraph(Data, Data$Depth, "Beak Depth (mm)", Data$Year, "Year" , "Model Plot", TRUE) 
-SaveSVG(LmPlot, here("Figures", "Linear Model Plot.svg"), 5, 7, 1.2)
+#| output: false   
+BoxGraph(Data, Data$Depth, "Beak Depth (mm)",
+         Data$Year, "Year" , "Model Plot", TRUE,
+         "Descriptive Plot.svg",5, 7, 1.2)
 ```
 
-![](Figures/Linear%20Model%20Plot.svg){width="579"}
-
-# conclusion
-
-\[a short paragraph reporting the results of the analysis\]
-
--   small table of some appropriate output
-
--   Figure which is purely representative of the data
-
--   figure including models and stuff
-
--   multi panel figure showing assessment of
-
-# conclusion
-
-maybe mention limitation of unpaired data
-
-methods - statistical analysis
+![Figure 3: Graph showing the linear model compared to the data](Figures/Linear%20Model%20Plot.svg){width="579"}
 
 # results
 
+```{r}
+#| label: "Evaluation of the Linear model"
+summary(Model)
+```
+
+The P value for Our linear model is far below the 0.05. This means that the Linear model fits the data significantly better than the null model and that there is a significant difference between beak depths in 1976 and 1978.
+
+# conclusion
+
+The analysis provides sufficient evidence for an increase in average beak depth between the years of 1976 and 1978. This shows that the data is consistent with what we would expect from the natural selection of beak depth in response to drought. Although, as the data is from an observational study, no causational relationship can be established between the two variables.
+
+If the beak depth had been increased as a result of the drought, this analysis demostrates the suprising speed at which natural selection can occur. Within just two years a significant, measureable change in phenotype had occurred.
+
+Further research is needed to come to any conclusions about the relationship between this drought and the beak size. Investigating other droughts and looking whether similar phenotypic changes have occured. Or an experiment comparing treatments of large, tough seeds and regular seeds to uncover more about
+
 # Appendix
+
+## Bilbiography
+
+::: {#refs}
+:::
 
 ## Contents of "Functions for Quarto Assignment.R"
 
 I have pasted here the Functions that I have designed myself for full transparency of operation.
 
 ```{r}
+#| label: "Functions for Quarto Assignment.R"
 #| eval: false
 
+### Summary Statistics
+# prints out summary statistics of the inputted data to 3 d.p.
+Stat <- function(Data){
+  message(paste("Mean = ", round(mean(Data), digits = 3)))
+  message(paste("Median = ", round(median(Data), digits = 3)))
+  message(paste("Variance = ", round(var(Data), digits = 3)))
+}
+
+
+### Boxplot creation and saving as .svg
+BoxGraph <- function(Dataset, Yaxis, Ytitle, Xaxis, Xtitle, 
+                     Title, Stat, file, Height, Width, Scaling){
+  # producing Summary data necessary for the model plot
+  Summary <- Dataset %>%
+    group_by(Year) %>%
+    summarise(
+      Mean = mean(Depth),
+      Lower = mean(Depth) - qt(0.975, df = n() - 1) * sd(Depth) / sqrt(n()),
+      Upper = mean(Depth) + qt(0.975, df = n() - 1) * sd(Depth) / sqrt(n())
+    )
+  # defining the plot
+  plot <- ggplot(Dataset, aes(y = Yaxis, x = Xaxis, 
+                              colour = Xaxis, fill = Xaxis)) +
+    theme_bw() +
+    scale_fill_manual(values = c("#FFF1F3","#E0F3F8"))+
+    # produces a descriptive plot as standard
+    (if (Stat != TRUE) {
+      geom_boxplot(width = 0.6) 
+    }) +
+    geom_beeswarm(dodge.width = 1.5, alpha = 0.6) +
+    # formats the graph as a linear model plot instead if prompted
+    (if (Stat == TRUE) { 
+      geom_smooth(method = "lm", aes(group = 1), 
+                  se = FALSE, linetype = "solid", 
+                  colour = "#606060") 
+    }) +
+    # Further linear model plot formatting
+    (if (Stat == TRUE) { 
+      geom_errorbar(data = Summary, aes(x = Year, 
+                                        ymin = Lower, ymax = Upper),
+                    width = 0.08, size = 0.6, color = "#606060", 
+                    inherit.aes = FALSE) 
+    }) +
+    # Further linear model plot formatting
+    (if (Stat == TRUE) { 
+      stat_summary(fun = "mean", geom = "point", size = 4, 
+                   color = "black", shape = 18) 
+    }) +
+    # setting visual formatting
+    theme(axis.text.y   = element_text(size = 14, color = "black"),
+          axis.text.x   = element_text(size = 14, color = "black", 
+                                       angle = 45, hjust = 1),
+          axis.title.y  = element_text(size = 16),
+          axis.title.x  = element_text(size = 16),
+          panel.background = element_blank(),
+          axis.line = element_line(colour = "black", size = 0.1),
+          panel.border = element_rect(colour = "black", fill = NA,
+                                      size = 1),
+          plot.title = element_text(hjust = 0.02, vjust = 0.1,
+                                    size = 16),
+          legend.position = "none") + 
+    xlab(Xtitle) +
+    ylab(Ytitle) +
+    ggtitle(Title)
+  # saving this plot as an svg
+  svglite(here("Figures", file), width = Width,
+          height = Height,
+          scaling = Scaling)
+  print(plot)
+  dev.off()
+}
+
+
+### creating Histograms
+Histogram <- function(Dataset, Xaxis, Xtitle, Title, Num){
+  # defining histogram
+  plot <- ggplot(Dataset, aes(x = Xaxis)) +
+    # formatting for all data
+    (if (Num == 1) { 
+      geom_histogram(colour = "black", fill = "lightgrey", bins = 15)
+    }) + 
+    # formatting for 1976
+    (if (Num == 2) { 
+      geom_histogram(colour = "#F8766D", fill = "#FFF1F3", bins = 15)
+    }) +
+    # formatting for 1978
+    (if (Num == 3) { 
+      geom_histogram(colour = "#00BFC4", fill = "#E0F3F8", bins = 15)
+    }) +
+    # defining formatting
+    theme_bw() +
+    theme(axis.text.y   = element_text(size = 14, color = "black"),
+          axis.text.x   = element_text(size = 14, color = "black", 
+                                       angle = 45, hjust = 1),
+          axis.title.y  = element_text(size = 16),
+          axis.title.x  = element_text(size = 16),
+          panel.background = element_blank(),
+          axis.line = element_line(colour = "black", size = 0.1),
+          panel.border = element_rect(colour = "black", fill = NA,
+                                      size = 1),
+          plot.title = element_text(hjust = 0.02, vjust = 0.1,
+                                    size = 16),
+          legend.position = "none") +
+    xlab(Xtitle) +
+    ggtitle(Title)
+  # returning the plot
+  return(plot)
+}
 ```
