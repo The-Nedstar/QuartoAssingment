@@ -5,11 +5,14 @@ format:
    embed-resources: true
    df-print: kable
 editor: visual
+bibliography: references.bib
+nocite: |
+  @whitlock2020analysis, @wickham2023r
 ---
 
 # Initialization
 
-Preparation of packages, functions and Data. The contents of "Functions for Quarto Assignment.R" can be found in the Appendix.
+Preparation of packages, functions and Data. The contents of "Functions for Quarto Assignment.R" can be found in the Appendix.#
 
 ### Packages and Functions
 
@@ -47,9 +50,9 @@ write.csv(Data,here("Data","Data.csv"))
 
 \[short paragraph explaining the analysis of aims in your own words\]
 
-In 1977 there was a Severe drought on the Galapagos Island of Daphne Major, during this drought the only food available was a seed, larger and tougher than the medium ground finch (Geospiza fortis) usually consumes. There is a well established correlation between beak size and size/ toughness of seeds eaten in finches (Grant and Grant, 2003). This is likely due to a selective advantage of a larger beak being more capable of breaking down this tougher food-source.
+In 1977 there was a Severe drought on the Galapagos Island of Daphne Major. During this drought, the only food available was , larger and tougher than what is usually consumed by the medium ground finch (*Geospiza fortis*). There is a well established correlation between beak size and size/ toughness of seeds eaten in finches [@grant2003]. This is likely due to a selective advantage of a larger beak being more capable of breaking down this tougher food-source. It is therefore hypothesized that during this time Individuals with larger beaks would be favoured by natural selection and there would be an increase in average beak size after the drought.
 
-This analysis will explore a dataset of beak sizes sampled before (1976) and after (1978) this drought. The aim is to test whether the captured data is consistent with the theory that natural selection has increased the size of beak depth as a response to this drought.
+This analysis will explore a dataset of beak sizes sampled from *G. fortis* before (1976) and after (1978) the drought. The aim is to test whether the captured data is consistent with the theory that natural selection has increased the size of beak depth as a response to this drought. If the data is consistent then we would see a significant increase in average beak depth in the 1978 sample.
 
 # methods - statistical analysis
 
@@ -102,6 +105,10 @@ The data overall appears to be close to a normal distribution but with a slight 
 
 The data from both years appears to have a very similar shaped distribution and so a linear regression model should be suitable for the analysis of whether the increase is significant or not. The null hypothesis will be that there is no significant difference and the alternative hypothesis is that there is a significant difference between the data from 1976 and 1978.
 
+-   same number for each
+
+-   
+
 ## creation and testing assumptions of linear model
 
 ```{r}
@@ -123,53 +130,40 @@ DiaPlots <- (plot(Model,1) | plot(Model,2)) / (plot(Model,3) | plot(Model,5))
 dev.off()
 ```
 
-![Figure 2: Diagnostic plots for the Linear model](Figures/Diagnostic%20Plots.svg){width="676" height="527"}
+![Figure 3: Diagnostic plots for the Linear model](Figures/Diagnostic%20Plots.svg){width="676" height="527"}
 
 The diagnostic plots suggest that none of the assumptions of the linear model have been violated and it is suitable for our analysis.
-
-# results
 
 ### Linear Model Plot
 
 ```{r}
 #| label: "Defining and saving the linear model plot"
-#| warning: false  
-#| output: false  
-LmPlot <- BoxGraph(Data, Data$Depth, "Beak Depth (mm)", 
+#| warning: false 
+#| output: false   
+LmPlot <- BoxGraph(Data, Data$Depth, "Beak Depth (mm)",
                    Data$Year, "Year" , "Model Plot", TRUE)
-SaveSVG(LmPlot, here("Figures", "Linear Model Plot.svg"), 
+SaveSVG(LmPlot, here("Figures", "Linear Model Plot.svg"),
         5, 7, 1.2)
 ```
 
 ![Figure 3: Graph showing the linear model compared to the data](Figures/Linear%20Model%20Plot.svg){width="579"}
 
+# results
+
 ```{r}
+#| label: ""
 summary(Model)
 ```
 
-# conclusion
-
-\[a short paragraph reporting the results of the analysis\]
-
--   small table of some appropriate output
-
--   Figure which is purely representative of the data
-
--   figure including models and stuff
-
--   multi panel figure showing assessment of
+The P value is far below 0.025 (two tailed test) so we can reject the null hypothesis. There is a significant difference between beak depths in 1976 and 1978.
 
 # conclusion
 
-maybe mention limitation of unpaired data
+This shows that the data is consistent with natural selection of beak depth in response to drought. This data suggests that individuals with smaller beaks were selected against, and the distribution shifted towards larger beaks.
 
-methods - statistical analysis
+This analysis demostrates the suprising speed at which natural selection can occur, within just years a significant, measureable change in phenotype had occurred. This
 
 # Appendix
-
-## Bibliography
-
-Grant, R.B., Grant, P.R., 2003. What Darwin’s Finches Can Teach Us about the Evolutionary Origin and Regulation of Biodiversity. BioScience 53, 965–975. [https://doi.org/10.1641/0006-3568(2003)053\[0965:WDFCTU\]2.0.CO;2](https://doi.org/10.1641/0006-3568(2003)053[0965:WDFCTU]2.0.CO;2)
 
 ## Contents of "Functions for Quarto Assignment.R"
 
