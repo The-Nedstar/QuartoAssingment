@@ -3123,7 +3123,7 @@ vertical-align: -.125em;
 
 <section id="initialization" class="level1">
 <h1>Initialization</h1>
-<p>Preparation of packages, functions and Data. The contents of “Functions for Quarto Assignment.R” can be found in the Appendix.</p>
+<p>Preparation of packages, functions and Data. “Functions for Quarto Assignment.R” contains all self made functions and it’s content can be found in the <a href="#appendix">Appendix</a>.</p>
 <section id="packages-and-functions" class="level3">
 <h3 class="anchored" data-anchor-id="packages-and-functions">Packages and Functions</h3>
 <div class="cell">
@@ -3136,55 +3136,61 @@ vertical-align: -.125em;
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#loading custom made functions</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># loading custom made functions</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;Functions&quot;</span>, <span class="st">&quot;Functions for Quarto Assignment.R&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data" class="level3">
 <h3 class="anchored" data-anchor-id="data">Data</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>RawData <span class="ot">&lt;-</span> case0201</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Data <span class="ot">&lt;-</span> RawData</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Data<span class="sc">$</span>Year <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(Data<span class="sc">$</span>Year)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(RawData,<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>,<span class="st">&quot;RawData.csv&quot;</span>))</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Data,<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>,<span class="st">&quot;Data.csv&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading data into the environment</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>RawData <span class="ot">&lt;-</span> case0201</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a new dataframe with Year being considered a </span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># categoric rather than numeric variable</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Data <span class="ot">&lt;-</span> RawData</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Data<span class="sc">$</span>Year <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(Data<span class="sc">$</span>Year)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># saving both as .csv files as backups</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(RawData,<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>,<span class="st">&quot;RawData.csv&quot;</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Data,<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>,<span class="st">&quot;Data.csv&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="introduction" class="level1">
 <h1>introduction</h1>
-<p>[short paragraph explaining the analysis of aims in your own words]</p>
-<p>In 1977 there was a Severe drought on the Galapagos Island of Daphne Major. During this drought, the only food available was , larger and tougher than what is usually consumed by the medium ground finch (<em>Geospiza fortis</em>). There is a well established correlation between beak size and size/ toughness of seeds eaten in finches <span class="citation" data-cites="grant2003">(<a href="#ref-grant2003" role="doc-biblioref">Grant and Grant 2003</a>)</span>. This is likely due to a selective advantage of a larger beak being more capable of breaking down this tougher food-source. It is therefore hypothesized that during this time Individuals with larger beaks would be favoured by natural selection and there would be an increase in average beak size after the drought.</p>
-<p>This analysis will explore a dataset of beak sizes sampled from <em>G. fortis</em> before (1976) and after (1978) the drought. The aim is to test whether the captured data is consistent with the theory that natural selection has increased the size of beak depth as a response to this drought. If the data is consistent then we would see a significant increase in average beak depth in the 1978 sample.</p>
+<p>In 1977 there was a Severe drought on the Galapagos Island of Daphne Major. During this drought, the only food available was , larger and tougher than what is usually consumed by the medium ground finch (<em>Geospiza fortis</em>). There is a well established correlation between beak size and size/ toughness of seeds eaten in finches <span class="citation" data-cites="grant2003">(<a href="#ref-grant2003" role="doc-biblioref">Grant and Grant 2003</a>)</span>. This is potentially due to a selective advantage of a larger beak being more capable of breaking down this tougher food-source. It is therefore hypothesized that during this time Individuals with larger beaks would be favoured by natural selection, leading to an increase in average beak size after the drought.</p>
+<p>This analysis will explore a dataset of beak sizes sampled from <em>G. fortis</em> before (1976) and after (1978) the drought. The data set contains data from 89 individuals sampled in 1978 and then a random selection of 89 individuals from a previous sample in 1976. The aim is to test whether the captured data is consistent with the theory that natural selection has increased the size of beak depth as a response to this drought. If the data is consistent then we would see a significant increase in average beak depth in the 1978 sample.</p>
 </section>
 <section id="methods---statistical-analysis" class="level1">
 <h1>methods - statistical analysis</h1>
-<p>[a short paragraph explaining the data, statistical model and analysis]</p>
+<p>The data was visualised and assessed and it was decided that a linear regression model was most suitable for the analysis. This model was created, the assumptions where tested and then it was analysed compared to the data.</p>
 <section id="summary-data" class="level3">
 <h3 class="anchored" data-anchor-id="summary-data">Summary data</h3>
 </section>
 <section id="descriptive-plot" class="level3">
 <h3 class="anchored" data-anchor-id="descriptive-plot">Descriptive plot</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DesPlot <span class="ot">&lt;-</span> <span class="fu">BoxGraph</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>,</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                    Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , <span class="st">&quot;Descriptive Plot&quot;</span>, </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                    <span class="cn">FALSE</span>) </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">SaveSVG</span>(DesPlot,<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Descriptive Plot.svg&quot;</span>),</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">1.2</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">svglite</span>(<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Histograms.svg&quot;</span>), <span class="at">width =</span> <span class="dv">10</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> <span class="dv">8</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> <span class="fl">1.3</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>Hist1 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;All Data&quot;</span>, <span class="dv">1</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>Hist2 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(D76, D76<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;1976 Data&quot;</span>, <span class="dv">2</span>)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>Hist3 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(D78, D78<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;1978 Data&quot;</span>, <span class="dv">3</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>(Hist1 <span class="sc">/</span> (Hist2 <span class="sc">|</span> Hist3))</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating and saving a descriptive plot using a self made </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># function inclduing ggplot2 and svglite elements</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">BoxGraph</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>         Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , <span class="st">&quot;Descriptive Plot&quot;</span>, <span class="cn">FALSE</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Descriptive Plot.svg&quot;</span>,<span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">1.2</span>) </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a multipanel figure showing distributions of the </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># data at each timepoint as a histogram and saving it as a .svg</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">svglite</span>(<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Histograms.svg&quot;</span>), <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> <span class="dv">8</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> <span class="fl">1.3</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>Hist1 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;All Data&quot;</span>, <span class="dv">1</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>Hist2 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(D76, D76<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;1976 Data&quot;</span>, <span class="dv">2</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>Hist3 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(D78, D78<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;1978 Data&quot;</span>, <span class="dv">3</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>(Hist1 <span class="sc">/</span> (Hist2 <span class="sc">|</span> Hist3))</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><svg id="svg_48b02a154ade038bf518" role="img" width="505" height="360.00pt" viewBox="0 0 504.00 360.00" class="img-fluid figure-img svglite">
+<p><svg id="svg_4e383378ae9dbee59d58" role="img" width="578" height="360.00pt" viewBox="0 0 504.00 360.00" class="img-fluid figure-img svglite">
 <defs>
   <style type="text/css">
     .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
@@ -3201,19 +3207,19 @@ vertical-align: -.125em;
 </defs>
 <rect width="100%" height="100%" style="stroke: none; fill: #FFFFFF;" />
 <defs>
-  <clipPath id="svg_48b02a154ade038bf518_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=">
+  <clipPath id="svg_4e383378ae9dbee59d58_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=">
     <rect x="0.00" y="0.00" width="504.00" height="360.00" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_48b02a154ade038bf518_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
+<g clip-path="url(#svg_4e383378ae9dbee59d58_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
 <rect x="0.000000000000038" y="0.00" width="504.00" height="360.00" style="stroke-width: 1.28; stroke: #FFFFFF; fill: #FFFFFF;" />
 </g>
 <defs>
-  <clipPath id="svg_48b02a154ade038bf518_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==">
+  <clipPath id="svg_4e383378ae9dbee59d58_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==">
     <rect x="52.25" y="30.93" width="445.18" height="258.07" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_48b02a154ade038bf518_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==)">
+<g clip-path="url(#svg_4e383378ae9dbee59d58_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==)">
 <polyline points="52.25,243.15 497.42,243.15 " style="stroke-width: 0.64; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="52.25,157.83 497.42,157.83 " style="stroke-width: 0.64; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="52.25,72.52 497.42,72.52 " style="stroke-width: 0.64; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
@@ -3222,199 +3228,196 @@ vertical-align: -.125em;
 <polyline points="52.25,115.17 497.42,115.17 " style="stroke-width: 1.28; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="185.80,289.00 185.80,30.93 " style="stroke-width: 1.28; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="363.87,289.00 363.87,30.93 " style="stroke-width: 1.28; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
-<circle cx="185.80" cy="277.27" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; fill: #F8766D;"></circle>
-<circle cx="185.80" cy="251.68" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; fill: #F8766D;"></circle>
-<line x1="185.80" y1="106.64" x2="185.80" y2="42.66" style="stroke-width: 1.28; stroke: #F8766D; stroke-linecap: butt;"></line>
-<line x1="185.80" y1="162.10" x2="185.80" y2="238.88" style="stroke-width: 1.28; stroke: #F8766D; stroke-linecap: butt;"></line>
-<polygon points="132.38,106.64 132.38,162.10 239.22,162.10 239.22,106.64 132.38,106.64 " style="stroke-width: 1.28; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;"></polygon>
-<line x1="132.38" y1="127.97" x2="239.22" y2="127.97" style="stroke-width: 2.56; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter;"></line>
-<circle cx="363.87" cy="238.88" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; fill: #00BFC4;"></circle>
-<circle cx="363.87" cy="204.75" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; fill: #00BFC4;"></circle>
-<line x1="363.87" y1="85.32" x2="363.87" y2="42.66" style="stroke-width: 1.28; stroke: #00BFC4; stroke-linecap: butt;"></line>
-<line x1="363.87" y1="132.24" x2="363.87" y2="200.49" style="stroke-width: 1.28; stroke: #00BFC4; stroke-linecap: butt;"></line>
-<polygon points="310.45,85.32 310.45,132.24 417.29,132.24 417.29,85.32 310.45,85.32 " style="stroke-width: 1.28; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;"></polygon>
-<line x1="310.45" y1="102.38" x2="417.29" y2="102.38" style="stroke-width: 2.56; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter;"></line>
-<circle cx="185.80" cy="277.27" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="251.68" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="238.88" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="238.88" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="226.08" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="209.02" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="204.75" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="200.49" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="191.96" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="183.43" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="183.43" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="182.24" cy="183.43" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="179.16" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="179.16" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="182.24" cy="179.16" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="192.92" cy="179.16" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="174.89" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="170.63" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="170.63" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="182.24" cy="170.63" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="162.10" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="162.10" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="182.24" cy="162.10" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="192.92" cy="162.10" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="178.68" cy="162.10" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="157.83" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="157.83" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="182.24" cy="157.83" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="192.92" cy="157.83" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="178.68" cy="157.83" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="153.57" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="153.57" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="182.24" cy="153.57" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="192.92" cy="153.57" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="178.68" cy="153.57" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="149.30" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="145.03" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="140.77" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="140.77" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="182.24" cy="140.77" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="136.50" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="136.50" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="132.24" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="127.97" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="127.97" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="182.24" cy="127.97" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="192.92" cy="127.97" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="123.71" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="123.71" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="182.24" cy="123.71" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="192.92" cy="123.71" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="178.68" cy="123.71" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="182.24" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="192.92" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="178.68" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="115.17" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="115.17" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="182.24" cy="115.17" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="110.91" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="110.91" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="182.24" cy="110.91" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="192.92" cy="110.91" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="178.68" cy="110.91" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="196.49" cy="110.91" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="106.64" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="106.64" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="182.24" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="98.11" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="98.11" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="182.24" cy="98.11" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="192.92" cy="98.11" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="182.24" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="192.92" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="178.68" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="89.58" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="89.58" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="182.24" cy="89.58" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="85.32" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="81.05" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="72.52" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="55.46" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="189.36" cy="55.46" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="185.80" cy="42.66" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.50; fill: #F8766D; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="238.88" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="204.75" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="200.49" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="183.43" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="183.43" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="170.63" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="170.63" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="166.36" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="157.83" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="157.83" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="153.57" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="153.57" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="360.31" cy="153.57" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="149.30" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="145.03" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="145.03" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="140.77" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="140.77" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="136.50" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="132.24" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="132.24" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="360.31" cy="132.24" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="370.99" cy="132.24" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="356.75" cy="132.24" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="374.56" cy="132.24" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="127.97" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="127.97" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="360.31" cy="127.97" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="370.99" cy="127.97" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="123.71" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="360.31" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="370.99" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="115.17" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="115.17" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="360.31" cy="115.17" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="106.64" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="106.64" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="360.31" cy="106.64" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="370.99" cy="106.64" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="356.75" cy="106.64" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="360.31" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="370.99" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="356.75" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="374.56" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="98.11" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="98.11" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="360.31" cy="98.11" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="370.99" cy="98.11" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="360.31" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="370.99" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="356.75" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="374.56" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="89.58" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="89.58" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="360.31" cy="89.58" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="370.99" cy="89.58" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="356.75" cy="89.58" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="85.32" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="85.32" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="360.31" cy="85.32" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="370.99" cy="85.32" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="356.75" cy="85.32" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="81.05" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="76.78" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="76.78" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="360.31" cy="76.78" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="72.52" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="72.52" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="360.31" cy="72.52" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="370.99" cy="72.52" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="68.25" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="68.25" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="360.31" cy="68.25" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="370.99" cy="68.25" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="59.72" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="55.46" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="55.46" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="360.31" cy="55.46" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="370.99" cy="55.46" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="51.19" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="46.92" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="367.43" cy="46.92" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
-<circle cx="363.87" cy="42.66" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.50; fill: #00BFC4; fill-opacity: 0.50;"></circle>
+<circle cx="185.80" cy="277.27" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="251.68" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="238.88" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="238.88" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="226.08" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="209.02" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="204.75" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="200.49" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="191.96" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="183.43" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="183.43" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="182.24" cy="183.43" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="179.16" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="179.16" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="182.24" cy="179.16" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="192.92" cy="179.16" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="174.89" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="170.63" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="170.63" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="182.24" cy="170.63" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="162.10" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="162.10" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="182.24" cy="162.10" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="192.92" cy="162.10" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="178.68" cy="162.10" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="157.83" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="157.83" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="182.24" cy="157.83" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="192.92" cy="157.83" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="178.68" cy="157.83" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="153.57" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="153.57" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="182.24" cy="153.57" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="192.92" cy="153.57" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="178.68" cy="153.57" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="149.30" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="145.03" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="140.77" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="140.77" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="182.24" cy="140.77" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="136.50" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="136.50" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="132.24" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="127.97" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="127.97" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="182.24" cy="127.97" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="192.92" cy="127.97" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="123.71" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="123.71" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="182.24" cy="123.71" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="192.92" cy="123.71" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="178.68" cy="123.71" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="182.24" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="192.92" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="178.68" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="115.17" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="115.17" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="182.24" cy="115.17" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="110.91" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="110.91" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="182.24" cy="110.91" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="192.92" cy="110.91" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="178.68" cy="110.91" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="196.49" cy="110.91" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="106.64" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="106.64" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="182.24" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="98.11" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="98.11" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="182.24" cy="98.11" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="192.92" cy="98.11" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="182.24" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="192.92" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="178.68" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="89.58" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="89.58" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="182.24" cy="89.58" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="85.32" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="81.05" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="72.52" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="55.46" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="189.36" cy="55.46" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="185.80" cy="42.66" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="238.88" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="204.75" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="200.49" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="183.43" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="183.43" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="170.63" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="170.63" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="166.36" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="157.83" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="157.83" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="153.57" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="153.57" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="360.31" cy="153.57" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="149.30" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="145.03" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="145.03" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="140.77" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="140.77" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="136.50" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="132.24" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="132.24" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="360.31" cy="132.24" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="370.99" cy="132.24" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="356.75" cy="132.24" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="374.56" cy="132.24" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="127.97" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="127.97" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="360.31" cy="127.97" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="370.99" cy="127.97" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="123.71" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="360.31" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="370.99" cy="119.44" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="115.17" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="115.17" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="360.31" cy="115.17" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="106.64" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="106.64" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="360.31" cy="106.64" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="370.99" cy="106.64" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="356.75" cy="106.64" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="360.31" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="370.99" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="356.75" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="374.56" cy="102.38" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="98.11" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="98.11" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="360.31" cy="98.11" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="370.99" cy="98.11" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="360.31" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="370.99" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="356.75" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="374.56" cy="93.85" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="89.58" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="89.58" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="360.31" cy="89.58" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="370.99" cy="89.58" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="356.75" cy="89.58" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="85.32" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="85.32" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="360.31" cy="85.32" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="370.99" cy="85.32" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="356.75" cy="85.32" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="81.05" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="76.78" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="76.78" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="360.31" cy="76.78" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="72.52" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="72.52" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="360.31" cy="72.52" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="370.99" cy="72.52" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="68.25" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="68.25" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="360.31" cy="68.25" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="370.99" cy="68.25" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="59.72" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="55.46" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="55.46" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="360.31" cy="55.46" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="370.99" cy="55.46" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="51.19" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="46.92" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="367.43" cy="46.92" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<circle cx="363.87" cy="42.66" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
+<polyline points="185.80,137.80 188.06,137.44 190.31,137.08 192.56,136.71 194.82,136.35 197.07,135.99 199.33,135.63 201.58,135.27 203.83,134.91 206.09,134.55 208.34,134.19 210.60,133.83 212.85,133.47 215.10,133.10 217.36,132.74 219.61,132.38 221.87,132.02 224.12,131.66 226.37,131.30 228.63,130.94 230.88,130.58 233.14,130.22 235.39,129.86 237.64,129.49 239.90,129.13 242.15,128.77 244.41,128.41 246.66,128.05 248.92,127.69 251.17,127.33 253.42,126.97 255.68,126.61 257.93,126.25 260.19,125.88 262.44,125.52 264.69,125.16 266.95,124.80 269.20,124.44 271.46,124.08 273.71,123.72 275.96,123.36 278.22,123.00 280.47,122.64 282.73,122.28 284.98,121.91 287.23,121.55 289.49,121.19 291.74,120.83 294.00,120.47 296.25,120.11 298.50,119.75 300.76,119.39 303.01,119.03 305.27,118.67 307.52,118.30 309.77,117.94 312.03,117.58 314.28,117.22 316.54,116.86 318.79,116.50 321.04,116.14 323.30,115.78 325.55,115.42 327.81,115.06 330.06,114.69 332.32,114.33 334.57,113.97 336.82,113.61 339.08,113.25 341.33,112.89 343.59,112.53 345.84,112.17 348.09,111.81 350.35,111.45 352.60,111.08 354.86,110.72 357.11,110.36 359.36,110.00 361.62,109.64 363.87,109.28 " style="stroke-width: 2.56; stroke: #606060; stroke-linecap: butt;"></polyline>
+<polyline points="178.68,128.49 192.92,128.49 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
+<polyline points="185.80,128.49 185.80,147.10 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
+<polyline points="178.68,147.10 192.92,147.10 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
+<polyline points="356.75,101.13 370.99,101.13 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
+<polyline points="363.87,101.13 363.87,117.43 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
+<polyline points="356.75,117.43 370.99,117.43 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
+<polygon points="180.25,137.80 185.80,132.25 191.35,137.80 185.80,143.34 " style="stroke-width: 0.85; stroke: none; fill: #000000;"></polygon>
+<polygon points="358.33,109.28 363.87,103.73 369.42,109.28 363.87,114.83 " style="stroke-width: 0.85; stroke: none; fill: #000000;"></polygon>
 <rect x="52.25" y="30.93" width="445.18" height="258.07" style="stroke-width: 2.56;" />
 </g>
-<g clip-path="url(#svg_48b02a154ade038bf518_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
+<g clip-path="url(#svg_4e383378ae9dbee59d58_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
 <polyline points="52.25,289.00 52.25,30.93 " style="stroke-width: 0.26; stroke-linecap: butt;"></polyline>
 <text x="46.33" y="291.82" text-anchor="end" style="font-size: 16.80px; font-family: &quot;Arial&quot;;" textLength="9.35px" lengthAdjust="spacingAndGlyphs">6</text>
 <text x="46.33" y="206.50" text-anchor="end" style="font-size: 16.80px; font-family: &quot;Arial&quot;;" textLength="9.35px" lengthAdjust="spacingAndGlyphs">8</text>
@@ -3429,7 +3432,7 @@ vertical-align: -.125em;
 <text transform="translate(372.38,303.43) rotate(-45)" text-anchor="end" style="font-size: 16.80px; font-family: &quot;Arial&quot;;" textLength="37.38px" lengthAdjust="spacingAndGlyphs">1978</text>
 <text x="274.84" y="349.39" text-anchor="middle" style="font-size: 19.20px; font-family: &quot;Arial&quot;;" textLength="38.76px" lengthAdjust="spacingAndGlyphs">Year</text>
 <text transform="translate(20.31,159.96) rotate(-90)" text-anchor="middle" style="font-size: 19.20px; font-family: &quot;Arial&quot;;" textLength="150.34px" lengthAdjust="spacingAndGlyphs">Beak Depth (mm)</text>
-<text x="58.49" y="23.95" style="font-size: 19.20px; font-family: &quot;Arial&quot;;" textLength="133.29px" lengthAdjust="spacingAndGlyphs">Descriptive Plot</text>
+<text x="59.34" y="23.95" style="font-size: 19.20px; font-family: &quot;Arial&quot;;" textLength="90.65px" lengthAdjust="spacingAndGlyphs">Model Plot</text>
 </g>
 </svg></p>
 <figcaption>Figure 1: Descriptive plot of the raw data</figcaption>
@@ -3437,7 +3440,7 @@ vertical-align: -.125em;
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><svg id="svg_e881d79aaec74269c659" role="img" width="503" height="576.00pt" viewBox="0 0 720.00 576.00" class="img-fluid figure-img svglite">
+<p><svg id="svg_20dd8397cccf9c295ca6" role="img" width="576" height="576.00pt" viewBox="0 0 720.00 576.00" class="img-fluid figure-img svglite">
 <defs>
   <style type="text/css">
     .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
@@ -3454,38 +3457,38 @@ vertical-align: -.125em;
 </defs>
 <rect width="100%" height="100%" style="stroke: none; fill: #FFFFFF;" />
 <defs>
-  <clipPath id="svg_e881d79aaec74269c659_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=">
+  <clipPath id="svg_20dd8397cccf9c295ca6_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=">
     <rect x="0.00" y="0.00" width="720.00" height="576.00" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
 <rect x="0.00" y="-0.00000000000011" width="720.00" height="576.00" style="stroke-width: 1.39; stroke: #FFFFFF; fill: #FFFFFF;" />
 </g>
 <defs>
-  <clipPath id="svg_e881d79aaec74269c659_cpNjMuNzJ8NzA1Ljc1fDQwLjY0fDUwNi4yOQ==">
+  <clipPath id="svg_20dd8397cccf9c295ca6_cpNjMuNzJ8NzA1Ljc1fDQwLjY0fDUwNi4yOQ==">
     <rect x="63.72" y="40.64" width="642.04" height="465.66" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpNjMuNzJ8NzA1Ljc1fDQwLjY0fDUwNi4yOQ==)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpNjMuNzJ8NzA1Ljc1fDQwLjY0fDUwNi4yOQ==)">
 </g>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
 </g>
 <defs>
-  <clipPath id="svg_e881d79aaec74269c659_cpNy4xMnw3MTIuODh8Ny4xMnwyODguMDA=">
+  <clipPath id="svg_20dd8397cccf9c295ca6_cpNy4xMnw3MTIuODh8Ny4xMnwyODguMDA=">
     <rect x="7.12" y="7.12" width="705.75" height="280.88" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpNy4xMnw3MTIuODh8Ny4xMnwyODguMDA=)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpNy4xMnw3MTIuODh8Ny4xMnwyODguMDA=)">
 <rect x="7.12" y="7.12" width="705.75" height="280.88" style="stroke-width: 1.39; stroke: #FFFFFF; fill: #FFFFFF;" />
 </g>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
 </g>
 <defs>
-  <clipPath id="svg_e881d79aaec74269c659_cpNjMuNzJ8NzA1Ljc1fDQwLjY0fDIyNS40MQ==">
+  <clipPath id="svg_20dd8397cccf9c295ca6_cpNjMuNzJ8NzA1Ljc1fDQwLjY0fDIyNS40MQ==">
     <rect x="63.72" y="40.64" width="642.04" height="184.78" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpNjMuNzJ8NzA1Ljc1fDQwLjY0fDIyNS40MQ==)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpNjMuNzJ8NzA1Ljc1fDQwLjY0fDIyNS40MQ==)">
 <polyline points="63.72,189.02 705.75,189.02 " style="stroke-width: 0.69; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="63.72,133.02 705.75,133.02 " style="stroke-width: 0.69; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="63.72,77.03 705.75,77.03 " style="stroke-width: 0.69; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
@@ -3500,24 +3503,24 @@ vertical-align: -.125em;
 <polyline points="282.15,225.41 282.15,40.64 " style="stroke-width: 1.39; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="480.24,225.41 480.24,40.64 " style="stroke-width: 1.39; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="678.34,225.41 678.34,40.64 " style="stroke-width: 1.39; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
-<rect x="92.90" y="211.42" width="38.91" height="5.60" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #BEBEBE;" />
-<rect x="131.81" y="211.42" width="38.91" height="5.60" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #BEBEBE;" />
-<rect x="170.72" y="200.22" width="38.91" height="16.80" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #BEBEBE;" />
-<rect x="209.63" y="211.42" width="38.91" height="5.60" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #BEBEBE;" />
-<rect x="248.55" y="189.02" width="38.91" height="28.00" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #BEBEBE;" />
-<rect x="287.46" y="183.42" width="38.91" height="33.60" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #BEBEBE;" />
-<rect x="326.37" y="155.42" width="38.91" height="61.59" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #BEBEBE;" />
-<rect x="365.28" y="93.83" width="38.91" height="123.19" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #BEBEBE;" />
-<rect x="404.19" y="116.23" width="38.91" height="100.79" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #BEBEBE;" />
-<rect x="443.10" y="54.63" width="38.91" height="162.38" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #BEBEBE;" />
-<rect x="482.01" y="49.03" width="38.91" height="167.98" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #BEBEBE;" />
-<rect x="520.92" y="65.83" width="38.91" height="151.18" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #BEBEBE;" />
-<rect x="559.84" y="149.82" width="38.91" height="67.19" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #BEBEBE;" />
-<rect x="598.75" y="172.22" width="38.91" height="44.79" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #BEBEBE;" />
-<rect x="637.66" y="194.62" width="38.91" height="22.40" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #BEBEBE;" />
+<rect x="92.90" y="211.42" width="38.91" height="5.60" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #D3D3D3;" />
+<rect x="131.81" y="211.42" width="38.91" height="5.60" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #D3D3D3;" />
+<rect x="170.72" y="200.22" width="38.91" height="16.80" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #D3D3D3;" />
+<rect x="209.63" y="211.42" width="38.91" height="5.60" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #D3D3D3;" />
+<rect x="248.55" y="189.02" width="38.91" height="28.00" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #D3D3D3;" />
+<rect x="287.46" y="183.42" width="38.91" height="33.60" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #D3D3D3;" />
+<rect x="326.37" y="155.42" width="38.91" height="61.59" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #D3D3D3;" />
+<rect x="365.28" y="93.83" width="38.91" height="123.19" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #D3D3D3;" />
+<rect x="404.19" y="116.23" width="38.91" height="100.79" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #D3D3D3;" />
+<rect x="443.10" y="54.63" width="38.91" height="162.38" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #D3D3D3;" />
+<rect x="482.01" y="49.03" width="38.91" height="167.98" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #D3D3D3;" />
+<rect x="520.92" y="65.83" width="38.91" height="151.18" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #D3D3D3;" />
+<rect x="559.84" y="149.82" width="38.91" height="67.19" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #D3D3D3;" />
+<rect x="598.75" y="172.22" width="38.91" height="44.79" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #D3D3D3;" />
+<rect x="637.66" y="194.62" width="38.91" height="22.40" style="stroke-width: 1.39; stroke-linecap: butt; stroke-linejoin: miter; fill: #D3D3D3;" />
 <rect x="63.72" y="40.64" width="642.04" height="184.78" style="stroke-width: 2.77;" />
 </g>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
 <polyline points="63.72,225.41 63.72,40.64 " style="stroke-width: 0.28; stroke-linecap: butt;"></polyline>
 <text x="57.31" y="223.53" text-anchor="end" style="font-size: 18.20px; font-family: &quot;Arial&quot;;" textLength="10.12px" lengthAdjust="spacingAndGlyphs">0</text>
 <text x="57.31" y="167.53" text-anchor="end" style="font-size: 18.20px; font-family: &quot;Arial&quot;;" textLength="20.23px" lengthAdjust="spacingAndGlyphs">10</text>
@@ -3541,44 +3544,44 @@ vertical-align: -.125em;
 <text x="75.10" y="33.07" style="font-size: 20.80px; font-family: &quot;Arial&quot;;" textLength="72.81px" lengthAdjust="spacingAndGlyphs">All Data</text>
 </g>
 <defs>
-  <clipPath id="svg_e881d79aaec74269c659_cpNjMuNzJ8NzA1Ljc1fDMyMS41MXw1MDYuMjk=">
+  <clipPath id="svg_20dd8397cccf9c295ca6_cpNjMuNzJ8NzA1Ljc1fDMyMS41MXw1MDYuMjk=">
     <rect x="63.72" y="321.51" width="642.04" height="184.78" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpNjMuNzJ8NzA1Ljc1fDMyMS41MXw1MDYuMjk=)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpNjMuNzJ8NzA1Ljc1fDMyMS41MXw1MDYuMjk=)">
 </g>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
 </g>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpNjMuNzJ8NzA1Ljc1fDMyMS41MXw1MDYuMjk=)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpNjMuNzJ8NzA1Ljc1fDMyMS41MXw1MDYuMjk=)">
 </g>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
 </g>
 <defs>
-  <clipPath id="svg_e881d79aaec74269c659_cpNy4xMnwzNjAuMDB8Mjg4LjAwfDU2OC44OA==">
+  <clipPath id="svg_20dd8397cccf9c295ca6_cpNy4xMnwzNjAuMDB8Mjg4LjAwfDU2OC44OA==">
     <rect x="7.12" y="288.00" width="352.88" height="280.88" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpNy4xMnwzNjAuMDB8Mjg4LjAwfDU2OC44OA==)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpNy4xMnwzNjAuMDB8Mjg4LjAwfDU2OC44OA==)">
 <rect x="7.12" y="288.00" width="352.88" height="280.88" style="stroke-width: 1.39; stroke: #FFFFFF; fill: #FFFFFF;" />
 </g>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
 </g>
 <defs>
-  <clipPath id="svg_e881d79aaec74269c659_cpMzYwLjAwfDcxMi44OHwyODguMDB8NTY4Ljg4">
+  <clipPath id="svg_20dd8397cccf9c295ca6_cpMzYwLjAwfDcxMi44OHwyODguMDB8NTY4Ljg4">
     <rect x="360.00" y="288.00" width="352.88" height="280.88" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpMzYwLjAwfDcxMi44OHwyODguMDB8NTY4Ljg4)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpMzYwLjAwfDcxMi44OHwyODguMDB8NTY4Ljg4)">
 <rect x="360.00" y="288.00" width="352.88" height="280.88" style="stroke-width: 1.39; stroke: #FFFFFF; fill: #FFFFFF;" />
 </g>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
 </g>
 <defs>
-  <clipPath id="svg_e881d79aaec74269c659_cpNjMuNzJ8MzUyLjg4fDMyMS41MXw1MDYuMjk=">
+  <clipPath id="svg_20dd8397cccf9c295ca6_cpNjMuNzJ8MzUyLjg4fDMyMS41MXw1MDYuMjk=">
     <rect x="63.72" y="321.51" width="289.16" height="184.78" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpNjMuNzJ8MzUyLjg4fDMyMS41MXw1MDYuMjk=)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpNjMuNzJ8MzUyLjg4fDMyMS41MXw1MDYuMjk=)">
 <polyline points="63.72,473.19 352.88,473.19 " style="stroke-width: 0.69; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="63.72,423.78 352.88,423.78 " style="stroke-width: 0.69; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="63.72,374.38 352.88,374.38 " style="stroke-width: 0.69; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
@@ -3594,24 +3597,24 @@ vertical-align: -.125em;
 <polyline points="162.09,506.29 162.09,321.51 " style="stroke-width: 1.39; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="251.31,506.29 251.31,321.51 " style="stroke-width: 1.39; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="340.53,506.29 340.53,321.51 " style="stroke-width: 1.39; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
-<rect x="76.86" y="488.01" width="17.52" height="9.88" style="stroke-width: 1.39; stroke: #87CEEB; stroke-linecap: butt; stroke-linejoin: miter; fill: #ADD8E6;" />
-<rect x="94.39" y="488.01" width="17.52" height="9.88" style="stroke-width: 1.39; stroke: #87CEEB; stroke-linecap: butt; stroke-linejoin: miter; fill: #ADD8E6;" />
-<rect x="111.91" y="478.13" width="17.52" height="19.76" style="stroke-width: 1.39; stroke: #87CEEB; stroke-linecap: butt; stroke-linejoin: miter; fill: #ADD8E6;" />
-<rect x="129.43" y="488.01" width="17.52" height="9.88" style="stroke-width: 1.39; stroke: #87CEEB; stroke-linecap: butt; stroke-linejoin: miter; fill: #ADD8E6;" />
-<rect x="146.96" y="468.25" width="17.52" height="29.64" style="stroke-width: 1.39; stroke: #87CEEB; stroke-linecap: butt; stroke-linejoin: miter; fill: #ADD8E6;" />
-<rect x="164.48" y="458.37" width="17.52" height="39.52" style="stroke-width: 1.39; stroke: #87CEEB; stroke-linecap: butt; stroke-linejoin: miter; fill: #ADD8E6;" />
-<rect x="182.01" y="418.84" width="17.52" height="79.05" style="stroke-width: 1.39; stroke: #87CEEB; stroke-linecap: butt; stroke-linejoin: miter; fill: #ADD8E6;" />
-<rect x="199.53" y="339.79" width="17.52" height="158.10" style="stroke-width: 1.39; stroke: #87CEEB; stroke-linecap: butt; stroke-linejoin: miter; fill: #ADD8E6;" />
-<rect x="217.06" y="428.72" width="17.52" height="69.17" style="stroke-width: 1.39; stroke: #87CEEB; stroke-linecap: butt; stroke-linejoin: miter; fill: #ADD8E6;" />
-<rect x="234.58" y="329.91" width="17.52" height="167.98" style="stroke-width: 1.39; stroke: #87CEEB; stroke-linecap: butt; stroke-linejoin: miter; fill: #ADD8E6;" />
-<rect x="252.11" y="349.67" width="17.52" height="148.22" style="stroke-width: 1.39; stroke: #87CEEB; stroke-linecap: butt; stroke-linejoin: miter; fill: #ADD8E6;" />
-<rect x="269.63" y="399.08" width="17.52" height="98.81" style="stroke-width: 1.39; stroke: #87CEEB; stroke-linecap: butt; stroke-linejoin: miter; fill: #ADD8E6;" />
-<rect x="287.16" y="488.01" width="17.52" height="9.88" style="stroke-width: 1.39; stroke: #87CEEB; stroke-linecap: butt; stroke-linejoin: miter; fill: #ADD8E6;" />
-<rect x="304.68" y="478.13" width="17.52" height="19.76" style="stroke-width: 1.39; stroke: #87CEEB; stroke-linecap: butt; stroke-linejoin: miter; fill: #ADD8E6;" />
-<rect x="322.21" y="488.01" width="17.52" height="9.88" style="stroke-width: 1.39; stroke: #87CEEB; stroke-linecap: butt; stroke-linejoin: miter; fill: #ADD8E6;" />
+<rect x="76.86" y="488.01" width="17.52" height="9.88" style="stroke-width: 1.39; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFF1F3;" />
+<rect x="94.39" y="488.01" width="17.52" height="9.88" style="stroke-width: 1.39; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFF1F3;" />
+<rect x="111.91" y="478.13" width="17.52" height="19.76" style="stroke-width: 1.39; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFF1F3;" />
+<rect x="129.43" y="488.01" width="17.52" height="9.88" style="stroke-width: 1.39; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFF1F3;" />
+<rect x="146.96" y="468.25" width="17.52" height="29.64" style="stroke-width: 1.39; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFF1F3;" />
+<rect x="164.48" y="458.37" width="17.52" height="39.52" style="stroke-width: 1.39; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFF1F3;" />
+<rect x="182.01" y="418.84" width="17.52" height="79.05" style="stroke-width: 1.39; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFF1F3;" />
+<rect x="199.53" y="339.79" width="17.52" height="158.10" style="stroke-width: 1.39; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFF1F3;" />
+<rect x="217.06" y="428.72" width="17.52" height="69.17" style="stroke-width: 1.39; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFF1F3;" />
+<rect x="234.58" y="329.91" width="17.52" height="167.98" style="stroke-width: 1.39; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFF1F3;" />
+<rect x="252.11" y="349.67" width="17.52" height="148.22" style="stroke-width: 1.39; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFF1F3;" />
+<rect x="269.63" y="399.08" width="17.52" height="98.81" style="stroke-width: 1.39; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFF1F3;" />
+<rect x="287.16" y="488.01" width="17.52" height="9.88" style="stroke-width: 1.39; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFF1F3;" />
+<rect x="304.68" y="478.13" width="17.52" height="19.76" style="stroke-width: 1.39; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFF1F3;" />
+<rect x="322.21" y="488.01" width="17.52" height="9.88" style="stroke-width: 1.39; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFF1F3;" />
 <rect x="63.72" y="321.51" width="289.16" height="184.78" style="stroke-width: 2.77;" />
 </g>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
 <polyline points="63.72,506.29 63.72,321.51 " style="stroke-width: 0.28; stroke-linecap: butt;"></polyline>
 <text x="57.31" y="504.40" text-anchor="end" style="font-size: 18.20px; font-family: &quot;Arial&quot;;" textLength="10.12px" lengthAdjust="spacingAndGlyphs">0</text>
 <text x="57.31" y="455.00" text-anchor="end" style="font-size: 18.20px; font-family: &quot;Arial&quot;;" textLength="10.12px" lengthAdjust="spacingAndGlyphs">5</text>
@@ -3635,11 +3638,11 @@ vertical-align: -.125em;
 <text x="67.58" y="313.95" style="font-size: 20.80px; font-family: &quot;Arial&quot;;" textLength="95.95px" lengthAdjust="spacingAndGlyphs">1976 Data</text>
 </g>
 <defs>
-  <clipPath id="svg_e881d79aaec74269c659_cpNDE2LjU5fDcwNS43NXwzMjEuNTF8NTA2LjI5">
+  <clipPath id="svg_20dd8397cccf9c295ca6_cpNDE2LjU5fDcwNS43NXwzMjEuNTF8NTA2LjI5">
     <rect x="416.59" y="321.51" width="289.16" height="184.78" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpNDE2LjU5fDcwNS43NXwzMjEuNTF8NTA2LjI5)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpNDE2LjU5fDcwNS43NXwzMjEuNTF8NTA2LjI5)">
 <polyline points="416.59,469.90 705.75,469.90 " style="stroke-width: 0.69; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="416.59,413.90 705.75,413.90 " style="stroke-width: 0.69; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="416.59,357.91 705.75,357.91 " style="stroke-width: 0.69; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
@@ -3658,24 +3661,24 @@ vertical-align: -.125em;
 <polyline points="586.32,506.29 586.32,321.51 " style="stroke-width: 1.39; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="639.65,506.29 639.65,321.51 " style="stroke-width: 1.39; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="692.99,506.29 692.99,321.51 " style="stroke-width: 1.39; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
-<rect x="429.74" y="486.69" width="17.52" height="11.20" style="stroke-width: 1.39; stroke: #FF7F50; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFA500;" />
-<rect x="447.26" y="497.89" width="17.52" height="0.00" style="stroke-width: 1.39; stroke: #FF7F50; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFA500;" />
-<rect x="464.79" y="475.49" width="17.52" height="22.40" style="stroke-width: 1.39; stroke: #FF7F50; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFA500;" />
-<rect x="482.31" y="497.89" width="17.52" height="0.00" style="stroke-width: 1.39; stroke: #FF7F50; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFA500;" />
-<rect x="499.84" y="453.10" width="17.52" height="44.79" style="stroke-width: 1.39; stroke: #FF7F50; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFA500;" />
-<rect x="517.36" y="464.30" width="17.52" height="33.60" style="stroke-width: 1.39; stroke: #FF7F50; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFA500;" />
-<rect x="534.89" y="430.70" width="17.52" height="67.19" style="stroke-width: 1.39; stroke: #FF7F50; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFA500;" />
-<rect x="552.41" y="397.10" width="17.52" height="100.79" style="stroke-width: 1.39; stroke: #FF7F50; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFA500;" />
-<rect x="569.94" y="363.51" width="17.52" height="134.38" style="stroke-width: 1.39; stroke: #FF7F50; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFA500;" />
-<rect x="587.46" y="374.71" width="17.52" height="123.19" style="stroke-width: 1.39; stroke: #FF7F50; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFA500;" />
-<rect x="604.99" y="329.91" width="17.52" height="167.98" style="stroke-width: 1.39; stroke: #FF7F50; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFA500;" />
-<rect x="622.51" y="352.31" width="17.52" height="145.58" style="stroke-width: 1.39; stroke: #FF7F50; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFA500;" />
-<rect x="640.04" y="441.90" width="17.52" height="55.99" style="stroke-width: 1.39; stroke: #FF7F50; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFA500;" />
-<rect x="657.56" y="419.50" width="17.52" height="78.39" style="stroke-width: 1.39; stroke: #FF7F50; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFA500;" />
-<rect x="675.08" y="486.69" width="17.52" height="11.20" style="stroke-width: 1.39; stroke: #FF7F50; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFA500;" />
+<rect x="429.74" y="486.69" width="17.52" height="11.20" style="stroke-width: 1.39; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #E0F3F8;" />
+<rect x="447.26" y="497.89" width="17.52" height="0.00" style="stroke-width: 1.39; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #E0F3F8;" />
+<rect x="464.79" y="475.49" width="17.52" height="22.40" style="stroke-width: 1.39; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #E0F3F8;" />
+<rect x="482.31" y="497.89" width="17.52" height="0.00" style="stroke-width: 1.39; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #E0F3F8;" />
+<rect x="499.84" y="453.10" width="17.52" height="44.79" style="stroke-width: 1.39; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #E0F3F8;" />
+<rect x="517.36" y="464.30" width="17.52" height="33.60" style="stroke-width: 1.39; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #E0F3F8;" />
+<rect x="534.89" y="430.70" width="17.52" height="67.19" style="stroke-width: 1.39; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #E0F3F8;" />
+<rect x="552.41" y="397.10" width="17.52" height="100.79" style="stroke-width: 1.39; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #E0F3F8;" />
+<rect x="569.94" y="363.51" width="17.52" height="134.38" style="stroke-width: 1.39; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #E0F3F8;" />
+<rect x="587.46" y="374.71" width="17.52" height="123.19" style="stroke-width: 1.39; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #E0F3F8;" />
+<rect x="604.99" y="329.91" width="17.52" height="167.98" style="stroke-width: 1.39; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #E0F3F8;" />
+<rect x="622.51" y="352.31" width="17.52" height="145.58" style="stroke-width: 1.39; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #E0F3F8;" />
+<rect x="640.04" y="441.90" width="17.52" height="55.99" style="stroke-width: 1.39; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #E0F3F8;" />
+<rect x="657.56" y="419.50" width="17.52" height="78.39" style="stroke-width: 1.39; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #E0F3F8;" />
+<rect x="675.08" y="486.69" width="17.52" height="11.20" style="stroke-width: 1.39; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #E0F3F8;" />
 <rect x="416.59" y="321.51" width="289.16" height="184.78" style="stroke-width: 2.77;" />
 </g>
-<g clip-path="url(#svg_e881d79aaec74269c659_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
+<g clip-path="url(#svg_20dd8397cccf9c295ca6_cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
 <polyline points="416.59,506.29 416.59,321.51 " style="stroke-width: 0.28; stroke-linecap: butt;"></polyline>
 <text x="410.18" y="504.40" text-anchor="end" style="font-size: 18.20px; font-family: &quot;Arial&quot;;" textLength="10.12px" lengthAdjust="spacingAndGlyphs">0</text>
 <text x="410.18" y="448.41" text-anchor="end" style="font-size: 18.20px; font-family: &quot;Arial&quot;;" textLength="10.12px" lengthAdjust="spacingAndGlyphs">5</text>
@@ -3706,12 +3709,8 @@ vertical-align: -.125em;
 <figcaption>Figure 2: Histograms</figcaption>
 </figure>
 </div>
-<p>The data overall appears to be close to a normal distribution but with a slight negative skew. The median from 1978 is higher than that of 1976, but with overlapping interquartile ranges it’s hard to predict whether or not this will be significant.</p>
-<p>The data from both years appears to have a very similar shaped distribution and so a linear regression model should be suitable for the analysis of whether the increase is significant or not. The null hypothesis will be that there is no significant difference and the alternative hypothesis is that there is a significant difference between the data from 1976 and 1978.</p>
-<ul>
-<li><p>same number for each</p></li>
-<li></li>
-</ul>
+<p>The data overall appears to be close to a normal distribution but with a slight negative skew. The median from 1978 is higher than that of 1976, but with overlapping interquartile ranges it’s hard to predict whether or not this will be significant. The distribution for each group has a similar variance and a similar shape of distribution</p>
+<p>and so a linear regression model at a confidence level of 95% should be suitable for the analysis of whether the increase is significant or not. The null hypothesis will be that there is no significant difference and the alternative hypothesis is that there is a significant difference between the data from 1976 and 1978.</p>
 </section>
 <section id="creation-and-testing-assumptions-of-linear-model" class="level2">
 <h2 class="anchored" data-anchor-id="creation-and-testing-assumptions-of-linear-model">creation and testing assumptions of linear model</h2>
@@ -3719,12 +3718,14 @@ vertical-align: -.125em;
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Depth <span class="sc">~</span> Year, <span class="at">data =</span> Data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">svglite</span>(<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Diagnostic Plots.svg&quot;</span>), <span class="at">width =</span> <span class="dv">10</span>,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> <span class="dv">8</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> <span class="fl">1.3</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>DiaPlots <span class="ot">&lt;-</span> (<span class="fu">plot</span>(Model,<span class="dv">1</span>) <span class="sc">|</span> <span class="fu">plot</span>(Model,<span class="dv">2</span>)) <span class="sc">/</span> (<span class="fu">plot</span>(Model,<span class="dv">3</span>) <span class="sc">|</span> <span class="fu">plot</span>(Model,<span class="dv">5</span>))</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Producing a multipanel figure for the diagnostic plots of </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the linear model</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">svglite</span>(<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Diagnostic Plots.svg&quot;</span>), <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> <span class="dv">8</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> <span class="fl">1.3</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>DiaPlots <span class="ot">&lt;-</span> (<span class="fu">plot</span>(Model,<span class="dv">1</span>) <span class="sc">|</span> <span class="fu">plot</span>(Model,<span class="dv">2</span>)) <span class="sc">/</span> (<span class="fu">plot</span>(Model,<span class="dv">3</span>) <span class="sc">|</span> <span class="fu">plot</span>(Model,<span class="dv">5</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -4712,14 +4713,13 @@ vertical-align: -.125em;
 <figcaption>Figure 3: Diagnostic plots for the Linear model</figcaption>
 </figure>
 </div>
-<p>The diagnostic plots suggest that none of the assumptions of the linear model have been violated and it is suitable for our analysis.</p>
+<p>The diagnostic plots suggest that none of the assumptions of the linear model have been violated and it is suitable for our analysis. The data is close enough to normally distributed with few outliers. The residuals also appear to be normally and equally distributed between each one. With 89 values for each factor the linear model should be very suitable.</p>
 <section id="linear-model-plot" class="level3">
 <h3 class="anchored" data-anchor-id="linear-model-plot">Linear Model Plot</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>LmPlot <span class="ot">&lt;-</span> <span class="fu">BoxGraph</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>,</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                   Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , <span class="st">&quot;Model Plot&quot;</span>, <span class="cn">TRUE</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">SaveSVG</span>(LmPlot, <span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Linear Model Plot.svg&quot;</span>),</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">1.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BoxGraph</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>         Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , <span class="st">&quot;Model Plot&quot;</span>, <span class="cn">TRUE</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Descriptive Plot.svg&quot;</span>,<span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">1.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -4976,117 +4976,42 @@ vertical-align: -.125em;
 </section>
 <section id="results" class="level1">
 <h1>results</h1>
-<p>The P value is far below 0.025 (two tailed test) so we can reject the null hypothesis. There is a significant difference between beak depths in 1976 and 1978.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Depth ~ Year, data = Data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.2697 -0.5382  0.1618  0.6303  2.2303 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   9.4697     0.1031  91.812  &lt; 2e-16 ***
+Year1978      0.6685     0.1459   4.583 8.65e-06 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.973 on 176 degrees of freedom
+Multiple R-squared:  0.1066,    Adjusted R-squared:  0.1016 
+F-statistic: 21.01 on 1 and 176 DF,  p-value: 8.65e-06</code></pre>
+</div>
+</div>
+<p>The P value for Our linear model is far below the 0.05. This means that the Linear model fits the data significantly better than the null model and that there is a significant difference between beak depths in 1976 and 1978.</p>
 </section>
 <section id="conclusion" class="level1">
 <h1>conclusion</h1>
-<p>This shows that the data is consistent with natural selection of beak depth in response to drought. This data suggests that individuals with smaller beaks were selected against, and the distribution shifted towards larger beaks.</p>
-<p>This analysis demostrates the suprising speed at which natural selection can occur, within just years a significant, measureable change in phenotype had occurred. This</p>
+<p>The analysis provides sufficient evidence for an increase in average beak depth between the years of 1976 and 1978. This shows that the data is consistent with what we would expect from the natural selection of beak depth in response to drought. Although, as the data is from an observational study, no causational relationship can be established between the two variables.</p>
+<p>If the beak depth had been increased as a result of the drought, this analysis demostrates the suprising speed at which natural selection can occur. Within just two years a significant, measureable change in phenotype had occurred.</p>
+<p>Further research is needed to come to any conclusions about the relationship between this drought and the beak size. Investigating other droughts and looking whether similar phenotypic changes have occured. Or an experiment comparing treatments of large, tough seeds and regular seeds to uncover more about</p>
 </section>
 <section id="appendix" class="level1">
 <h1>Appendix</h1>
-<section id="contents-of-functions-for-quarto-assignment.r" class="level2">
-<h2 class="anchored" data-anchor-id="contents-of-functions-for-quarto-assignment.r">Contents of “Functions for Quarto Assignment.R”</h2>
-<p>I have pasted here the Functions that I have designed myself for full transparency of operation.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Summary Statistics</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Stat <span class="ot">&lt;-</span> <span class="cf">function</span>(Data){</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">&quot;Mean = &quot;</span>, <span class="fu">round</span>(<span class="fu">mean</span>(Data), <span class="at">digits =</span> <span class="dv">3</span>)))</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">&quot;Median = &quot;</span>, <span class="fu">round</span>(<span class="fu">median</span>(Data), <span class="at">digits =</span> <span class="dv">3</span>)))</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">&quot;Variance = &quot;</span>, <span class="fu">round</span>(<span class="fu">var</span>(Data), <span class="at">digits =</span> <span class="dv">3</span>)))</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Boxplot creation</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>BoxGraph <span class="ot">&lt;-</span> <span class="cf">function</span>(Dataset, Yaxis, Ytitle, Xaxis, Xtitle, </span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                     Title, Stat){</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  Summary <span class="ot">&lt;-</span> Dataset <span class="sc">%&gt;%</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">Mean =</span> <span class="fu">mean</span>(Depth),</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">Lower =</span> <span class="fu">mean</span>(Depth) <span class="sc">-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">n</span>() <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">sd</span>(Depth) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>()),</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">Upper =</span> <span class="fu">mean</span>(Depth) <span class="sc">+</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">n</span>() <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">sd</span>(Depth) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>())</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Dataset, <span class="fu">aes</span>(<span class="at">y =</span> Yaxis, <span class="at">x =</span> Xaxis, </span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>                              <span class="at">colour =</span> Xaxis)) <span class="sc">+</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">!=</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.6</span>)</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_beeswarm</span>(<span class="at">dodge.width =</span> <span class="fl">1.5</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>), </span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>                  <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linetype =</span> <span class="st">&quot;solid&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;#606060&quot;</span>)</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_errorbar</span>(<span class="at">data =</span> Summary, <span class="fu">aes</span>(<span class="at">x =</span> Year, </span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">ymin =</span> Lower, <span class="at">ymax =</span> Upper),</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>                    <span class="at">width =</span> <span class="fl">0.08</span>, <span class="at">size =</span> <span class="fl">0.6</span>, <span class="at">color =</span> <span class="st">&quot;#606060&quot;</span>, <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>      <span class="fu">stat_summary</span>(<span class="at">fun =</span> <span class="st">&quot;mean&quot;</span>, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">shape =</span> <span class="dv">18</span>) </span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.y   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>),</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.x   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, </span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.y  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.x  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.1</span>),</span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="cn">NA</span>,</span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">size =</span> <span class="dv">1</span>),</span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.02</span>, <span class="at">vjust =</span> <span class="fl">0.1</span>,</span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(Xtitle) <span class="sc">+</span></span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(Ytitle) <span class="sc">+</span></span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(Title)</span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(plot)</span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="co">#saving graphs as SVG for improved compatability</span></span>
-<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>SaveSVG <span class="ot">&lt;-</span> <span class="cf">function</span>(data, file, Height, Width, Scaling){</span>
-<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">svglite</span>(file, <span class="at">width =</span> Width,</span>
-<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> Height,</span>
-<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> Scaling)</span>
-<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(data)</span>
-<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dev.off</span>()</span>
-<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a><span class="co">#creating Histograms</span></span>
-<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>Histogram <span class="ot">&lt;-</span> <span class="cf">function</span>(Dataset, Xaxis, Xtitle, Title, Num){</span>
-<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Dataset, <span class="fu">aes</span>(<span class="at">x =</span> Xaxis)) <span class="sc">+</span></span>
-<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Num <span class="sc">==</span> <span class="dv">1</span>) {</span>
-<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_histogram</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="at">bins =</span> <span class="dv">15</span>)</span>
-<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
-<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Num <span class="sc">==</span> <span class="dv">2</span>) {</span>
-<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_histogram</span>(<span class="at">colour =</span> <span class="st">&quot;skyblue&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightblue&quot;</span>, <span class="at">bins =</span> <span class="dv">15</span>)</span>
-<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
-<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Num <span class="sc">==</span> <span class="dv">3</span>) {</span>
-<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_histogram</span>(<span class="at">colour =</span> <span class="st">&quot;coral&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;orange&quot;</span>, <span class="at">bins =</span> <span class="dv">15</span>)</span>
-<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
-<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.y   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>),</span>
-<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.x   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, </span>
-<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
-<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.y  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.x  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.1</span>),</span>
-<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="cn">NA</span>,</span>
-<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">size =</span> <span class="dv">1</span>),</span>
-<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.02</span>, <span class="at">vjust =</span> <span class="fl">0.1</span>,</span>
-<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)<span class="sc">+</span></span>
-<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(Xtitle) <span class="sc">+</span></span>
-<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(Title)</span>
-<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-
-</section>
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<section id="bilbiography" class="level2">
+<h2 class="anchored" data-anchor-id="bilbiography">Bilbiography</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-grant2003" class="csl-entry" role="listitem">
 Grant, Rosemary B., and Peter R. Grant. 2003. <span>“What Darwin’s Finches Can Teach Us about the Evolutionary Origin and Regulation of Biodiversity.”</span> <em>BioScience</em> 53 (10): 965–75. <a href="https://doi.org/10.1641/0006-3568(2003)053[0965:WDFCTU]2.0.CO;2">https://doi.org/10.1641/0006-3568(2003)053[0965:WDFCTU]2.0.CO;2</a>.
 </div>
@@ -5096,7 +5021,125 @@ Whitlock, Michael C., and Dolph Schluter. 2020. <em>The Analysis of Biological D
 <div id="ref-wickham2023r" class="csl-entry" role="listitem">
 Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. 2nd ed. Sebastopol, CA: O’Reilly Media.
 </div>
-</div></section></div></main>
+</div>
+</section>
+<section id="contents-of-functions-for-quarto-assignment.r" class="level2">
+<h2 class="anchored" data-anchor-id="contents-of-functions-for-quarto-assignment.r">Contents of “Functions for Quarto Assignment.R”</h2>
+<p>I have pasted here the Functions that I have designed myself for full transparency of operation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Summary Statistics</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># prints out summary statistics of the inputted data to 3 d.p.</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>Stat <span class="ot">&lt;-</span> <span class="cf">function</span>(Data){</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">&quot;Mean = &quot;</span>, <span class="fu">round</span>(<span class="fu">mean</span>(Data), <span class="at">digits =</span> <span class="dv">3</span>)))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">&quot;Median = &quot;</span>, <span class="fu">round</span>(<span class="fu">median</span>(Data), <span class="at">digits =</span> <span class="dv">3</span>)))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">&quot;Variance = &quot;</span>, <span class="fu">round</span>(<span class="fu">var</span>(Data), <span class="at">digits =</span> <span class="dv">3</span>)))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Boxplot creation and saving as .svg</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>BoxGraph <span class="ot">&lt;-</span> <span class="cf">function</span>(Dataset, Yaxis, Ytitle, Xaxis, Xtitle, </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                     Title, Stat, file, Height, Width, Scaling){</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># producing Summary data necessary for the model plot</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  Summary <span class="ot">&lt;-</span> Dataset <span class="sc">%&gt;%</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">Mean =</span> <span class="fu">mean</span>(Depth),</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">Lower =</span> <span class="fu">mean</span>(Depth) <span class="sc">-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">n</span>() <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">sd</span>(Depth) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>()),</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">Upper =</span> <span class="fu">mean</span>(Depth) <span class="sc">+</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">n</span>() <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">sd</span>(Depth) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>())</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># defining the plot</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Dataset, <span class="fu">aes</span>(<span class="at">y =</span> Yaxis, <span class="at">x =</span> Xaxis, </span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>                              <span class="at">colour =</span> Xaxis, <span class="at">fill =</span> Xaxis)) <span class="sc">+</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#FFF1F3&quot;</span>,<span class="st">&quot;#E0F3F8&quot;</span>))<span class="sc">+</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># produces a descriptive plot as standard</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">!=</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.6</span>) </span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_beeswarm</span>(<span class="at">dodge.width =</span> <span class="fl">1.5</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># formats the graph as a linear model plot instead if prompted</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">==</span> <span class="cn">TRUE</span>) { </span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>), </span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>                  <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linetype =</span> <span class="st">&quot;solid&quot;</span>, </span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour =</span> <span class="st">&quot;#606060&quot;</span>) </span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Further linear model plot formatting</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">==</span> <span class="cn">TRUE</span>) { </span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_errorbar</span>(<span class="at">data =</span> Summary, <span class="fu">aes</span>(<span class="at">x =</span> Year, </span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">ymin =</span> Lower, <span class="at">ymax =</span> Upper),</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>                    <span class="at">width =</span> <span class="fl">0.08</span>, <span class="at">size =</span> <span class="fl">0.6</span>, <span class="at">color =</span> <span class="st">&quot;#606060&quot;</span>, </span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>                    <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Further linear model plot formatting</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">==</span> <span class="cn">TRUE</span>) { </span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>      <span class="fu">stat_summary</span>(<span class="at">fun =</span> <span class="st">&quot;mean&quot;</span>, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">size =</span> <span class="dv">4</span>, </span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">shape =</span> <span class="dv">18</span>) </span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># setting visual formatting</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.y   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.x   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.y  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.x  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.1</span>),</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="cn">NA</span>,</span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">size =</span> <span class="dv">1</span>),</span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.02</span>, <span class="at">vjust =</span> <span class="fl">0.1</span>,</span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(Xtitle) <span class="sc">+</span></span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(Ytitle) <span class="sc">+</span></span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(Title)</span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>  <span class="co"># saving this plot as an svg</span></span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">svglite</span>(<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, file), <span class="at">width =</span> Width,</span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> Height,</span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> Scaling)</span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(plot)</span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dev.off</span>()</span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a><span class="do">### creating Histograms</span></span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a>Histogram <span class="ot">&lt;-</span> <span class="cf">function</span>(Dataset, Xaxis, Xtitle, Title, Num){</span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>  <span class="co"># defining histogram</span></span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Dataset, <span class="fu">aes</span>(<span class="at">x =</span> Xaxis)) <span class="sc">+</span></span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a>    <span class="co"># formatting for all data</span></span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Num <span class="sc">==</span> <span class="dv">1</span>) { </span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_histogram</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>, <span class="at">bins =</span> <span class="dv">15</span>)</span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span> </span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a>    <span class="co"># formatting for 1976</span></span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Num <span class="sc">==</span> <span class="dv">2</span>) { </span>
+<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_histogram</span>(<span class="at">colour =</span> <span class="st">&quot;#F8766D&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;#FFF1F3&quot;</span>, <span class="at">bins =</span> <span class="dv">15</span>)</span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a>    <span class="co"># formatting for 1978</span></span>
+<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Num <span class="sc">==</span> <span class="dv">3</span>) { </span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_histogram</span>(<span class="at">colour =</span> <span class="st">&quot;#00BFC4&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;#E0F3F8&quot;</span>, <span class="at">bins =</span> <span class="dv">15</span>)</span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
+<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a>    <span class="co"># defining formatting</span></span>
+<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.y   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.x   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.y  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.x  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.1</span>),</span>
+<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="cn">NA</span>,</span>
+<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">size =</span> <span class="dv">1</span>),</span>
+<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.02</span>, <span class="at">vjust =</span> <span class="fl">0.1</span>,</span>
+<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(Xtitle) <span class="sc">+</span></span>
+<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(Title)</span>
+<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a>  <span class="co"># returning the plot</span></span>
+<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(plot)</span>
+<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+
+</main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
