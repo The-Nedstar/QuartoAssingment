@@ -12,7 +12,7 @@ nocite: |
 
 # Initialization
 
-Preparation of packages, functions and Data. The contents of "Functions for Quarto Assignment.R" can be found in the Appendix.#
+Preparation of packages, functions and Data. The contents of "Functions for Quarto Assignment.R" can be found in the Appendix.
 
 ### Packages and Functions
 
@@ -55,8 +55,6 @@ In 1977 there was a Severe drought on the Galapagos Island of Daphne Major. Duri
 This analysis will explore a dataset of beak sizes sampled from *G. fortis* before (1976) and after (1978) the drought. The aim is to test whether the captured data is consistent with the theory that natural selection has increased the size of beak depth as a response to this drought. If the data is consistent then we would see a significant increase in average beak depth in the 1978 sample.
 
 # methods - statistical analysis
-
-\[a short paragraph explaining the data, statistical model and analysis\]
 
 ### Summary data
 
@@ -101,13 +99,9 @@ dev.off()
 
 ![Figure 2: Histograms](Figures/Histograms.svg){width="503"}
 
-The data overall appears to be close to a normal distribution but with a slight negative skew. The median from 1978 is higher than that of 1976, but with overlapping interquartile ranges it's hard to predict whether or not this will be significant.
+The data overall appears to be close to a normal distribution but with a slight negative skew. The median from 1978 is higher than that of 1976, but with overlapping interquartile ranges it's hard to predict whether or not this will be significant. The distribution for each group has a similar variance and a similar shape of distribution
 
-The data from both years appears to have a very similar shaped distribution and so a linear regression model should be suitable for the analysis of whether the increase is significant or not. The null hypothesis will be that there is no significant difference and the alternative hypothesis is that there is a significant difference between the data from 1976 and 1978.
-
--   same number for each
-
--   
+and so a linear regression model should be suitable for the analysis of whether the increase is significant or not. The null hypothesis will be that there is no significant difference and the alternative hypothesis is that there is a significant difference between the data from 1976 and 1978.
 
 ## creation and testing assumptions of linear model
 
@@ -132,7 +126,7 @@ dev.off()
 
 ![Figure 3: Diagnostic plots for the Linear model](Figures/Diagnostic%20Plots.svg){width="676" height="527"}
 
-The diagnostic plots suggest that none of the assumptions of the linear model have been violated and it is suitable for our analysis.
+The diagnostic plots suggest that none of the assumptions of the linear model have been violated and it is suitable for our analysis. The data is close enough to normally distributed with few outliers. The residuals also appear to be normally and equally distributed between each one. With 89 values for each factor the linear model should be very suitable.
 
 ### Linear Model Plot
 
@@ -151,17 +145,19 @@ SaveSVG(LmPlot, here("Figures", "Linear Model Plot.svg"),
 # results
 
 ```{r}
-#| label: ""
+#| label: "Evaluation of the Linear model"
 summary(Model)
 ```
 
-The P value is far below 0.025 (two tailed test) so we can reject the null hypothesis. There is a significant difference between beak depths in 1976 and 1978.
+The P value for Our linear model is far below 0.025 (two tailed test). This means that the Linear model fits the data significantly better than the null model and that there is a significant difference between beak depths in 1976 and 1978.
 
 # conclusion
 
-This shows that the data is consistent with natural selection of beak depth in response to drought. This data suggests that individuals with smaller beaks were selected against, and the distribution shifted towards larger beaks.
+The analysis provides sufficient evidence for an increase in average beak depth between the years of 1976 and 1978. This shows that the data is consistent with natural selection of beak depth in response to drought. Although, as the data is from an observational study, no causational relationship can be established between the two variables.
 
-This analysis demostrates the suprising speed at which natural selection can occur, within just years a significant, measureable change in phenotype had occurred. This
+If the beak depth had been increased as a result of the drought, this analysis demostrates the suprising speed at which natural selection can occur. Within just two years a significant, measureable change in phenotype had occurred.
+
+Further research is needed to come to any conclusions about the relationship between this drought and the
 
 # Appendix
 
