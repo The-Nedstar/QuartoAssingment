@@ -3131,13 +3131,11 @@ vertical-align: -.125em;
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Sleuth3)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggbeeswarm)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(svglite)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># loading custom made functions</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;Functions&quot;</span>, <span class="st">&quot;Functions for Quarto Assignment.R&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(svglite)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># loading custom made functions</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;Functions&quot;</span>, <span class="st">&quot;Functions for Quarto Assignment.R&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data" class="level3">
@@ -3165,32 +3163,70 @@ vertical-align: -.125em;
 <p>The data was visualised and assessed and it was decided that a linear regression model was most suitable for the analysis. This model was created, the assumptions where tested and then it was analysed compared to the data.</p>
 <section id="summary-data" class="level3">
 <h3 class="anchored" data-anchor-id="summary-data">Summary data</h3>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>------------All Beak Depth Data-------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Mean =  9.804</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Median =  9.9</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Variance =  1.054</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>----------Beak Depth Data for 1976----------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Mean =  9.47</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Median =  9.7</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Variance =  1.072</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>----------Beak Depth Data for 1978----------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Mean =  10.138</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Median =  10.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Variance =  0.822</code></pre>
+</div>
+</div>
 </section>
 <section id="descriptive-plot" class="level3">
 <h3 class="anchored" data-anchor-id="descriptive-plot">Descriptive plot</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating and saving a descriptive plot using a self made </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># function inclduing ggplot2 and svglite elements</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">BoxGraph</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>         Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , <span class="st">&quot;Descriptive Plot&quot;</span>, <span class="cn">FALSE</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Descriptive Plot.svg&quot;</span>,<span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">1.2</span>) </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a multipanel figure showing distributions of the </span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># data at each timepoint as a histogram and saving it as a .svg</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">svglite</span>(<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Histograms.svg&quot;</span>), <span class="at">width =</span> <span class="dv">10</span>,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> <span class="dv">8</span>,</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> <span class="fl">1.3</span>)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>Hist1 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;All Data&quot;</span>, <span class="dv">1</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>Hist2 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(D76, D76<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;1976 Data&quot;</span>, <span class="dv">2</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>Hist3 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(D78, D78<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;1978 Data&quot;</span>, <span class="dv">3</span>)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>(Hist1 <span class="sc">/</span> (Hist2 <span class="sc">|</span> Hist3))</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating and saving a descriptive plot using a self made </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># function inclduing ggplot2 and svglite elements</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">BoxGraph</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>         Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , <span class="st">&quot;Descriptive Plot&quot;</span>, <span class="cn">FALSE</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Descriptive Plot.svg&quot;</span>,<span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">1.2</span>) </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a multipanel figure showing distributions of the </span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># data at each timepoint as a histogram and saving it as a .svg</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="fu">svglite</span>(<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Histograms.svg&quot;</span>), <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> <span class="dv">8</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> <span class="fl">1.3</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>Hist1 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;All Data&quot;</span>, <span class="dv">1</span>)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>Hist2 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(D76, D76<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;1976 Data&quot;</span>, <span class="dv">2</span>)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>Hist3 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(D78, D78<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;1978 Data&quot;</span>, <span class="dv">3</span>)</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>(Hist1 <span class="sc">/</span> (Hist2 <span class="sc">|</span> Hist3))</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><svg id="svg_4e383378ae9dbee59d58" role="img" width="578" height="360.00pt" viewBox="0 0 504.00 360.00" class="img-fluid figure-img svglite">
+<p><svg id="svg_5c3cecc84a9e68ac4786" role="img" width="578" height="360.00pt" viewBox="0 0 504.00 360.00" class="img-fluid figure-img svglite">
 <defs>
   <style type="text/css">
     .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
@@ -3207,19 +3243,19 @@ vertical-align: -.125em;
 </defs>
 <rect width="100%" height="100%" style="stroke: none; fill: #FFFFFF;" />
 <defs>
-  <clipPath id="svg_4e383378ae9dbee59d58_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=">
+  <clipPath id="svg_5c3cecc84a9e68ac4786_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=">
     <rect x="0.00" y="0.00" width="504.00" height="360.00" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_4e383378ae9dbee59d58_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
+<g clip-path="url(#svg_5c3cecc84a9e68ac4786_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
 <rect x="0.000000000000038" y="0.00" width="504.00" height="360.00" style="stroke-width: 1.28; stroke: #FFFFFF; fill: #FFFFFF;" />
 </g>
 <defs>
-  <clipPath id="svg_4e383378ae9dbee59d58_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==">
+  <clipPath id="svg_5c3cecc84a9e68ac4786_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==">
     <rect x="52.25" y="30.93" width="445.18" height="258.07" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_4e383378ae9dbee59d58_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==)">
+<g clip-path="url(#svg_5c3cecc84a9e68ac4786_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==)">
 <polyline points="52.25,243.15 497.42,243.15 " style="stroke-width: 0.64; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="52.25,157.83 497.42,157.83 " style="stroke-width: 0.64; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="52.25,72.52 497.42,72.52 " style="stroke-width: 0.64; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
@@ -3228,6 +3264,18 @@ vertical-align: -.125em;
 <polyline points="52.25,115.17 497.42,115.17 " style="stroke-width: 1.28; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="185.80,289.00 185.80,30.93 " style="stroke-width: 1.28; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="363.87,289.00 363.87,30.93 " style="stroke-width: 1.28; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
+<circle cx="185.80" cy="277.27" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; fill: #F8766D;"></circle>
+<circle cx="185.80" cy="251.68" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; fill: #F8766D;"></circle>
+<line x1="185.80" y1="106.64" x2="185.80" y2="42.66" style="stroke-width: 1.28; stroke: #F8766D; stroke-linecap: butt;"></line>
+<line x1="185.80" y1="162.10" x2="185.80" y2="238.88" style="stroke-width: 1.28; stroke: #F8766D; stroke-linecap: butt;"></line>
+<polygon points="132.38,106.64 132.38,162.10 239.22,162.10 239.22,106.64 132.38,106.64 " style="stroke-width: 1.28; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFF1F3;"></polygon>
+<line x1="132.38" y1="127.97" x2="239.22" y2="127.97" style="stroke-width: 2.56; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter;"></line>
+<circle cx="363.87" cy="238.88" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; fill: #00BFC4;"></circle>
+<circle cx="363.87" cy="204.75" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; fill: #00BFC4;"></circle>
+<line x1="363.87" y1="85.32" x2="363.87" y2="42.66" style="stroke-width: 1.28; stroke: #00BFC4; stroke-linecap: butt;"></line>
+<line x1="363.87" y1="132.24" x2="363.87" y2="200.49" style="stroke-width: 1.28; stroke: #00BFC4; stroke-linecap: butt;"></line>
+<polygon points="310.45,85.32 310.45,132.24 417.29,132.24 417.29,85.32 310.45,85.32 " style="stroke-width: 1.28; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter; fill: #E0F3F8;"></polygon>
+<line x1="310.45" y1="102.38" x2="417.29" y2="102.38" style="stroke-width: 2.56; stroke: #00BFC4; stroke-linecap: butt; stroke-linejoin: miter;"></line>
 <circle cx="185.80" cy="277.27" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
 <circle cx="185.80" cy="251.68" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
 <circle cx="185.80" cy="238.88" r="2.35" style="stroke-width: 0.85; stroke: #F8766D; stroke-opacity: 0.60; fill: #F8766D; fill-opacity: 0.60;"></circle>
@@ -3406,18 +3454,9 @@ vertical-align: -.125em;
 <circle cx="363.87" cy="46.92" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
 <circle cx="367.43" cy="46.92" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
 <circle cx="363.87" cy="42.66" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
-<polyline points="185.80,137.80 188.06,137.44 190.31,137.08 192.56,136.71 194.82,136.35 197.07,135.99 199.33,135.63 201.58,135.27 203.83,134.91 206.09,134.55 208.34,134.19 210.60,133.83 212.85,133.47 215.10,133.10 217.36,132.74 219.61,132.38 221.87,132.02 224.12,131.66 226.37,131.30 228.63,130.94 230.88,130.58 233.14,130.22 235.39,129.86 237.64,129.49 239.90,129.13 242.15,128.77 244.41,128.41 246.66,128.05 248.92,127.69 251.17,127.33 253.42,126.97 255.68,126.61 257.93,126.25 260.19,125.88 262.44,125.52 264.69,125.16 266.95,124.80 269.20,124.44 271.46,124.08 273.71,123.72 275.96,123.36 278.22,123.00 280.47,122.64 282.73,122.28 284.98,121.91 287.23,121.55 289.49,121.19 291.74,120.83 294.00,120.47 296.25,120.11 298.50,119.75 300.76,119.39 303.01,119.03 305.27,118.67 307.52,118.30 309.77,117.94 312.03,117.58 314.28,117.22 316.54,116.86 318.79,116.50 321.04,116.14 323.30,115.78 325.55,115.42 327.81,115.06 330.06,114.69 332.32,114.33 334.57,113.97 336.82,113.61 339.08,113.25 341.33,112.89 343.59,112.53 345.84,112.17 348.09,111.81 350.35,111.45 352.60,111.08 354.86,110.72 357.11,110.36 359.36,110.00 361.62,109.64 363.87,109.28 " style="stroke-width: 2.56; stroke: #606060; stroke-linecap: butt;"></polyline>
-<polyline points="178.68,128.49 192.92,128.49 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
-<polyline points="185.80,128.49 185.80,147.10 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
-<polyline points="178.68,147.10 192.92,147.10 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
-<polyline points="356.75,101.13 370.99,101.13 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
-<polyline points="363.87,101.13 363.87,117.43 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
-<polyline points="356.75,117.43 370.99,117.43 " style="stroke-width: 1.54; stroke: #606060; stroke-linecap: butt;"></polyline>
-<polygon points="180.25,137.80 185.80,132.25 191.35,137.80 185.80,143.34 " style="stroke-width: 0.85; stroke: none; fill: #000000;"></polygon>
-<polygon points="358.33,109.28 363.87,103.73 369.42,109.28 363.87,114.83 " style="stroke-width: 0.85; stroke: none; fill: #000000;"></polygon>
 <rect x="52.25" y="30.93" width="445.18" height="258.07" style="stroke-width: 2.56;" />
 </g>
-<g clip-path="url(#svg_4e383378ae9dbee59d58_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
+<g clip-path="url(#svg_5c3cecc84a9e68ac4786_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
 <polyline points="52.25,289.00 52.25,30.93 " style="stroke-width: 0.26; stroke-linecap: butt;"></polyline>
 <text x="46.33" y="291.82" text-anchor="end" style="font-size: 16.80px; font-family: &quot;Arial&quot;;" textLength="9.35px" lengthAdjust="spacingAndGlyphs">6</text>
 <text x="46.33" y="206.50" text-anchor="end" style="font-size: 16.80px; font-family: &quot;Arial&quot;;" textLength="9.35px" lengthAdjust="spacingAndGlyphs">8</text>
@@ -3432,7 +3471,7 @@ vertical-align: -.125em;
 <text transform="translate(372.38,303.43) rotate(-45)" text-anchor="end" style="font-size: 16.80px; font-family: &quot;Arial&quot;;" textLength="37.38px" lengthAdjust="spacingAndGlyphs">1978</text>
 <text x="274.84" y="349.39" text-anchor="middle" style="font-size: 19.20px; font-family: &quot;Arial&quot;;" textLength="38.76px" lengthAdjust="spacingAndGlyphs">Year</text>
 <text transform="translate(20.31,159.96) rotate(-90)" text-anchor="middle" style="font-size: 19.20px; font-family: &quot;Arial&quot;;" textLength="150.34px" lengthAdjust="spacingAndGlyphs">Beak Depth (mm)</text>
-<text x="59.34" y="23.95" style="font-size: 19.20px; font-family: &quot;Arial&quot;;" textLength="90.65px" lengthAdjust="spacingAndGlyphs">Model Plot</text>
+<text x="58.49" y="23.95" style="font-size: 19.20px; font-family: &quot;Arial&quot;;" textLength="133.29px" lengthAdjust="spacingAndGlyphs">Descriptive Plot</text>
 </g>
 </svg></p>
 <figcaption>Figure 1: Descriptive plot of the raw data</figcaption>
@@ -3715,17 +3754,17 @@ vertical-align: -.125em;
 <section id="creation-and-testing-assumptions-of-linear-model" class="level2">
 <h2 class="anchored" data-anchor-id="creation-and-testing-assumptions-of-linear-model">creation and testing assumptions of linear model</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Depth <span class="sc">~</span> Year, <span class="at">data =</span> Data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Depth <span class="sc">~</span> Year, <span class="at">data =</span> Data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Producing a multipanel figure for the diagnostic plots of </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the linear model</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">svglite</span>(<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Diagnostic Plots.svg&quot;</span>), <span class="at">width =</span> <span class="dv">10</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> <span class="dv">8</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> <span class="fl">1.3</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>DiaPlots <span class="ot">&lt;-</span> (<span class="fu">plot</span>(Model,<span class="dv">1</span>) <span class="sc">|</span> <span class="fu">plot</span>(Model,<span class="dv">2</span>)) <span class="sc">/</span> (<span class="fu">plot</span>(Model,<span class="dv">3</span>) <span class="sc">|</span> <span class="fu">plot</span>(Model,<span class="dv">5</span>))</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Producing a multipanel figure for the diagnostic plots of </span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the linear model</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">svglite</span>(<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Diagnostic Plots.svg&quot;</span>), <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> <span class="dv">8</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> <span class="fl">1.3</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>DiaPlots <span class="ot">&lt;-</span> (<span class="fu">plot</span>(Model,<span class="dv">1</span>) <span class="sc">|</span> <span class="fu">plot</span>(Model,<span class="dv">2</span>)) <span class="sc">/</span> (<span class="fu">plot</span>(Model,<span class="dv">3</span>) <span class="sc">|</span> <span class="fu">plot</span>(Model,<span class="dv">5</span>))</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -4717,9 +4756,9 @@ vertical-align: -.125em;
 <section id="linear-model-plot" class="level3">
 <h3 class="anchored" data-anchor-id="linear-model-plot">Linear Model Plot</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BoxGraph</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>,</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>         Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , <span class="st">&quot;Model Plot&quot;</span>, <span class="cn">TRUE</span>,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Descriptive Plot.svg&quot;</span>,<span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">1.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BoxGraph</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>,</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>         Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , <span class="st">&quot;Model Plot&quot;</span>, <span class="cn">TRUE</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Model Plot.svg&quot;</span>,<span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">1.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -4977,7 +5016,7 @@ vertical-align: -.125em;
 <section id="results" class="level1">
 <h1>results</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -5027,114 +5066,114 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for 
 <h2 class="anchored" data-anchor-id="contents-of-functions-for-quarto-assignment.r">Contents of “Functions for Quarto Assignment.R”</h2>
 <p>I have pasted here the Functions that I have designed myself for full transparency of operation.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Summary Statistics</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># prints out summary statistics of the inputted data to 3 d.p.</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>Stat <span class="ot">&lt;-</span> <span class="cf">function</span>(Data){</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">&quot;Mean = &quot;</span>, <span class="fu">round</span>(<span class="fu">mean</span>(Data), <span class="at">digits =</span> <span class="dv">3</span>)))</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">&quot;Median = &quot;</span>, <span class="fu">round</span>(<span class="fu">median</span>(Data), <span class="at">digits =</span> <span class="dv">3</span>)))</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">&quot;Variance = &quot;</span>, <span class="fu">round</span>(<span class="fu">var</span>(Data), <span class="at">digits =</span> <span class="dv">3</span>)))</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Boxplot creation and saving as .svg</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>BoxGraph <span class="ot">&lt;-</span> <span class="cf">function</span>(Dataset, Yaxis, Ytitle, Xaxis, Xtitle, </span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                     Title, Stat, file, Height, Width, Scaling){</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># producing Summary data necessary for the model plot</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  Summary <span class="ot">&lt;-</span> Dataset <span class="sc">%&gt;%</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">Mean =</span> <span class="fu">mean</span>(Depth),</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">Lower =</span> <span class="fu">mean</span>(Depth) <span class="sc">-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">n</span>() <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">sd</span>(Depth) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>()),</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">Upper =</span> <span class="fu">mean</span>(Depth) <span class="sc">+</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">n</span>() <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">sd</span>(Depth) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>())</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># defining the plot</span></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Dataset, <span class="fu">aes</span>(<span class="at">y =</span> Yaxis, <span class="at">x =</span> Xaxis, </span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>                              <span class="at">colour =</span> Xaxis, <span class="at">fill =</span> Xaxis)) <span class="sc">+</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#FFF1F3&quot;</span>,<span class="st">&quot;#E0F3F8&quot;</span>))<span class="sc">+</span></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># produces a descriptive plot as standard</span></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">!=</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.6</span>) </span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_beeswarm</span>(<span class="at">dodge.width =</span> <span class="fl">1.5</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># formats the graph as a linear model plot instead if prompted</span></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">==</span> <span class="cn">TRUE</span>) { </span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>), </span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>                  <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linetype =</span> <span class="st">&quot;solid&quot;</span>, </span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour =</span> <span class="st">&quot;#606060&quot;</span>) </span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Further linear model plot formatting</span></span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">==</span> <span class="cn">TRUE</span>) { </span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_errorbar</span>(<span class="at">data =</span> Summary, <span class="fu">aes</span>(<span class="at">x =</span> Year, </span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">ymin =</span> Lower, <span class="at">ymax =</span> Upper),</span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>                    <span class="at">width =</span> <span class="fl">0.08</span>, <span class="at">size =</span> <span class="fl">0.6</span>, <span class="at">color =</span> <span class="st">&quot;#606060&quot;</span>, </span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>                    <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Further linear model plot formatting</span></span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">==</span> <span class="cn">TRUE</span>) { </span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>      <span class="fu">stat_summary</span>(<span class="at">fun =</span> <span class="st">&quot;mean&quot;</span>, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">size =</span> <span class="dv">4</span>, </span>
-<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">shape =</span> <span class="dv">18</span>) </span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
-<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># setting visual formatting</span></span>
-<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.y   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>),</span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.x   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, </span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
-<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.y  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.x  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.1</span>),</span>
-<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="cn">NA</span>,</span>
-<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">size =</span> <span class="dv">1</span>),</span>
-<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.02</span>, <span class="at">vjust =</span> <span class="fl">0.1</span>,</span>
-<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(Xtitle) <span class="sc">+</span></span>
-<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(Ytitle) <span class="sc">+</span></span>
-<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(Title)</span>
-<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>  <span class="co"># saving this plot as an svg</span></span>
-<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">svglite</span>(<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, file), <span class="at">width =</span> Width,</span>
-<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> Height,</span>
-<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> Scaling)</span>
-<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(plot)</span>
-<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dev.off</span>()</span>
-<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a><span class="do">### creating Histograms</span></span>
-<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a>Histogram <span class="ot">&lt;-</span> <span class="cf">function</span>(Dataset, Xaxis, Xtitle, Title, Num){</span>
-<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>  <span class="co"># defining histogram</span></span>
-<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Dataset, <span class="fu">aes</span>(<span class="at">x =</span> Xaxis)) <span class="sc">+</span></span>
-<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a>    <span class="co"># formatting for all data</span></span>
-<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Num <span class="sc">==</span> <span class="dv">1</span>) { </span>
-<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_histogram</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>, <span class="at">bins =</span> <span class="dv">15</span>)</span>
-<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span> </span>
-<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a>    <span class="co"># formatting for 1976</span></span>
-<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Num <span class="sc">==</span> <span class="dv">2</span>) { </span>
-<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_histogram</span>(<span class="at">colour =</span> <span class="st">&quot;#F8766D&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;#FFF1F3&quot;</span>, <span class="at">bins =</span> <span class="dv">15</span>)</span>
-<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
-<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a>    <span class="co"># formatting for 1978</span></span>
-<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Num <span class="sc">==</span> <span class="dv">3</span>) { </span>
-<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_histogram</span>(<span class="at">colour =</span> <span class="st">&quot;#00BFC4&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;#E0F3F8&quot;</span>, <span class="at">bins =</span> <span class="dv">15</span>)</span>
-<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
-<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a>    <span class="co"># defining formatting</span></span>
-<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.y   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>),</span>
-<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.x   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, </span>
-<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
-<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.y  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.x  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.1</span>),</span>
-<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="cn">NA</span>,</span>
-<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">size =</span> <span class="dv">1</span>),</span>
-<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.02</span>, <span class="at">vjust =</span> <span class="fl">0.1</span>,</span>
-<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(Xtitle) <span class="sc">+</span></span>
-<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(Title)</span>
-<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a>  <span class="co"># returning the plot</span></span>
-<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(plot)</span>
-<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Summary Statistics</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># prints out summary statistics of the inputted data to 3 d.p.</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>Stat <span class="ot">&lt;-</span> <span class="cf">function</span>(Data){</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">&quot;Mean = &quot;</span>, <span class="fu">round</span>(<span class="fu">mean</span>(Data), <span class="at">digits =</span> <span class="dv">3</span>)))</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">&quot;Median = &quot;</span>, <span class="fu">round</span>(<span class="fu">median</span>(Data), <span class="at">digits =</span> <span class="dv">3</span>)))</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">&quot;Variance = &quot;</span>, <span class="fu">round</span>(<span class="fu">var</span>(Data), <span class="at">digits =</span> <span class="dv">3</span>)))</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Boxplot creation and saving as .svg</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>BoxGraph <span class="ot">&lt;-</span> <span class="cf">function</span>(Dataset, Yaxis, Ytitle, Xaxis, Xtitle, </span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>                     Title, Stat, file, Height, Width, Scaling){</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># producing Summary data necessary for the model plot</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  Summary <span class="ot">&lt;-</span> Dataset <span class="sc">%&gt;%</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">Mean =</span> <span class="fu">mean</span>(Depth),</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">Lower =</span> <span class="fu">mean</span>(Depth) <span class="sc">-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">n</span>() <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">sd</span>(Depth) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>()),</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">Upper =</span> <span class="fu">mean</span>(Depth) <span class="sc">+</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">n</span>() <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">sd</span>(Depth) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>())</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># defining the plot</span></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Dataset, <span class="fu">aes</span>(<span class="at">y =</span> Yaxis, <span class="at">x =</span> Xaxis, </span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>                              <span class="at">colour =</span> Xaxis, <span class="at">fill =</span> Xaxis)) <span class="sc">+</span></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#FFF1F3&quot;</span>,<span class="st">&quot;#E0F3F8&quot;</span>))<span class="sc">+</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># produces a descriptive plot as standard</span></span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">!=</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.6</span>) </span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_beeswarm</span>(<span class="at">dodge.width =</span> <span class="fl">1.5</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># formats the graph as a linear model plot instead if prompted</span></span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">==</span> <span class="cn">TRUE</span>) { </span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>), </span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>                  <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linetype =</span> <span class="st">&quot;solid&quot;</span>, </span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour =</span> <span class="st">&quot;#606060&quot;</span>) </span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Further linear model plot formatting</span></span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">==</span> <span class="cn">TRUE</span>) { </span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_errorbar</span>(<span class="at">data =</span> Summary, <span class="fu">aes</span>(<span class="at">x =</span> Year, </span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">ymin =</span> Lower, <span class="at">ymax =</span> Upper),</span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a>                    <span class="at">width =</span> <span class="fl">0.08</span>, <span class="at">size =</span> <span class="fl">0.6</span>, <span class="at">color =</span> <span class="st">&quot;#606060&quot;</span>, </span>
+<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a>                    <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
+<span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Further linear model plot formatting</span></span>
+<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Stat <span class="sc">==</span> <span class="cn">TRUE</span>) { </span>
+<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a>      <span class="fu">stat_summary</span>(<span class="at">fun =</span> <span class="st">&quot;mean&quot;</span>, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">size =</span> <span class="dv">4</span>, </span>
+<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">shape =</span> <span class="dv">18</span>) </span>
+<span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
+<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># setting visual formatting</span></span>
+<span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.y   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.x   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb21-52"><a href="#cb21-52" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb21-53"><a href="#cb21-53" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.y  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb21-54"><a href="#cb21-54" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.x  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb21-55"><a href="#cb21-55" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb21-56"><a href="#cb21-56" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.1</span>),</span>
+<span id="cb21-57"><a href="#cb21-57" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="cn">NA</span>,</span>
+<span id="cb21-58"><a href="#cb21-58" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">size =</span> <span class="dv">1</span>),</span>
+<span id="cb21-59"><a href="#cb21-59" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.02</span>, <span class="at">vjust =</span> <span class="fl">0.1</span>,</span>
+<span id="cb21-60"><a href="#cb21-60" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb21-61"><a href="#cb21-61" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb21-62"><a href="#cb21-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(Xtitle) <span class="sc">+</span></span>
+<span id="cb21-63"><a href="#cb21-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(Ytitle) <span class="sc">+</span></span>
+<span id="cb21-64"><a href="#cb21-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(Title)</span>
+<span id="cb21-65"><a href="#cb21-65" aria-hidden="true" tabindex="-1"></a>  <span class="co"># saving this plot as an svg</span></span>
+<span id="cb21-66"><a href="#cb21-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">svglite</span>(<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, file), <span class="at">width =</span> Width,</span>
+<span id="cb21-67"><a href="#cb21-67" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> Height,</span>
+<span id="cb21-68"><a href="#cb21-68" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> Scaling)</span>
+<span id="cb21-69"><a href="#cb21-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(plot)</span>
+<span id="cb21-70"><a href="#cb21-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dev.off</span>()</span>
+<span id="cb21-71"><a href="#cb21-71" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-72"><a href="#cb21-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-73"><a href="#cb21-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-74"><a href="#cb21-74" aria-hidden="true" tabindex="-1"></a><span class="do">### creating Histograms</span></span>
+<span id="cb21-75"><a href="#cb21-75" aria-hidden="true" tabindex="-1"></a>Histogram <span class="ot">&lt;-</span> <span class="cf">function</span>(Dataset, Xaxis, Xtitle, Title, Num){</span>
+<span id="cb21-76"><a href="#cb21-76" aria-hidden="true" tabindex="-1"></a>  <span class="co"># defining histogram</span></span>
+<span id="cb21-77"><a href="#cb21-77" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Dataset, <span class="fu">aes</span>(<span class="at">x =</span> Xaxis)) <span class="sc">+</span></span>
+<span id="cb21-78"><a href="#cb21-78" aria-hidden="true" tabindex="-1"></a>    <span class="co"># formatting for all data</span></span>
+<span id="cb21-79"><a href="#cb21-79" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Num <span class="sc">==</span> <span class="dv">1</span>) { </span>
+<span id="cb21-80"><a href="#cb21-80" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_histogram</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>, <span class="at">bins =</span> <span class="dv">15</span>)</span>
+<span id="cb21-81"><a href="#cb21-81" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span> </span>
+<span id="cb21-82"><a href="#cb21-82" aria-hidden="true" tabindex="-1"></a>    <span class="co"># formatting for 1976</span></span>
+<span id="cb21-83"><a href="#cb21-83" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Num <span class="sc">==</span> <span class="dv">2</span>) { </span>
+<span id="cb21-84"><a href="#cb21-84" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_histogram</span>(<span class="at">colour =</span> <span class="st">&quot;#F8766D&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;#FFF1F3&quot;</span>, <span class="at">bins =</span> <span class="dv">15</span>)</span>
+<span id="cb21-85"><a href="#cb21-85" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
+<span id="cb21-86"><a href="#cb21-86" aria-hidden="true" tabindex="-1"></a>    <span class="co"># formatting for 1978</span></span>
+<span id="cb21-87"><a href="#cb21-87" aria-hidden="true" tabindex="-1"></a>    (<span class="cf">if</span> (Num <span class="sc">==</span> <span class="dv">3</span>) { </span>
+<span id="cb21-88"><a href="#cb21-88" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_histogram</span>(<span class="at">colour =</span> <span class="st">&quot;#00BFC4&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;#E0F3F8&quot;</span>, <span class="at">bins =</span> <span class="dv">15</span>)</span>
+<span id="cb21-89"><a href="#cb21-89" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">+</span></span>
+<span id="cb21-90"><a href="#cb21-90" aria-hidden="true" tabindex="-1"></a>    <span class="co"># defining formatting</span></span>
+<span id="cb21-91"><a href="#cb21-91" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb21-92"><a href="#cb21-92" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.y   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb21-93"><a href="#cb21-93" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.x   =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb21-94"><a href="#cb21-94" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb21-95"><a href="#cb21-95" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.y  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb21-96"><a href="#cb21-96" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.x  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb21-97"><a href="#cb21-97" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb21-98"><a href="#cb21-98" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.1</span>),</span>
+<span id="cb21-99"><a href="#cb21-99" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="cn">NA</span>,</span>
+<span id="cb21-100"><a href="#cb21-100" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">size =</span> <span class="dv">1</span>),</span>
+<span id="cb21-101"><a href="#cb21-101" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.02</span>, <span class="at">vjust =</span> <span class="fl">0.1</span>,</span>
+<span id="cb21-102"><a href="#cb21-102" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb21-103"><a href="#cb21-103" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb21-104"><a href="#cb21-104" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(Xtitle) <span class="sc">+</span></span>
+<span id="cb21-105"><a href="#cb21-105" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(Title)</span>
+<span id="cb21-106"><a href="#cb21-106" aria-hidden="true" tabindex="-1"></a>  <span class="co"># returning the plot</span></span>
+<span id="cb21-107"><a href="#cb21-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(plot)</span>
+<span id="cb21-108"><a href="#cb21-108" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>

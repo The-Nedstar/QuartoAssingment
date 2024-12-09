@@ -23,10 +23,8 @@ library(tidyverse)
 library(here)
 library(Sleuth3)
 library(ggbeeswarm)
-library(janitor)
 library(svglite)
 library(patchwork)
-library(kableExtra)
 
 # loading custom made functions
 source(here("Functions", "Functions for Quarto Assignment.R"))
@@ -65,6 +63,7 @@ The data was visualised and assessed and it was decided that a linear regression
 #| label: "Printing of summary statistics"
 #| warning: false 
 #| echo: false
+#| output: true
 # Creating individual datasets for each year
 D76 <- filter(Data, Year == 1976)
 D78 <- filter(Data, Year == 1978)
@@ -146,7 +145,7 @@ The diagnostic plots suggest that none of the assumptions of the linear model ha
 #| output: false   
 BoxGraph(Data, Data$Depth, "Beak Depth (mm)",
          Data$Year, "Year" , "Model Plot", TRUE,
-         "Descriptive Plot.svg",5, 7, 1.2)
+         "Model Plot.svg",5, 7, 1.2)
 ```
 
 ![Figure 3: Graph showing the linear model compared to the data](Figures/Linear%20Model%20Plot.svg){width="579"}
