@@ -3124,6 +3124,7 @@ vertical-align: -.125em;
 <section id="initialization" class="level1">
 <h1>Initialization</h1>
 <p>Preparation of packages, functions and Data. “Functions for Quarto Assignment.R” contains all self made functions and it’s content can be found in the <a href="#appendix">Appendix</a>.</p>
+<p>Full repository, including all packages and self made funtions can be found at <a href="https://github.com/The-Nedstar/QuartoAssingment" class="uri">https://github.com/The-Nedstar/QuartoAssingment</a>.</p>
 <section id="packages-and-functions" class="level3">
 <h3 class="anchored" data-anchor-id="packages-and-functions">Packages and Functions</h3>
 <div class="cell">
@@ -3154,13 +3155,13 @@ vertical-align: -.125em;
 </section>
 </section>
 <section id="introduction" class="level1">
-<h1>introduction</h1>
-<p>In 1977 there was a Severe drought on the Galapagos Island of Daphne Major. During this drought, the only food available was , larger and tougher than what is usually consumed by the medium ground finch (<em>Geospiza fortis</em>). There is a well established correlation between beak size and size/ toughness of seeds eaten in finches <span class="citation" data-cites="grant2003">(<a href="#ref-grant2003" role="doc-biblioref">Grant and Grant 2003</a>)</span>. This is potentially due to a selective advantage of a larger beak being more capable of breaking down this tougher food-source. It is therefore hypothesized that during this time Individuals with larger beaks would be favoured by natural selection, leading to an increase in average beak size after the drought.</p>
+<h1>Introduction</h1>
+<p>In 1977 there was a Severe drought on the Galapagos Island of Daphne Major. During this drought, the only food available was, larger and tougher than what is usually consumed by the medium ground finch (<em>Geospiza fortis</em>). There is a well-established correlation between beak size and the size/ toughness of seeds eaten in finches <span class="citation" data-cites="grant2003">(<a href="#ref-grant2003" role="doc-biblioref">Grant and Grant 2003</a>)</span>. This is potentially due to a selective advantage of a larger beak being more capable of breaking down this tougher food source. It is therefore predicted that during this time Individuals with larger beaks would be favoured by natural selection, leading to an increase in average beak size after the drought.</p>
 <p>This analysis will explore a dataset of beak sizes sampled from <em>G. fortis</em> before (1976) and after (1978) the drought. The data set contains data from 89 individuals sampled in 1978 and then a random selection of 89 individuals from a previous sample in 1976. The aim is to test whether the captured data is consistent with the theory that natural selection has increased the size of beak depth as a response to this drought. If the data is consistent then we would see a significant increase in average beak depth in the 1978 sample.</p>
 </section>
 <section id="methods---statistical-analysis" class="level1">
-<h1>methods - statistical analysis</h1>
-<p>The data was visualised and assessed and it was decided that a linear regression model was most suitable for the analysis. This model was created, the assumptions where tested and then it was analysed compared to the data.</p>
+<h1>Methods - Statistical Analysis</h1>
+<p>The data was visualised and assessed and it was decided that a linear regression model was most suitable for the analysis. This model was created, the assumptions were tested and then it was analysed compared to the data.</p>
 <section id="summary-data" class="level3">
 <h3 class="anchored" data-anchor-id="summary-data">Summary data</h3>
 <div class="cell">
@@ -3208,25 +3209,26 @@ vertical-align: -.125em;
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating and saving a descriptive plot using a self made </span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># function inclduing ggplot2 and svglite elements</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">BoxGraph</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>         Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , <span class="st">&quot;Descriptive Plot&quot;</span>, <span class="cn">FALSE</span>,</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Descriptive Plot.svg&quot;</span>,<span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">1.2</span>) </span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>         Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , <span class="st">&quot;Beak Depth at 1976 and 1978&quot;</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>         <span class="cn">FALSE</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Descriptive Plot.svg&quot;</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="fl">1.2</span>) </span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a multipanel figure showing distributions of the </span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># data at each timepoint as a histogram and saving it as a .svg</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="fu">svglite</span>(<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Histograms.svg&quot;</span>), <span class="at">width =</span> <span class="dv">10</span>,</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> <span class="dv">8</span>,</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> <span class="fl">1.3</span>)</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>Hist1 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;All Data&quot;</span>, <span class="dv">1</span>)</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>Hist2 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(D76, D76<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;1976 Data&quot;</span>, <span class="dv">2</span>)</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>Hist3 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(D78, D78<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;1978 Data&quot;</span>, <span class="dv">3</span>)</span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>(Hist1 <span class="sc">/</span> (Hist2 <span class="sc">|</span> Hist3))</span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a multipanel figure showing distributions of the </span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co"># data at each timepoint as a histogram and saving it as a .svg</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">svglite</span>(<span class="fu">here</span>(<span class="st">&quot;Figures&quot;</span>, <span class="st">&quot;Histograms.svg&quot;</span>), <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> <span class="dv">8</span>,</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">scaling =</span> <span class="fl">1.3</span>)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>Hist1 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;All Data&quot;</span>, <span class="dv">1</span>)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>Hist2 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(D76, D76<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;1976 Data&quot;</span>, <span class="dv">2</span>)</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>Hist3 <span class="ot">&lt;-</span> <span class="fu">Histogram</span>(D78, D78<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>, <span class="st">&quot;1978 Data&quot;</span>, <span class="dv">3</span>)</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>(Hist1 <span class="sc">/</span> (Hist2 <span class="sc">|</span> Hist3))</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><svg id="svg_5c3cecc84a9e68ac4786" role="img" width="578" height="360.00pt" viewBox="0 0 504.00 360.00" class="img-fluid figure-img svglite">
+<p><svg id="svg_83ae6f6bd7721208ae00" role="img" width="578" height="360.00pt" viewBox="0 0 504.00 360.00" class="img-fluid figure-img svglite">
 <defs>
   <style type="text/css">
     .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
@@ -3243,19 +3245,19 @@ vertical-align: -.125em;
 </defs>
 <rect width="100%" height="100%" style="stroke: none; fill: #FFFFFF;" />
 <defs>
-  <clipPath id="svg_5c3cecc84a9e68ac4786_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=">
+  <clipPath id="svg_83ae6f6bd7721208ae00_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=">
     <rect x="0.00" y="0.00" width="504.00" height="360.00" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_5c3cecc84a9e68ac4786_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
+<g clip-path="url(#svg_83ae6f6bd7721208ae00_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
 <rect x="0.000000000000038" y="0.00" width="504.00" height="360.00" style="stroke-width: 1.28; stroke: #FFFFFF; fill: #FFFFFF;" />
 </g>
 <defs>
-  <clipPath id="svg_5c3cecc84a9e68ac4786_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==">
+  <clipPath id="svg_83ae6f6bd7721208ae00_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==">
     <rect x="52.25" y="30.93" width="445.18" height="258.07" />
   </clipPath>
 </defs>
-<g clip-path="url(#svg_5c3cecc84a9e68ac4786_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==)">
+<g clip-path="url(#svg_83ae6f6bd7721208ae00_cpNTIuMjV8NDk3LjQyfDMwLjkzfDI4OS4wMA==)">
 <polyline points="52.25,243.15 497.42,243.15 " style="stroke-width: 0.64; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="52.25,157.83 497.42,157.83 " style="stroke-width: 0.64; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
 <polyline points="52.25,72.52 497.42,72.52 " style="stroke-width: 0.64; stroke: #EBEBEB; stroke-linecap: butt;"></polyline>
@@ -3456,7 +3458,7 @@ vertical-align: -.125em;
 <circle cx="363.87" cy="42.66" r="2.35" style="stroke-width: 0.85; stroke: #00BFC4; stroke-opacity: 0.60; fill: #00BFC4; fill-opacity: 0.60;"></circle>
 <rect x="52.25" y="30.93" width="445.18" height="258.07" style="stroke-width: 2.56;" />
 </g>
-<g clip-path="url(#svg_5c3cecc84a9e68ac4786_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
+<g clip-path="url(#svg_83ae6f6bd7721208ae00_cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)">
 <polyline points="52.25,289.00 52.25,30.93 " style="stroke-width: 0.26; stroke-linecap: butt;"></polyline>
 <text x="46.33" y="291.82" text-anchor="end" style="font-size: 16.80px; font-family: &quot;Arial&quot;;" textLength="9.35px" lengthAdjust="spacingAndGlyphs">6</text>
 <text x="46.33" y="206.50" text-anchor="end" style="font-size: 16.80px; font-family: &quot;Arial&quot;;" textLength="9.35px" lengthAdjust="spacingAndGlyphs">8</text>
@@ -3471,10 +3473,10 @@ vertical-align: -.125em;
 <text transform="translate(372.38,303.43) rotate(-45)" text-anchor="end" style="font-size: 16.80px; font-family: &quot;Arial&quot;;" textLength="37.38px" lengthAdjust="spacingAndGlyphs">1978</text>
 <text x="274.84" y="349.39" text-anchor="middle" style="font-size: 19.20px; font-family: &quot;Arial&quot;;" textLength="38.76px" lengthAdjust="spacingAndGlyphs">Year</text>
 <text transform="translate(20.31,159.96) rotate(-90)" text-anchor="middle" style="font-size: 19.20px; font-family: &quot;Arial&quot;;" textLength="150.34px" lengthAdjust="spacingAndGlyphs">Beak Depth (mm)</text>
-<text x="58.49" y="23.95" style="font-size: 19.20px; font-family: &quot;Arial&quot;;" textLength="133.29px" lengthAdjust="spacingAndGlyphs">Descriptive Plot</text>
+<text x="56.05" y="23.95" style="font-size: 19.20px; font-family: &quot;Arial&quot;;" textLength="254.95px" lengthAdjust="spacingAndGlyphs">Beak Depth at 1976 and 1978</text>
 </g>
 </svg></p>
-<figcaption>Figure 1: Descriptive plot of the raw data</figcaption>
+<figcaption>Figure 1: Explanatory plot showing the raw data</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
@@ -3745,11 +3747,11 @@ vertical-align: -.125em;
 <text x="420.46" y="313.95" style="font-size: 20.80px; font-family: &quot;Arial&quot;;" textLength="95.95px" lengthAdjust="spacingAndGlyphs">1978 Data</text>
 </g>
 </svg></p>
-<figcaption>Figure 2: Histograms</figcaption>
+<figcaption>Figure 2: Histograms showing the distribution of all the beak depth data and beak data for each year individually</figcaption>
 </figure>
 </div>
-<p>The data overall appears to be close to a normal distribution but with a slight negative skew. The median from 1978 is higher than that of 1976, but with overlapping interquartile ranges it’s hard to predict whether or not this will be significant. The distribution for each group has a similar variance and a similar shape of distribution</p>
-<p>and so a linear regression model at a confidence level of 95% should be suitable for the analysis of whether the increase is significant or not. The null hypothesis will be that there is no significant difference and the alternative hypothesis is that there is a significant difference between the data from 1976 and 1978.</p>
+<p>The data overall appears to be close to a normal distribution but with a slight negative skew. The median from 1978 is higher than that of 1976, but with overlapping interquartile ranges it’s hard to predict whether or not this will be significant. The distribution for each group has a similar variance and a similar shape, so a linear regression model at a confidence level of 95% should be suitable for the analysis of whether the increase is significant or not.</p>
+<p>The null hypothesis will be that there is no significant difference and the alternative hypothesis is that there is a significant difference between the data from 1976 and 1978.</p>
 </section>
 <section id="creation-of-linear-model-and-test-of-assumptions" class="level2">
 <h2 class="anchored" data-anchor-id="creation-of-linear-model-and-test-of-assumptions">Creation of linear model and test of assumptions</h2>
@@ -4749,7 +4751,7 @@ vertical-align: -.125em;
 <text x="498.39" y="474.90" style="font-size: 9.71px; font-family: &quot;Arial&quot;;" textLength="5.40px" lengthAdjust="spacingAndGlyphs">2</text>
 </g>
 </svg></p>
-<figcaption>Figure 3: Diagnostic plots for the Linear model</figcaption>
+<figcaption>Figure 3: Diagnostic plots for the linear model comparing beak depth to year of capture</figcaption>
 </figure>
 </div>
 <ul>
@@ -4759,7 +4761,7 @@ vertical-align: -.125em;
 <li><p>The residuals vs leverage plot shows that there are no particularly influential outliers</p></li>
 <li><p>The Residuals vs factor levels shows that the dataset is evenly split between the two factors</p></li>
 </ul>
-<p>Considering these graphs and that we have 89 values for each factor the linear model should fit all assumptions be suitable. <span class="citation" data-cites="whitlock2020analysis">Whitlock and Schluter (<a href="#ref-whitlock2020analysis" role="doc-biblioref">2020</a>)</span></p>
+<p>Considering these graphs and that we have 89 values for each factor the linear model should fit all assumptions be suitable. <span class="citation" data-cites="whitlock2020analysis">(<a href="#ref-whitlock2020analysis" role="doc-biblioref">Whitlock and Schluter 2020</a>)</span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -4783,11 +4785,11 @@ Multiple R-squared:  0.1066,    Adjusted R-squared:  0.1016
 F-statistic: 21.01 on 1 and 176 DF,  p-value: 8.65e-06</code></pre>
 </div>
 </div>
-<p>The P value for our linear model is far below the 0.05. This means that the linear model fits the data significantly better than the null model and that there is a significant difference between beak depths in 1976 and 1978. This accounts for 10.66% of the variation between beak sizes, which is very substantial.</p>
+<p>The P value for our linear model is far below the 0.05 significance level. This means that the linear model fits the data significantly better than the null model and that there is a significant difference between beak depths in 1976 and 1978. This accounts for 10.66% of the variation between beak sizes, which is very substantial.</p>
 </section>
 </section>
 <section id="results" class="level1">
-<h1>results</h1>
+<h1>Results</h1>
 <section id="linear-model-plot" class="level3">
 <h3 class="anchored" data-anchor-id="linear-model-plot">Linear Model Plot</h3>
 <div class="cell">
@@ -5043,13 +5045,14 @@ F-statistic: 21.01 on 1 and 176 DF,  p-value: 8.65e-06</code></pre>
 <text x="52.98" y="23.95" style="font-size: 19.20px; font-family: &quot;Arial&quot;;" textLength="408.45px" lengthAdjust="spacingAndGlyphs">Plot of the linear model comparing depth to year</text>
 </g>
 </svg></p>
-<figcaption>Figure 3: Graph showing the linear model compared to the data</figcaption>
+<figcaption>Figure 4: Graph showing the linear model of beak depth compared to year of capture overlayed on the raw data</figcaption>
 </figure>
 </div>
 <table class="caption-top table">
+<caption>Figure 5: Table summarising the results of the analysis</caption>
 <thead>
 <tr class="header">
-<th>1976 Mean</th>
+<th>1976 mean</th>
 <th>1978 mean</th>
 <th>T value</th>
 <th>P value</th>
@@ -5069,10 +5072,10 @@ F-statistic: 21.01 on 1 and 176 DF,  p-value: 8.65e-06</code></pre>
 </section>
 </section>
 <section id="conclusion" class="level1">
-<h1>conclusion</h1>
-<p>The analysis provides sufficient evidence for an increase in average beak depth between the years of 1976 and 1978. This shows that the data is consistent with what we would expect from the natural selection of beak depth in response to drought. Although, as the data is from an observational study, no causational relationship can be established between the two variables.</p>
-<p>If the beak depth had been increased as a result of the drought, this analysis demostrates the suprising speed at which natural selection can occur. Within just two years a significant, measureable change in phenotype had occurred. Especially considering the large amount of variation that could be explained by this model.</p>
-<p>Further research is needed to come to any conclusions about the relationship between this drought and the beak size. Investigating other droughts and looking whether similar phenotypic changes have occured. Or an experiment comparing treatments of large, tough seeds and regular seeds to uncover more about</p>
+<h1>Conclusion</h1>
+<p>The analysis provides sufficient evidence of an increase in average beak depth between the years of 1976 and 1978. This shows that the data is consistent with what we would expect from the natural selection of beak depth in response to drought. Although, as the data is from an observational study, no causational relationship can be established between the two variables.</p>
+<p>If the beak depth had been increased as a result of the drought, this analysis demonstrates the surprising speed at which natural selection can occur. Within just two years a significant, measurable change in phenotype had occurred. Especially considering the large proportion of variation that could be explained by this model.</p>
+<p>Further research is needed to come to any conclusions about the potential causational relationship between this drought and the beak size. Investigating other droughts and looking at whether similar phenotypic changes have occurred. Or an experiment comparing treatments of large, tough seeds and regular seeds to uncover more about this process.</p>
 </section>
 <section id="appendix" class="level1">
 <h1>Appendix</h1>
@@ -5092,7 +5095,7 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for 
 </section>
 <section id="contents-of-functions-for-quarto-assignment.r" class="level2">
 <h2 class="anchored" data-anchor-id="contents-of-functions-for-quarto-assignment.r">Contents of “Functions for Quarto Assignment.R”</h2>
-<p>I have pasted here the Functions that I have designed myself for full transparency of operation.</p>
+<p>I have pasted here the Functions that I have designed myself for full transparency of operation. Alternatively all files can be accessed from my repository: <a href="https://github.com/The-Nedstar/QuartoAssingment" class="uri">https://github.com/The-Nedstar/QuartoAssingment</a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Summary Statistics</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># prints out summary statistics of the inputted data to 3 d.p.</span></span>

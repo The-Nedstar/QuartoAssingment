@@ -244,6 +244,6 @@
 <text transform='translate(372.38,303.43) rotate(-45)' text-anchor='end' style='font-size: 16.80px; font-family: "Arial";' textLength='37.38px' lengthAdjust='spacingAndGlyphs'>1978</text>
 <text x='274.84' y='349.39' text-anchor='middle' style='font-size: 19.20px; font-family: "Arial";' textLength='38.76px' lengthAdjust='spacingAndGlyphs'>Year</text>
 <text transform='translate(20.31,159.96) rotate(-90)' text-anchor='middle' style='font-size: 19.20px; font-family: "Arial";' textLength='150.34px' lengthAdjust='spacingAndGlyphs'>Beak Depth (mm)</text>
-<text x='58.49' y='23.95' style='font-size: 19.20px; font-family: "Arial";' textLength='133.29px' lengthAdjust='spacingAndGlyphs'>Descriptive Plot</text>
+<text x='56.05' y='23.95' style='font-size: 19.20px; font-family: "Arial";' textLength='254.95px' lengthAdjust='spacingAndGlyphs'>Beak Depth at 1976 and 1978</text>
 </g>
 </svg>
