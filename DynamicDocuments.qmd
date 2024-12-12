@@ -59,6 +59,8 @@ This analysis will explore a dataset of beak sizes sampled from *G. fortis* befo
 
 The data was visualised and assessed and it was decided that a linear regression model was most suitable for the analysis. This model was created, the assumptions were tested and then it was analysed compared to the data.
 
+\-
+
 ### Summary data
 
 ```{r}
@@ -109,9 +111,13 @@ dev.off()
 
 ![Figure 2: Histograms showing the distribution of all the beak depth data and beak data for each year individually](Figures/Histograms.svg){width="576"}
 
+\-
+
 The data overall appears to be close to a normal distribution but with a slight negative skew. The median from 1978 is higher than that of 1976, but with overlapping interquartile ranges it's hard to predict whether or not this will be significant. The distribution for each group has a similar variance and a similar shape, so a linear regression model at a confidence level of 95% should be suitable for the analysis of whether the increase is significant or not.
 
 The null hypothesis will be that there is no significant difference and the alternative hypothesis is that there is a significant difference between the data from 1976 and 1978.
+
+\-
 
 ## Creation of linear model and test of assumptions
 
@@ -138,6 +144,8 @@ dev.off()
 
 ![Figure 3: Diagnostic plots for the linear model comparing beak depth to year of capture](Figures/Diagnostic%20Plots.svg){width="676" height="527"}
 
+\-
+
 -   The residuals vs fitted plot shows a straight line and little heteroscedacticity
 
 -   The normal Q-Q plot shows a close enough match to normality for this analysis to be valid
@@ -155,7 +163,11 @@ Considering these graphs and that we have 89 values for each factor the linear m
 summary(Model)
 ```
 
+\-
+
 The P value for our linear model is far below the 0.05 significance level. This means that the linear model fits the data significantly better than the null model and that there is a significant difference between beak depths in 1976 and 1978. This accounts for 10.66% of the variation between beak sizes, which is very substantial.
+
+\-
 
 # Results
 
@@ -173,6 +185,8 @@ BoxGraph(Data, Data$Depth, "Beak Depth (mm)",
 
 ![Figure 4: Graph showing the linear model of beak depth compared to year of capture overlayed on the raw data](Figures/Model Plot.svg){width="595"}
 
+\-
+
 | 1976 mean | 1978 mean | T value | P value | R squared |
 |-----------|-----------|---------|---------|-----------|
 | 9.47      | 10.14     | 4.583   | 8.65e-6 | 0.1066    |
@@ -187,12 +201,16 @@ If the beak depth had been increased as a result of the drought, this analysis d
 
 Further research is needed to come to any conclusions about the potential causational relationship between this drought and the beak size. Investigating other droughts and looking at whether similar phenotypic changes have occurred. Or an experiment comparing treatments of large, tough seeds and regular seeds to uncover more about this process.
 
+------------------------------------------------------------------------
+
 # Appendix
 
 ## Bilbiography
 
 ::: {#refs}
 :::
+
+\-
 
 ## Contents of "Functions for Quarto Assignment.R"
 
