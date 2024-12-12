@@ -6,7 +6,7 @@ format:
 editor: visual
 bibliography: references.bib
 nocite: |
-  @whitlock2020analysis, @wickham2023r
+  @wickham2023r
 ---
 
 # Initialization
@@ -47,13 +47,13 @@ write.csv(RawData,here("Data","RawData.csv"))
 write.csv(Data,here("Data","Data.csv"))
 ```
 
-# introduction
+# Introduction
 
 In 1977 there was a Severe drought on the Galapagos Island of Daphne Major. During this drought, the only food available was , larger and tougher than what is usually consumed by the medium ground finch (*Geospiza fortis*). There is a well established correlation between beak size and size/ toughness of seeds eaten in finches [@grant2003]. This is potentially due to a selective advantage of a larger beak being more capable of breaking down this tougher food-source. It is therefore hypothesized that during this time Individuals with larger beaks would be favoured by natural selection, leading to an increase in average beak size after the drought.
 
 This analysis will explore a dataset of beak sizes sampled from *G. fortis* before (1976) and after (1978) the drought. The data set contains data from 89 individuals sampled in 1978 and then a random selection of 89 individuals from a previous sample in 1976. The aim is to test whether the captured data is consistent with the theory that natural selection has increased the size of beak depth as a response to this drought. If the data is consistent then we would see a significant increase in average beak depth in the 1978 sample.
 
-# methods - statistical analysis
+# Methods - Statistical Analysis
 
 The data was visualised and assessed and it was decided that a linear regression model was most suitable for the analysis. This model was created, the assumptions where tested and then it was analysed compared to the data.
 
@@ -85,8 +85,9 @@ Stat(D78$Depth)
 # creating and saving a descriptive plot using a self made 
 # function inclduing ggplot2 and svglite elements
 BoxGraph(Data, Data$Depth, "Beak Depth (mm)",
-         Data$Year, "Year" , "Descriptive Plot", FALSE,
-         "Descriptive Plot.svg",5, 7, 1.2) 
+         Data$Year, "Year" , "Beak Depth at 1976 and 1978",
+         FALSE,
+         "Descriptive Plot.svg", 5, 7, 1.2) 
 
 
 # creating a multipanel figure showing distributions of the 
@@ -102,15 +103,15 @@ Hist3 <- Histogram(D78, D78$Depth, "Beak Depth (mm)", "1978 Data", 3)
 dev.off()
 ```
 
-![Figure 1: Descriptive plot of the raw data](Figures/Descriptive%20Plot.svg){width="578"}
+![Figure 1: Explanatory plot showing the raw data](Figures/Descriptive%20Plot.svg){width="578"}
 
-![Figure 2: Histograms](Figures/Histograms.svg){width="576"}
+![Figure 2: Histograms showing the distribution of all the beak depth data and beak data for each year individually](Figures/Histograms.svg){width="576"}
 
 The data overall appears to be close to a normal distribution but with a slight negative skew. The median from 1978 is higher than that of 1976, but with overlapping interquartile ranges it's hard to predict whether or not this will be significant. The distribution for each group has a similar variance and a similar shape of distribution
 
 and so a linear regression model at a confidence level of 95% should be suitable for the analysis of whether the increase is significant or not. The null hypothesis will be that there is no significant difference and the alternative hypothesis is that there is a significant difference between the data from 1976 and 1978.
 
-## creation and testing assumptions of linear model
+## Creation of linear model and test of assumptions
 
 ```{r}
 #| label: "Creation of linear model"
@@ -133,9 +134,28 @@ DiaPlots <- (plot(Model,1) | plot(Model,2)) / (plot(Model,3) | plot(Model,5))
 dev.off()
 ```
 
-![Figure 3: Diagnostic plots for the Linear model](Figures/Diagnostic%20Plots.svg){width="676" height="527"}
+![Figure 3: Diagnostic plots for the linear model comparing beak depth to year of capture](Figures/Diagnostic%20Plots.svg){width="676" height="527"}
 
-The diagnostic plots suggest that none of the assumptions of the linear model have been violated and it is suitable for our analysis. The data is close enough to normally distributed with few outliers. The residuals also appear to be normally and equally distributed between each one. With 89 values for each factor the linear model should be very suitable.
+-   The residuals vs fitted plot shows a straight line and little heteroscedacticity
+
+-   The normal Q-Q plot shows a close enough match to normality for this analysis to be valid
+
+-   The scale-location plot also suggests homoscedasticity
+
+-   The residuals vs leverage plot shows that there are no particularly influential outliers
+
+-   The Residuals vs factor levels shows that the dataset is evenly split between the two factors
+
+Considering these graphs and that we have 89 values for each factor the linear model should fit all assumptions be suitable. [@whitlock2020analysis]
+
+```{r}
+#| label: "Evaluation of the Linear model" 
+summary(Model)
+```
+
+The P value for our linear model is far below the 0.05. This means that the linear model fits the data significantly better than the null model and that there is a significant difference between beak depths in 1976 and 1978. This accounts for 10.66% of the variation between beak sizes, which is very substantial.
+
+# Results
 
 ### Linear Model Plot
 
@@ -144,26 +164,24 @@ The diagnostic plots suggest that none of the assumptions of the linear model ha
 #| warning: false 
 #| output: false   
 BoxGraph(Data, Data$Depth, "Beak Depth (mm)",
-         Data$Year, "Year" , "Model Plot", TRUE,
-         "Model Plot.svg",5, 7, 1.2)
+         Data$Year, "Year" , 
+         "Plot of the linear model comparing depth to year"
+         , TRUE, "Model Plot.svg", 5, 7, 1.2)
 ```
 
-![Figure 3: Graph showing the linear model compared to the data](Figures/Linear%20Model%20Plot.svg){width="579"}
+![Figure 4: Graph showing the linear model of beak depth compared to year of capture overlayed on the raw data](Figures/Model Plot.svg){width="595"}
 
-# results
+| 1976 mean | 1978 mean | T value | P value | R squared |
+|-----------|-----------|---------|---------|-----------|
+| 9.47      | 10.14     | 4.583   | 8.65e-6 | 0.1066    |
 
-```{r}
-#| label: "Evaluation of the Linear model"
-summary(Model)
-```
+: Figure 5: Table summarising the results of the analysis
 
-The P value for Our linear model is far below the 0.05. This means that the Linear model fits the data significantly better than the null model and that there is a significant difference between beak depths in 1976 and 1978.
-
-# conclusion
+# Conclusion
 
 The analysis provides sufficient evidence for an increase in average beak depth between the years of 1976 and 1978. This shows that the data is consistent with what we would expect from the natural selection of beak depth in response to drought. Although, as the data is from an observational study, no causational relationship can be established between the two variables.
 
-If the beak depth had been increased as a result of the drought, this analysis demostrates the suprising speed at which natural selection can occur. Within just two years a significant, measureable change in phenotype had occurred.
+If the beak depth had been increased as a result of the drought, this analysis demostrates the suprising speed at which natural selection can occur. Within just two years a significant, measureable change in phenotype had occurred. Especially considering the large amount of variation that could be explained by this model.
 
 Further research is needed to come to any conclusions about the relationship between this drought and the beak size. Investigating other droughts and looking whether similar phenotypic changes have occured. Or an experiment comparing treatments of large, tough seeds and regular seeds to uncover more about
 
