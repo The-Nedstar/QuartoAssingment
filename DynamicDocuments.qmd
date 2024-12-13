@@ -40,10 +40,12 @@ source(here("Functions", "Functions for Quarto Assignment.R"))
 #| warning: false
 # Loading data into the environment
 RawData <- case0201
+
 # creating a new dataframe with Year being considered a 
 # categoric rather than numeric variable
 Data <- RawData
 Data$Year <- as.factor(Data$Year)
+
 # saving both as .csv files as backups
 write.csv(RawData,here("Data","RawData.csv"))
 write.csv(Data,here("Data","Data.csv"))
@@ -80,7 +82,7 @@ message("----------Beak Depth Data for 1978----------")
 Stat(D78$Depth)
 ```
 
-### Descriptive plot
+### exploratory plot
 
 ```{r}
 #| label: "Defining and saving descriptive plots"
