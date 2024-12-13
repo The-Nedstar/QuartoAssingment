@@ -3144,13 +3144,15 @@ vertical-align: -.125em;
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading data into the environment</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>RawData <span class="ot">&lt;-</span> case0201</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a new dataframe with Year being considered a </span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># categoric rather than numeric variable</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Data <span class="ot">&lt;-</span> RawData</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Data<span class="sc">$</span>Year <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(Data<span class="sc">$</span>Year)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># saving both as .csv files as backups</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(RawData,<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>,<span class="st">&quot;RawData.csv&quot;</span>))</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Data,<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>,<span class="st">&quot;Data.csv&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a new dataframe with Year being considered a </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># categoric rather than numeric variable</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Data <span class="ot">&lt;-</span> RawData</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>Data<span class="sc">$</span>Year <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(Data<span class="sc">$</span>Year)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># saving both as .csv files as backups</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(RawData,<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>,<span class="st">&quot;RawData.csv&quot;</span>))</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Data,<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>,<span class="st">&quot;Data.csv&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -3162,6 +3164,7 @@ vertical-align: -.125em;
 <section id="methods---statistical-analysis" class="level1">
 <h1>Methods - Statistical Analysis</h1>
 <p>The data was visualised and assessed and it was decided that a linear regression model was most suitable for the analysis. This model was created, the assumptions were tested and then it was analysed compared to the data.</p>
+<p>-</p>
 <section id="summary-data" class="level3">
 <h3 class="anchored" data-anchor-id="summary-data">Summary data</h3>
 <div class="cell">
@@ -3203,8 +3206,8 @@ vertical-align: -.125em;
 </div>
 </div>
 </section>
-<section id="descriptive-plot" class="level3">
-<h3 class="anchored" data-anchor-id="descriptive-plot">Descriptive plot</h3>
+<section id="exploratory-plot" class="level3">
+<h3 class="anchored" data-anchor-id="exploratory-plot">exploratory plot</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating and saving a descriptive plot using a self made </span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># function inclduing ggplot2 and svglite elements</span></span>
@@ -3750,8 +3753,10 @@ vertical-align: -.125em;
 <figcaption>Figure 2: Histograms showing the distribution of all the beak depth data and beak data for each year individually</figcaption>
 </figure>
 </div>
+<p>-</p>
 <p>The data overall appears to be close to a normal distribution but with a slight negative skew. The median from 1978 is higher than that of 1976, but with overlapping interquartile ranges it’s hard to predict whether or not this will be significant. The distribution for each group has a similar variance and a similar shape, so a linear regression model at a confidence level of 95% should be suitable for the analysis of whether the increase is significant or not.</p>
 <p>The null hypothesis will be that there is no significant difference and the alternative hypothesis is that there is a significant difference between the data from 1976 and 1978.</p>
+<p>-</p>
 </section>
 <section id="creation-of-linear-model-and-test-of-assumptions" class="level2">
 <h2 class="anchored" data-anchor-id="creation-of-linear-model-and-test-of-assumptions">Creation of linear model and test of assumptions</h2>
@@ -4754,6 +4759,7 @@ vertical-align: -.125em;
 <figcaption>Figure 3: Diagnostic plots for the linear model comparing beak depth to year of capture</figcaption>
 </figure>
 </div>
+<p>-</p>
 <ul>
 <li><p>The residuals vs fitted plot shows a straight line and little heteroscedacticity</p></li>
 <li><p>The normal Q-Q plot shows a close enough match to normality for this analysis to be valid</p></li>
@@ -4785,13 +4791,15 @@ Multiple R-squared:  0.1066,    Adjusted R-squared:  0.1016
 F-statistic: 21.01 on 1 and 176 DF,  p-value: 8.65e-06</code></pre>
 </div>
 </div>
+<p>-</p>
 <p>The P value for our linear model is far below the 0.05 significance level. This means that the linear model fits the data significantly better than the null model and that there is a significant difference between beak depths in 1976 and 1978. This accounts for 10.66% of the variation between beak sizes, which is very substantial.</p>
+<p>-</p>
 </section>
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
 <section id="linear-model-plot" class="level3">
-<h3 class="anchored" data-anchor-id="linear-model-plot">Linear Model Plot</h3>
+<h3 class="anchored" data-anchor-id="linear-model-plot">Linear model plot</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BoxGraph</span>(Data, Data<span class="sc">$</span>Depth, <span class="st">&quot;Beak Depth (mm)&quot;</span>,</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>         Data<span class="sc">$</span>Year, <span class="st">&quot;Year&quot;</span> , </span>
@@ -5048,6 +5056,7 @@ F-statistic: 21.01 on 1 and 176 DF,  p-value: 8.65e-06</code></pre>
 <figcaption>Figure 4: Graph showing the linear model of beak depth compared to year of capture overlayed on the raw data</figcaption>
 </figure>
 </div>
+<p>-</p>
 <table class="caption-top table">
 <caption>Figure 5: Table summarising the results of the analysis</caption>
 <thead>
@@ -5076,6 +5085,7 @@ F-statistic: 21.01 on 1 and 176 DF,  p-value: 8.65e-06</code></pre>
 <p>The analysis provides sufficient evidence of an increase in average beak depth between the years of 1976 and 1978. This shows that the data is consistent with what we would expect from the natural selection of beak depth in response to drought. Although, as the data is from an observational study, no causational relationship can be established between the two variables.</p>
 <p>If the beak depth had been increased as a result of the drought, this analysis demonstrates the surprising speed at which natural selection can occur. Within just two years a significant, measurable change in phenotype had occurred. Especially considering the large proportion of variation that could be explained by this model.</p>
 <p>Further research is needed to come to any conclusions about the potential causational relationship between this drought and the beak size. Investigating other droughts and looking at whether similar phenotypic changes have occurred. Or an experiment comparing treatments of large, tough seeds and regular seeds to uncover more about this process.</p>
+<hr>
 </section>
 <section id="appendix" class="level1">
 <h1>Appendix</h1>
@@ -5092,6 +5102,7 @@ Whitlock, Michael C., and Dolph Schluter. 2020. <em>The Analysis of Biological D
 Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. 2nd ed. Sebastopol, CA: O’Reilly Media.
 </div>
 </div>
+<p>-</p>
 </section>
 <section id="contents-of-functions-for-quarto-assignment.r" class="level2">
 <h2 class="anchored" data-anchor-id="contents-of-functions-for-quarto-assignment.r">Contents of “Functions for Quarto Assignment.R”</h2>
